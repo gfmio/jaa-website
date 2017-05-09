@@ -10,10 +10,9 @@ module.exports = function(props, children) {
         <div>
           <h3>Links1</h3>
           <ul class="inline nolisticon">
-            <li><a href="https://www.facebook.com/jacobsalumni" target="_blank">Facebook</a></li>
-            <li><a href="https://twitter.com/JacobsAlumni" target="_blank">Twitter</a></li>
-            <li><a href="https://www.instagram.com/jacobsalumni/" target="_blank">Instagram</a></li>
-            <li><a href="https://www.linkedin.com/groups/77362/profile" target="_blank">LinkedIn</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/designtest">Design test</a></li>
+            <li><a href="/error">Error 404 page</a></li>
           </ul>
         </div>
 
