@@ -20,7 +20,7 @@ module.exports = function(props, children) {
     </head>
     <body>
       { children }
-      <script src="/js/app.js" type="text/javascript"></script>
     </body>
   </html>
 }
+// <script src="/js/app.js" type="text/javascript"></script>

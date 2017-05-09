@@ -39,9 +39,12 @@ module.exports = {
         });
       }
     }, {
-      from: '../public/**/*',
-      to: './dist/public'
-    }]),
+      from: '../public/css/style.css',
+      to: './dist/public/css/style.css'
+    }, {
+      from: '../public/media/**/*',
+      to: './dist/public/media'
+    }]]),
     new webpack.optimize.UglifyJsPlugin({
       minimize: false,
       compress: { warnings: false }

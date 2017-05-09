@@ -97,3 +97,5 @@ Temporary Items
 
 # End of https://www.gitignore.io/api/osx,sass,node
 
+
+public/css/style.css
