@@ -41,7 +41,7 @@ docker run --name jaa-api \
 
 # Run the updater
 
-killall node
+killall nodejs
 cd updater
 rm -rf node_modules
 npm install
