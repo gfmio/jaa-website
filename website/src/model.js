@@ -22,10 +22,12 @@ const Article = require('./components/blog/article')
 const DesignTest = require('./components/designtest')
 
 const WhoWeArePage = require('./components/pages/whoweare')
+const AlumniAssocationPage = require('./components/pages/whoweare/alumni-association')
 const WhatWeDoPage = require('./components/pages/whatwedo')
-const GetInvolvedPage = require('./components/pages/getinvolved')
+const GetInvolvedPage = require('./components/pages/get-involved')
 const SignupPage = require('./components/pages/signup')
-// const WhoWeArePage = require('./components/pages/whoweare')
+const PrivacyPage = require('./components/pages/privacy')
+const ImprintPage = require('./components/pages/imprint')
 
 const model = function() {
   //
@@ -39,14 +41,15 @@ const model = function() {
     '/': { children: [<HomePage />], currentTitle: 'Home' },
     '/designtest': { children: [<DesignTest />], currentTitle: 'Design Test' },
     '/who-we-are': { children: [<WhoWeArePage />], currentTitle: 'Who we are' },
+      '/alumni-association': { children: [<AlumniAssocationPage />], currentTitle: 'Alumni association' },
     '/what-we-do': { children: [<WhatWeDoPage />], currentTitle: 'What we do' },
     '/get-involved': { children: [<GetInvolvedPage />], currentTitle: 'Get InvolvedPage' },
     '/blog': { children: [<Blog />], currentTitle: 'Alumni Blog' },
       '/blog/losing-my-religion-part-2': { children: [<Article />], currentTitle: 'Losing my Religion - Part 2 - Alumni Blog' },
     '/shop': { children: [<Shop />], currentTitle: 'Online Shop' },
     '/join': { children: [<SignupPage />], currentTitle: 'Join' },
-    '/what-we-do': { children: [<WhatWeDoPage />], currentTitle: 'What we do' },
-    '/what-we-do': { children: [<WhatWeDoPage />], currentTitle: 'What we do' },
+    '/privacy': { children: [<PrivacyPage />], currentTitle: 'Privacy Policy' },
+    '/imprint': { children: [<ImprintPage />], currentTitle: 'Imprint / Impressum' },
     '/what-we-do': { children: [<WhatWeDoPage />], currentTitle: 'What we do' },
     '/what-we-do': { children: [<WhatWeDoPage />], currentTitle: 'What we do' },
   }

@@ -8,9 +8,12 @@ $bfs: 16px;
 $blh: 1.618;
 
 $sansFont: "PT Sans", Arial, Helvetica, sans-serif;
+// $sansFont: "Helvetica Neue", Helvetica, Arial, sans-serif;
+// $sansFont: "Antic Slab", Arial, Helvetica, sans-serif;
 $serifFont: "Antic Slab", Arial, Helvetica, sans-serif;
 
-$darkblue: #0a3264;
+// $darkblue: #0a3264;
+$darkblue: rgb(8,73,131);
 $lightblue: #00b1ec;
 
 $white: #FFFFFF;
@@ -25,8 +28,8 @@ $colWidth: 33rem;
 $global-primary-background: $darkblue;
 $global-link-color: $darkblue;
 $global-font-family: $sansFont;
-$navbar-nav-item-color: $white;
-$navbar-nav-item-hover-color: $white;
+$navbar-nav-item-color: $darkblue;
+$navbar-nav-item-hover-color: $darkblue;
 
 @import "uikit-variables";
 @import "uikit/src/scss/variables-theme.scss";
@@ -87,6 +90,10 @@ ul {
     display: inline-block;
     padding: 0;
     margin: 0;
+
+    li {
+      display: inline-block;
+    }
   }
 
   &.nolisticon {
@@ -119,23 +126,27 @@ ul {
   background: transparent !important;
 }
 
-.bg-transparent.uk-button-default:hover {
-  border-color: $white;
-}
+// .bg-transparent.uk-button-default:hover {
+//   // border-color: $white;
+// }
 
-.text-dark, .text-dark *, .text-dark li>a, .text-dark a, .text-dark li>a:hover, .text-dark a:hover {
+// .text-dark, .text-dark *, .text-dark li>a, .text-dark a, .text-dark li>a:hover, .text-dark a:hover {
+.text-dark {
   color: $darkgrey;
 
-  & .text-white {
-    @extend .text-white;
+  & .text-white, .text-white *, .text-white li>a, .text-white a, .text-white li>a:hover, .text-white a:hover {
+    // @extend .text-white;
+    color: $white;
   }
 }
 
-.text-white, .text-white *, .text-white li>a, .text-white a, .text-white li>a:hover, .text-white a:hover {
+// .text-white, .text-white *, .text-white li>a, .text-white a, .text-white li>a:hover, .text-white a:hover {
+.text-white {
   color: $white;
 
-  & .text-dark {
-    @extend .text-dark;
+  & .text-dark, .text-dark *, .text-dark li>a, .text-dark a, .text-dark li>a:hover, .text-dark a:hover {
+    // @extend .text-dark;
+    color: $darkgrey;
   }
 }
 
@@ -203,6 +214,51 @@ button {
   }
 }
 
+.slideshow > * {
+  display: none;
+}
+
+.slideshow > .active {
+  display: block;
+}
+
+.bg-facebook {
+  background: #3b5998 !important;
+}
+
+.bg-twitter {
+  background: #1da1f2 !important;
+}
+
+.bg-instagram {
+  background: #405de6 !important;
+}
+
+.bg-linkedin {
+  background: #0077b5 !important;
+}
+
+header {
+  width: 100% !important;
+}
+
+.header-top-margin {
+  margin-top: 5rem;
+}
+
+.inline {
+  display: inline-block;
+}
+
+.uk-navbar-container.navbar {
+  background: $white;
+  border-bottom: $darkblue solid 0.1rem;
+}
+
+.uk-button-primary.bg-transparent {
+  @extend .uk-button-default;
+  border-color: $darkblue !important;
+}
 
 // @import 'csam';
 

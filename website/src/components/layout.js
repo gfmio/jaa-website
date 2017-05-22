@@ -14,7 +14,7 @@ module.exports = function(props, children) {
         <Header />
         <OffCanvasNavigation />
 
-        <div class="main-container uk-padding">
+        <div class="main-container uk-padding header-top-margin">
           { children}
         </div>
       </div>
