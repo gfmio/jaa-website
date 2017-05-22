@@ -11,6 +11,7 @@ module.exports = function(props, children) {
   props.loginLink = '//api.dev.jacobs-alumni.de/login/google'
 
   var toggleOffCanvas = function(e) {
+    console.log(UIkit.offcanvas('#off-canvas'))
     UIkit.offcanvas('#off-canvas').toggle()
   }
 
@@ -104,7 +105,7 @@ module.exports = function(props, children) {
                 Join
               </a>
             </div>
-            <a href="#" class="uk-navbar-toggle uk-navbar-toggle-icon uk-icon uk-hidden@l" on={{ click: toggleOffCanvas }}>
+            <a href="#" class="uk-navbar-toggle uk-navbar-toggle-icon uk-icon uk-hidden@l" uk-toggle="target: #off-canvas">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" icon="navbar-toggle-icon" ratio="1">
                 <rect y="9" width="20" height="2">
                 </rect>

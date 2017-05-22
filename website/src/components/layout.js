@@ -10,14 +10,13 @@ module.exports = function(props, children) {
 
   return (
     <Application title={ props.title }>
-      <div class="fill uk-offcanvas-content">
+      <div class="fill">
         <Header />
-        <OffCanvasNavigation />
-
         <div class="main-container uk-padding header-top-margin">
           { children}
         </div>
       </div>
+      <OffCanvasNavigation />
       <div>
         <Footer />
       </div>
