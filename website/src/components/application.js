@@ -17,6 +17,7 @@ module.exports = function(props, children) {
 
       <link href="/css/style.css" media="all" rel="stylesheet" />
       <link rel="icon" type="image/png" href="/media/favicon.png" />
+      <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i&amp;subset=cyrillic,cyrillic-ext,latin-ext" rel="stylesheet" />
     </head>
     <body>
       { children }
