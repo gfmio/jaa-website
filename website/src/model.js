@@ -29,12 +29,6 @@ const SignupPage = require('./components/pages/signup')
 const PrivacyPage = require('./components/pages/privacy')
 const ImprintPage = require('./components/pages/imprint')
 
-console.log(require('snabbdom/modules/class'),
-    require('snabbdom/modules/props'),
-    require('snabbdom/modules/attributes'),
-    require('snabbdom/modules/style'),
-    require('snabbdom/modules/eventlisteners'))
-
 const model = function() {
   //
   // Routing and view updating
