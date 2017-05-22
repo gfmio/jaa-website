@@ -32,8 +32,8 @@ $navbar-nav-item-color: $darkblue;
 $navbar-nav-item-hover-color: $darkblue;
 
 @import "uikit-variables";
-@import "uikit/src/scss/variables-theme.scss";
-@import "uikit/src/scss/mixins-theme.scss";
+@import "uikit/src/scss/variables-theme";
+@import "uikit/src/scss/mixins-theme";
 @import 'uikit/src/scss/uikit-theme';
 
 @debug($global-link-color);
@@ -80,7 +80,7 @@ body {
 
 .main-container {
   width: 100%;
-  max-width: 66rem;
+  max-width: 71rem;
   min-width: 61.8%;
   margin: 0 auto;
 }
@@ -152,6 +152,7 @@ ul {
 
 #off-canvas {
   .uk-offcanvas-bar {
+    // @extend .uk-dark;
     @extend .uk-background-muted;
     @extend .text-dark;
 
@@ -161,37 +162,37 @@ ul {
   }
 }
 
-input {
-  @extend .uk-input;
-}
+// input {
+//   @extend .uk-input;
+// }
 
-select {
-  @extend .uk-select;
-}
+// select {
+//   @extend .uk-select;
+// }
 
-textarea {
-  @extend .uk-textarea;
-}
+// textarea {
+//   @extend .uk-textarea;
+// }
 
-input[type="radio"] {
-  @extend .uk-radio;
-}
+// input[type="radio"] {
+//   @extend .uk-radio;
+// }
 
-input[type="checkbox"] {
-  @extend .uk-checkbox;
-}
+// input[type="checkbox"] {
+//   @extend .uk-checkbox;
+// }
 
-fieldset {
-  @extend .uk-fieldset;
-}
+// fieldset {
+//   @extend .uk-fieldset;
+// }
 
-legend {
-  @extend .uk-legend;
-}
+// legend {
+//   @extend .uk-legend;
+// }
 
-button {
-  @extend .uk-button;
-}
+// button {
+//   @extend .uk-button;
+// }
 
 .google-signin-button {
   border: none;

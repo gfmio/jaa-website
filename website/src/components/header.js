@@ -63,10 +63,10 @@ module.exports = function(props, children) {
                     <li><a href="/homecoming/2015">Homecoming 2015</a></li>
                     <li><a href="/homecoming/2014">Homecoming 2014</a></li>
                     <li class="uk-nav-divider"></li>
-                    <li class="uk-text-bold"><a href="/alumni-board">Alumni Projects</a></li>
-                    <li><a href="/board-news">Alumni Consulting Initiative</a></li>
-                    <li><a href="/elections">Generation Fund</a></li>
-                    <li><a href="/class-reps">Alumni Scholarships</a></li>
+                    <li class="uk-text-bold"><a href="/alumni-projects">Alumni Projects</a></li>
+                    <li><a href="/alumni-projects/alumni-consulting-initiative">Alumni Consulting Initiative</a></li>
+                    <li><a href="/alumni-projects/generation-fund">Generation Fund</a></li>
+                    <li><a href="/alumni-projects/alumni-scholarships">Alumni Scholarships</a></li>
                   </ul>
                 </div>
               </li>

@@ -7,16 +7,20 @@ module.exports = function(props, children) {
   props.loginLink = ''
 
   return (
-    <div id="off-canvas" class="uk-offcanvas" uk-offcanvas>
-      <div class="uk-offcanvas-bar uk-offcanvas-bar-animation uk-offcanvas-push" uk-offcanvas="mode: push">
+    <div id="off-canvas" uk-offcanvas="mode: push; overlay: true">
+      <div class="uk-offcanvas-bar uk-dark uk-background-muted">
 
         <a class="uk-offcanvas-close" type="button" uk-close></a>
 
         <div class="uk-panel">
+          <h3>
+
+            Jacobs Alumni Association
+          </h3>
           <ul class="uk-nav uk-nav-primary">
             <li><a class="uk-active" href="/">Home</a></li>
             <li>
-              <a class="google-signin-button" href={ props.loginLink }>
+              <a href={ props.loginLink }>
                 Log in
               </a>
             </li>
