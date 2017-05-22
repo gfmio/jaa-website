@@ -29,8 +29,11 @@ const SignupPage = require('./components/pages/signup')
 const PrivacyPage = require('./components/pages/privacy')
 const ImprintPage = require('./components/pages/imprint')
 
-const smc = require('snabbdom/modules/class')
-console.log(smc)
+console.log(require('snabbdom/modules/class'),
+    require('snabbdom/modules/props'),
+    require('snabbdom/modules/attributes'),
+    require('snabbdom/modules/style'),
+    require('snabbdom/modules/eventlisteners'))
 
 const model = function() {
   //
