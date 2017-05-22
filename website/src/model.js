@@ -19,7 +19,7 @@ const Shop = require('./components/shop/shop')
 const Blog = require('./components/blog/blog')
 const Article = require('./components/blog/article')
 
-const DesignTest = require('./components/designtest')
+// const DesignTest = require('./components/designtest')
 
 const WhoWeArePage = require('./components/pages/whoweare')
 const AlumniAssocationPage = require('./components/pages/whoweare/alumni-association')
@@ -37,9 +37,10 @@ const model = function() {
   this.currentTitle = ''
   this.children = []
 
+// '/designtest': { children: [<DesignTest />], currentTitle: 'Design Test' },
+
   this.routes = {
     '/': { children: [<HomePage />], currentTitle: 'Home' },
-    '/designtest': { children: [<DesignTest />], currentTitle: 'Design Test' },
     '/who-we-are': { children: [<WhoWeArePage />], currentTitle: 'Who we are' },
       '/alumni-association': { children: [<AlumniAssocationPage />], currentTitle: 'Alumni association' },
     '/what-we-do': { children: [<WhatWeDoPage />], currentTitle: 'What we do' },
