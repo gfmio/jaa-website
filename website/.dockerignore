@@ -1,4 +1,6 @@
 src
+public
+.sass-cache
 
 .gitignore
 .dockerignore
