@@ -10,7 +10,7 @@ module.exports = function(props, children) {
 
       <div class="uk-grid" uk-grid>
         <div class="uk-width-1-2@s">
-          <figure class="slideshow" on={{ click: function(e) { console.log('abc'); } }} >
+          <figure class="slideshow" on={{ show: function(e) { console.log('abc'); } }} >
             <img class="active" src="/media/who-we-are/almalink_graduation.jpg" />
             <img src="/media/who-we-are/almalink_consulting.jpg" />
             <img src="/media/who-we-are/almalink_scholarships_3.jpg" />

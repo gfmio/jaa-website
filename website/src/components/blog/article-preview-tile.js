@@ -22,10 +22,10 @@ module.exports = function(props, children) {
         </p>
 
         <p>
-          { props.article.preview }...
+          { props.article.preview }…
         </p>
         <p>
-          <Link class="uk-button uk-button-text" href={ postLink }>Read more...</Link>
+          <Link class="uk-button uk-button-text" href={ postLink }>Read more…</Link>
         </p>
       </div>
     </div>

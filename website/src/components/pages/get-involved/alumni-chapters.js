@@ -6,11 +6,20 @@ module.exports = function(props, children) {
 
   return (
     <article class="uk-article">
-      <h1 class="uk-article-title">Get involved!</h1>
+      <h1 class="uk-article-title">Alumni Chapters</h1>
 
-      <p class="uk-text-lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
+      <div class="uk-width-xlarge">
+        <div class="embed-container">
+          <iframe src="https://www.youtube.com/embed/yDAXfMEBrnI?enablejsapi=1" frameborder="0" allowfullscreen="allowfullscreen">
+          </iframe>
+        </div>
+      </div>
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <p>Alumni chapters are groups of alumni who share a common ground and come together to foster the Jacobs network. As such chapters form the hubs of the alumni network, where alumni not only stay in touch but also forge new connections. They are about keeping the spirit of our university alive by supporting each other a life long wherever we are on the globe. In this manner they also spread the name of our university all over the world. The common goals of all alumni chapters are the following.</p>
+      <ul>
+        <li>Build and reinforce a network among alumni based on opportunities for growth, exchange and support on a personal, professional and social level.</li>
+        <li>Help in promoting the unique character of the university and ensure a continuous commitment of alumni to the university and its long-term advancement, through support for current students and other activities.</li>
+      </ul>
     </article>
   )
 }

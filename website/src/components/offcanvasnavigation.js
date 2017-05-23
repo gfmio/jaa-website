@@ -37,8 +37,8 @@ module.exports = function(props, children) {
               <ul class="uk-nav-sub">
                 <li><Link href="/alumni-association">Alumni Association</Link>
                   <ul class="uk-nav-sub">
-                    <li><Link href="/alumni-charter">Alumni Charter</Link></li>
-                    <li><Link href="/contributions-by-laws">Contributions By-laws</Link></li>
+                    <li><Link href="/charter">Alumni Charter</Link></li>
+                    <li><Link href="/by-laws">Contributions By-laws</Link></li>
                   </ul>
                 </li>
                 <li><Link href="/alumni-board">Alumni Board</Link>
@@ -81,6 +81,7 @@ module.exports = function(props, children) {
                   <ul class="uk-nav-sub">
                     <li><Link href="/alumni-chapters/what-is-an-alumni-chapter">What is an Alumni Chapter?</Link></li>
                     <li><Link href="/alumni-chapters/starting-a-chapter">Starting a chapter</Link></li>
+                    <li><Link href="/alumni-chapters/faq">FAQs</Link></li>
                   </ul>
                 </li>
                 <li><Link href="/donate">Donate</Link></li>

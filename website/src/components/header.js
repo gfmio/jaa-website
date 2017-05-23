@@ -36,8 +36,8 @@ module.exports = function(props, children) {
                 <div class="uk-background-muted uk-dropdown uk-dark" uk-dropdown="pos: bottom-justify">
                   <ul class="uk-nav uk-dropdown-nav">
                     <li class="uk-text-bold"><Link href="/alumni-association">Alumni Association</Link></li>
-                    <li><Link href="/alumni-charter">Alumni Charter</Link></li>
-                    <li><Link href="/contributions-by-laws">Contributions By-laws</Link></li>
+                    <li><Link href="/charter">Alumni Charter</Link></li>
+                    <li><Link href="/by-laws">Contributions By-laws</Link></li>
                     <li class="uk-nav-divider"></li>
                     <li class="uk-text-bold"><Link href="/alumni-board">Alumni Board</Link></li>
                     <li><Link href="/board-news">Board News</Link></li>
@@ -78,6 +78,7 @@ module.exports = function(props, children) {
                     <li class="uk-text-bold"><Link href="/alumni-chapters">Alumni Chapters</Link></li>
                     <li><Link href="/alumni-chapters/what-is-an-alumni-chapter">What is an Alumni Chapter?</Link></li>
                     <li><Link href="/alumni-chapters/starting-a-chapter">Starting a chapter</Link></li>
+                    <li><Link href="/alumni-chapters/faq">FAQs</Link></li>
                     <li class="uk-nav-divider"></li>
                     <li class="uk-text-bold"><Link href="/donate">Donate</Link></li>
                     <li><Link href="/alumni-office">Alumni Office</Link></li>

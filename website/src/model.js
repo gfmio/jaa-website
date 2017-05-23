@@ -26,7 +26,9 @@ const BlogPost = require('./components/blog/article')
 const WhoWeArePage = require('./components/pages/whoweare')
   const AlumniAssocationPage = require('./components/pages/whoweare/alumni-association')
     const AlumniCharterPage = require('./components/pages/whoweare/alumni-charter')
+      const GermanAlumniCharterPage = require('./components/pages/whoweare/alumni-charter-german')
     const ContributionsByLawsPage = require('./components/pages/whoweare/contributions-by-laws')
+      const GermanContributionsByLawsPage = require('./components/pages/whoweare/contributions-by-laws-german')
   const AlumniBoardPage = require('./components/pages/whoweare/alumni-board')
     const BoardNewsPage = require('./components/pages/whoweare/board-news')
     const ElectionsPage = require('./components/pages/whoweare/elections')
@@ -49,6 +51,7 @@ const GetInvolvedPage = require('./components/pages/get-involved')
   const AlumniChapters = require('./components/pages/get-involved/alumni-chapters')
     const WhatIsAnAlumniChapterPage = require('./components/pages/get-involved/what-is-an-alumni-chapter')
     const StartingAChapterPage = require('./components/pages/get-involved/starting-a-chapter')
+    const ChapterFAQPage = require('./components/pages/get-involved/chapter-faq')
   const DonatePage = require('./components/pages/get-involved/donate')
   const AlumniOfficePage = require('./components/pages/get-involved/alumni-office')
 
@@ -73,8 +76,10 @@ const model = function() {
 
     '/who-we-are': { children: [<WhoWeArePage />], currentTitle: 'Who we are' },
       '/alumni-association': { children: [<AlumniAssocationPage />], currentTitle: 'Alumni association' },
-        '/alumni-charter': { children: [<AlumniCharterPage />], currentTitle: 'Alumni charter' },
-        '/contributions-by-laws': { children: [<ContributionsByLawsPage />], currentTitle: 'Contributions By-Laws' },
+        '/charter': { children: [<AlumniCharterPage />], currentTitle: 'Alumni charter' },
+          '/satzung': { children: [<GermanAlumniCharterPage />], currentTitle: 'Satzung' },
+        '/by-laws': { children: [<ContributionsByLawsPage />], currentTitle: 'Contributions By-Laws' },
+          '/beitragsordnung': { children: [<GermanContributionsByLawsPage />], currentTitle: 'Beitragsordnung' },
       '/alumni-board': { children: [<AlumniBoardPage />], currentTitle: 'Alumni Board' },
         '/board-news': { children: [<BoardNewsPage />], currentTitle: 'Board news' },
         '/elections': { children: [<ElectionsPage />], currentTitle: 'Elections' },
@@ -93,10 +98,11 @@ const model = function() {
         '/alumni-projects/generation-fund': { children: [<GenerationFundPage />], currentTitle: 'Generation Fund' },
         '/alumni-projects/alumni-scholarships': { children: [<AlumniScholarshipsPage />], currentTitle: 'Alumni Scholarships' },
 
-    '/get-involved': { children: [<GetInvolvedPage />], currentTitle: 'Get InvolvedPage' },
+    '/get-involved': { children: [<GetInvolvedPage />], currentTitle: 'Get Involved!' },
       '/alumni-chapters': { children: [<AlumniChapters />], currentTitle: '' },
         '/alumni-chapters/what-is-an-alumni-chapter': { children: [<WhatIsAnAlumniChapterPage />], currentTitle: 'What is an alumni chapter?' },
         '/alumni-chapters/starting-a-chapter': { children: [<StartingAChapterPage />], currentTitle: 'Starting a Chapter' },
+        '/alumni-chapters/faq': { children: [<ChapterFAQPage />], currentTitle: 'Alumni Chapters - FAQ' },
       '/donate': { children: [<DonatePage />], currentTitle: 'Donate' },
       '/alumni-office': { children: [<AlumniOfficePage />], currentTitle: 'Alumni Office' },
 

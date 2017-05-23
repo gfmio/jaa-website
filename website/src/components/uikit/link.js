@@ -27,6 +27,6 @@ module.exports = function(props, children) {
   } else if (props.href.indexOf('//') === -1) {
     return c('a', Object.assign({}, { on: { click: transitionHandler(props.href) } }, props), children)
   } else {
-    return c('a', Object.assign({}, props), children)
+    return c('a', Object.assign({ target: '_blank' }, props), children)
   }
 }
