@@ -8,7 +8,7 @@ module.exports = function(props, children) {
     <article class="uk-article uk-text-center">
       <h1 class="uk-article-title">Welcome!</h1>
 
-      <figure class="p2">
+      <figure>
         <img src="media/logo.jpg" />
       </figure>
 

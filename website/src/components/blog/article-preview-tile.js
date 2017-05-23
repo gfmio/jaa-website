@@ -1,6 +1,8 @@
 
 const c = require('csam/lib/component')
 
+const Link = require('../uikit/link')
+
 module.exports = function(props, children) {
   var props = props || {}
 
@@ -9,12 +11,12 @@ module.exports = function(props, children) {
   return (
     <div class="uk-card uk-card-default">
       <div class="uk-card-media-top">
-         <a href={ postLink }>
+         <Link href={ postLink }>
           <img class="uk-width-1-1" src={ props.article.titleImage } alt={ props.article.title } />
-        </a>
+        </Link>
       </div>
       <div class="uk-card-body">
-        <h3 class="uk-card-title"><a href={ postLink }>{ props.article.title }</a></h3>
+        <h3 class="uk-card-title"><Link href={ postLink }>{ props.article.title }</Link></h3>
         <p class="uk-article-meta">
           By { props.article.author } | { props.article.date }
         </p>
@@ -23,7 +25,7 @@ module.exports = function(props, children) {
           { props.article.preview }...
         </p>
         <p>
-          <a class="uk-button uk-button-text" href={ postLink }>Read more...</a>
+          <Link class="uk-button uk-button-text" href={ postLink }>Read more...</Link>
         </p>
       </div>
     </div>

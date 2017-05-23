@@ -3,7 +3,8 @@ const c = require('csam/lib/component')
 
 const NavBar = require('./uikit/navbar')
 
-const RoundImage = require('./roundimage')
+const Link = require('./uikit/link')
+// const RoundImage = require('./roundimage')
 
 module.exports = function(props, children) {
   var props = props || {}
@@ -11,7 +12,6 @@ module.exports = function(props, children) {
   props.loginLink = '//api.dev.jacobs-alumni.de/login/google'
 
   var toggleOffCanvas = function(e) {
-    console.log(UIkit.offcanvas('#off-canvas'))
     UIkit.offcanvas('#off-canvas').toggle()
   }
 
@@ -20,90 +20,90 @@ module.exports = function(props, children) {
       <div class="uk-navbar-container navbar uk-dark">
         <nav class="uk-navbar">
           <div class="uk-navbar-left">
-            <a href="/" class="uk-navbar-item uk-logo">
+            <Link href="/" class="uk-navbar-item uk-logo">
               <span class="logo-button uk-margin-small-right">
                 <img src="/media/favicon.png" />
               </span>
               <span class="uk-visible@s">Jacobs Alumni Association</span>
-            </a>
+            </Link>
           </div>
           <div class="uk-navbar-right">
             <ul class="uk-navbar-nav uk-visible@l">
-              <li><a class="uk-active" href="/">Home</a></li>
+              <li><Link class="uk-active" href="/">Home</Link></li>
               <li class="uk-inline">
-                <a href="/who-we-are">Who We Are</a>
+                <Link href="/who-we-are">Who We Are</Link>
 
                 <div class="uk-background-muted uk-dropdown uk-dark" uk-dropdown="pos: bottom-justify">
                   <ul class="uk-nav uk-dropdown-nav">
-                    <li class="uk-text-bold"><a href="/alumni-association">Alumni Association</a></li>
-                    <li><a href="/alumni-charter">Alumni Charter</a></li>
-                    <li><a href="/contributions-by-laws">Contributions By-laws</a></li>
+                    <li class="uk-text-bold"><Link href="/alumni-association">Alumni Association</Link></li>
+                    <li><Link href="/alumni-charter">Alumni Charter</Link></li>
+                    <li><Link href="/contributions-by-laws">Contributions By-laws</Link></li>
                     <li class="uk-nav-divider"></li>
-                    <li class="uk-text-bold"><a href="/alumni-board">Alumni Board</a></li>
-                    <li><a href="/board-news">Board News</a></li>
-                    <li><a href="/elections">Elections</a></li>
+                    <li class="uk-text-bold"><Link href="/alumni-board">Alumni Board</Link></li>
+                    <li><Link href="/board-news">Board News</Link></li>
+                    <li><Link href="/elections">Elections</Link></li>
                     <li class="uk-nav-divider"></li>
-                    <li><a href="/class-reps">Class Reps</a></li>
+                    <li><Link href="/class-reps">Class Reps</Link></li>
                     <li class="uk-nav-divider"></li>
-                    <li><a href="/alumni-profiles">Alumni Profiles</a></li>
+                    <li><Link href="/alumni-profiles">Alumni Profiles</Link></li>
                   </ul>
                 </div>
 
               </li>
               <li>
-                <a href="/what-we-do">What We Do</a>
+                <Link href="/what-we-do">What We Do</Link>
 
                 <div class="uk-background-muted uk-dropdown uk-dark" uk-dropdown="pos: bottom-justify">
                   <ul class="uk-nav uk-dropdown-nav">
-                    <li><a href="/newsletter">Newsletter</a></li>
-                    <li><a href="/campus-news">Campus News</a></li>
+                    <li><Link href="/newsletter">Newsletter</Link></li>
+                    <li><Link href="/campus-news">Campus News</Link></li>
                     <li class="uk-nav-divider"></li>
-                    <li class="uk-text-bold"><a href="/homecoming">Homecoming</a></li>
-                    <li><a href="/homecoming/2016">Homecoming 2016</a></li>
-                    <li><a href="/homecoming/2015">Homecoming 2015</a></li>
-                    <li><a href="/homecoming/2014">Homecoming 2014</a></li>
+                    <li class="uk-text-bold"><Link href="/homecoming">Homecoming</Link></li>
+                    <li><Link href="/homecoming/2016">Homecoming 2016</Link></li>
+                    <li><Link href="/homecoming/2015">Homecoming 2015</Link></li>
+                    <li><Link href="/homecoming/2014">Homecoming 2014</Link></li>
                     <li class="uk-nav-divider"></li>
-                    <li class="uk-text-bold"><a href="/alumni-projects">Alumni Projects</a></li>
-                    <li><a href="/alumni-projects/alumni-consulting-initiative">Alumni Consulting Initiative</a></li>
-                    <li><a href="/alumni-projects/generation-fund">Generation Fund</a></li>
-                    <li><a href="/alumni-projects/alumni-scholarships">Alumni Scholarships</a></li>
+                    <li class="uk-text-bold"><Link href="/alumni-projects">Alumni Projects</Link></li>
+                    <li><Link href="/alumni-projects/alumni-consulting-initiative">Alumni Consulting Initiative</Link></li>
+                    <li><Link href="/alumni-projects/generation-fund">Generation Fund</Link></li>
+                    <li><Link href="/alumni-projects/alumni-scholarships">Alumni Scholarships</Link></li>
                   </ul>
                 </div>
               </li>
               <li>
-                <a href="/get-involved">Get Involved</a>
+                <Link href="/get-involved">Get Involved</Link>
 
                 <div class="uk-background-muted uk-dropdown uk-dark" uk-dropdown="pos: bottom-justify">
                   <ul class="uk-nav uk-dropdown-nav">
-                    <li class="uk-text-bold"><a href="/alumni-chapters">Alumni Chapters</a></li>
-                    <li><a href="/alumni-chapters/what-is-an-alumni-chapter">What is an Alumni Chapter?</a></li>
-                    <li><a href="/alumni-chapters/starting-a-chapter">Starting a chapter</a></li>
+                    <li class="uk-text-bold"><Link href="/alumni-chapters">Alumni Chapters</Link></li>
+                    <li><Link href="/alumni-chapters/what-is-an-alumni-chapter">What is an Alumni Chapter?</Link></li>
+                    <li><Link href="/alumni-chapters/starting-a-chapter">Starting a chapter</Link></li>
                     <li class="uk-nav-divider"></li>
-                    <li class="uk-text-bold"><a href="/donate">Donate</a></li>
-                    <li><a href="/alumni-office">Alumni Office</a></li>
+                    <li class="uk-text-bold"><Link href="/donate">Donate</Link></li>
+                    <li><Link href="/alumni-office">Alumni Office</Link></li>
                   </ul>
                 </div>
               </li>
-              <li><a href="/blog">Blog</a></li>
-              <li><a href="/shop">Shop</a></li>
+              <li><Link href="/blog">Blog</Link></li>
+              <li><Link href="/shop">Shop</Link></li>
               <li class="uk-inline">
-                <a href="#">Log in</a>
+                <Link href="#">Log in</Link>
 
                 <div class="uk-background-muted uk-dropdown" uk-dropdown="pos: bottom-justify">
                   <p>
                     Log in using your Alumni Google account
                   </p>
-                  <a class="google-signin-button uk-width-1-1" href={ props.loginLink }>
+                  <Link class="google-signin-button uk-width-1-1" href={ props.loginLink }>
                     <img class="normal" src="/media/btn_google_signin_light_normal_web@2x.png" alt="Log in with Google"/>
                     <img class="pressed" src="/media/btn_google_signin_light_pressed_web@2x.png" alt="Log in with Google"/>
-                  </a>
+                  </Link>
                 </div>
               </li>
             </ul>
             <div class="uk-navbar-item">
-              <a href="/join" class="uk-button uk-button-primary rounded bg-transparent uk-text-primary">
+              <Link href="/join" class="uk-button uk-button-primary rounded bg-transparent uk-text-primary">
                 Join
-              </a>
+              </Link>
             </div>
             <a href="#" class="uk-navbar-toggle uk-navbar-toggle-icon uk-icon uk-hidden@l" uk-toggle="target: #off-canvas">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" icon="navbar-toggle-icon" ratio="1">

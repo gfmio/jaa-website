@@ -1,9 +1,7 @@
 
-present = require('./model').present
-
 module.exports = {
-  transitionTo: function(page) {
-    present({ currentUrl: page })
+  transitionTo: function transitionTo(url) {
+    present({ currentUrl: url })
     return false
   }
 }
