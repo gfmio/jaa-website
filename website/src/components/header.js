@@ -88,7 +88,7 @@ module.exports = function(props, children) {
               <li><Link href="/blog">Blog</Link></li>
               <li><Link href="/shop">Shop</Link></li>
               <li class="uk-inline">
-                <Link href="#">Log in</Link>
+                <Link href="">Log in</Link>
 
                 <div class="uk-background-muted uk-dropdown" uk-dropdown="pos: bottom-justify">
                   <p>
