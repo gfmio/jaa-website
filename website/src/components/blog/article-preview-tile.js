@@ -4,27 +4,28 @@ const c = require('csam/lib/component')
 module.exports = function(props, children) {
   var props = props || {}
 
+  var postLink = '/blog/' + props.article.alias
+
   return (
-    <div>
-      <div class="uk-card uk-card-default uk-card-body">
-        <h3>Angry – Losing my Religion (Part 2)</h3>
-
-        <figure>
-          <img src="https://jacobs-alumni.de/wp-content/uploads/2016/08/Blog_Angry.png" alt="Preview image" />
-        </figure>
-
+    <div class="uk-card uk-card-default">
+      <div class="uk-card-media-top">
+         <a href={ postLink }>
+          <img class="uk-width-1-1" src={ props.article.titleImage } alt={ props.article.title } />
+        </a>
+      </div>
+      <div class="uk-card-body">
+        <h3 class="uk-card-title"><a href={ postLink }>{ props.article.title }</a></h3>
         <p class="uk-article-meta">
-          By Omaina Aziz | August 14th, 2016
+          By { props.article.author } | { props.article.date }
         </p>
 
         <p>
-          Recently, I got the chance to have an in-depth conversation about the “refugee crisis”. I liked the people I spoke to. Hardworking, well-educated and well-travelled. We touched base on a variety of topics before finally […]
-
-          <a href="/blog/losing-my-religion-part-2">Read more...</a>
+          { props.article.preview }...
+        </p>
+        <p>
+          <a class="uk-button uk-button-text" href={ postLink }>Read more...</a>
         </p>
       </div>
     </div>
   )
 }
-
-

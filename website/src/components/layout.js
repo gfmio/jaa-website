@@ -9,7 +9,7 @@ module.exports = function(props, children) {
   var props = props || {}
 
   return (
-    <Application title={ props.title }>
+    <Application title={ props.title } keywords={ props.keywords } description={ props.description } >
       <div class="fill uk-offcanvas-content">
         <Header />
         <div class="main-container uk-padding header-top-margin">

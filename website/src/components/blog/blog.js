@@ -5,19 +5,31 @@ const ArticlePreviewTile = require('./article-preview-tile')
 
 module.exports = function(props, children) {
   var props = props || {}
+  props.articles = props.articles || []
+
+  articleTiles = props.articles.map(function(article) {
+    return (
+      <div>
+        <ArticlePreviewTile article={ article } />
+      </div>
+    )
+  })
 
   return (
     <article class="uk-article">
       <h1 class="uk-article-title">Alumni Blog</h1>
 
-      <p class="uk-text-lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
+      <div class="uk-alert uk-alert-primary">
+        <h2 class="uk-text-lead">
+          The Alumni Blog Initiative
+        </h2>
+        <p>
+          The Alumni Blog is an initiative of the Alumni Association. The blog thrives through our bloggers, all of which are alumni of Jacobs University Bremen. We hope to enrich our readers’ daily experience with valuable insights from our personal as well as professional lives, ranging from intercultural encounters to management techniques and more. We hope you can learn from us and we from you. Despite being a very young project, a great amount of readers have been attracted to our blog posts so far. We hope to continue being an enriching endeavour and welcome you to contact us via <a href="mailto:sturhan@jacobs-alumni.de">Suna Turhan</a>.
+        </p>
+      </div>
 
       <div class="uk-grid uk-margin-medium-bottom uk-child-width-1-2@m" uk-grid>
-        <ArticlePreviewTile />
-        <ArticlePreviewTile />
-        <ArticlePreviewTile />
-        <ArticlePreviewTile />
-        <ArticlePreviewTile />
+        { articleTiles.reverse() }
       </div>
     </article>
   )

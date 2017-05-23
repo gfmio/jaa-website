@@ -12,12 +12,14 @@ const Model = require('csam/lib/model')
 
 const c = require('csam/lib/component')
 
+const blogPosts = require('./models/blog')
+
 const Layout = require('./components/layout')
 const ErrorPage = require('./components/errorpage')
 const HomePage = require('./components/homepage')
 const Shop = require('./components/shop/shop')
 const Blog = require('./components/blog/blog')
-const Article = require('./components/blog/article')
+const BlogPost = require('./components/blog/article')
 
 // const DesignTest = require('./components/designtest')
 
@@ -64,7 +66,7 @@ const model = function() {
   this.currentTitle = ''
   this.children = []
 
-// '/designtest': { children: [<DesignTest />], currentTitle: 'Design Test' },
+  // '/designtest': { children: [<DesignTest />], currentTitle: 'Design Test' },
 
   this.routes = {
     '/': { children: [<HomePage />], currentTitle: 'Home' },
@@ -98,8 +100,7 @@ const model = function() {
       '/donate': { children: [<DonatePage />], currentTitle: 'Donate' },
       '/alumni-office': { children: [<AlumniOfficePage />], currentTitle: 'Alumni Office' },
 
-    '/blog': { children: [<Blog />], currentTitle: 'Alumni Blog' },
-      '/blog/losing-my-religion-part-2': { children: [<Article />], currentTitle: 'Losing my Religion - Part 2 - Alumni Blog' },
+    '/blog': { children: [<Blog articles={ blogPosts } />], currentTitle: 'Alumni Blog' },
     '/shop': { children: [<Shop />], currentTitle: 'Online Shop' },
 
     '/join': { children: [<SignupPage />], currentTitle: 'Join the Jacobs Alumni Association' },
@@ -109,14 +110,32 @@ const model = function() {
     '/imprint': { children: [<ImprintPage />], currentTitle: 'Imprint / Impressum' },
   }
 
-  this.defaultRoute ={
+  for (var n in blogPosts) {
+    var post = blogPosts[n]
+    var postLink = '/blog/' + post.alias
+    this.routes[postLink] = { children: [<BlogPost article={ post } />], currentTitle: post.title + ' - Alumni Blog' }
+  }
+
+  this.defaultRoute = {
     children: [<ErrorPage errorCode={404} />],
     currentTitle: 'Page Not Found - Error 404'
   }
 
+  this.description = 'The Jacobs Alumni Association is the growing network of former Jacobs University students and friends.'
+  this.keywords = [
+    'Jacobs Alumni Association',
+    'Jacobs University Bremen',
+    'Jacobs University',
+    'Alumni Association',
+    'Jacobs',
+    'Alumni',
+    'Association',
+    'Bremen'
+  ]
+
   this.currentView = function() {
     return (
-      <Layout title={ this.currentTitle + ' - Jacobs Alumni Association' }>
+      <Layout title={ this.currentTitle + ' - Jacobs Alumni Association' } keywords={ this.keywords } description={ this.description } >
         { this.children }
       </Layout>
     )
