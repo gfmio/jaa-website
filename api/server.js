@@ -57,8 +57,8 @@ const config = {
   rbac: {
     roles: {
       guest: {
-        'cats:collection:get': true
-        'cats:collection:post': true
+        'cats:collection:get': true,
+        'cats:collection:post': true,
         'users:collection:post': true
       },
       user: {
