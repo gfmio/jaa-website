@@ -1,16 +1,16 @@
 
 const c = require('csam/lib/component')
 
-const ArticlePreviewTile = require('./article-preview-tile')
+const PodcastPreviewTile = require('./podcast-preview-tile')
 
 module.exports = function(props, children) {
   var props = props || {}
-  props.articles = props.articles || []
+  props.podcasts = props.podcasts || []
 
-  articleTiles = props.articles.map(function(article) {
+  podcastTiles = props.podcasts.map(function(podcast) {
     return (
       <div>
-        <ArticlePreviewTile article={ article } />
+        <PodcastPreviewTile podcast={ podcast } />
       </div>
     )
   })
@@ -29,7 +29,7 @@ module.exports = function(props, children) {
       </div>
 
       <div class="uk-grid uk-margin-medium-bottom uk-child-width-1-2@m" uk-grid>
-        { articleTiles.reverse() }
+        { podcastTiles.reverse() }
       </div>
     </article>
   )

@@ -17,7 +17,7 @@ var User = {
       required: true
     }
   },
-  position: String, // Role in the JAA
+  position: String, // Role in the growth-mindset
   avatar: Url, // Link to the profile picture
   email: {
     type: Email,

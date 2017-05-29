@@ -1,7 +1,7 @@
-jaa-website
-===========
+Growth-Mindset Podcast
+======================
 
-JAA website
+Growth Mindset Podcast website
 
 ```shell
 sass --watch --scss -t compressed --sourcemap=none ./public/scss/style.scss:./public/css/style.css
@@ -17,9 +17,9 @@ sass --watch --scss -t compressed --sourcemap=none ./public/scss/style.scss:./pu
 * Generic components
 	* Flexbox components for alignment etc.
 * Profile
-* Shop
 * Homepage
-* User management UI
+* Blog
+	* content
 * Navbar, Menu, Footer
 
 # Website structure
@@ -33,21 +33,11 @@ Why? How? What?
 	* Chapters
 	* Board
 	* Alumni profiles (???)
-* Shop
-* Alumni benefits and opportunities
-* Online newsletter
 * Blog
 * Donations
 * Mentoring
-* Homecoming
-* Campus news
-* Alumni projects
+* News
 * Get involved
-
-* Official stuff
-	* Charter
-	* By-Laws
-	* Elections
 
 # Colors, Fonts
 
