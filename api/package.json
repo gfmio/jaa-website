@@ -1,5 +1,5 @@
 {
-  "name": "growth-mindset-api",
+  "name": "jaa-api",
   "version": "0.1.0",
   "description": "",
   "main": "server.js",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/samjam48/growth-mindset.git"
+    "url": "git+https://github.com/gfmio/jaa-website.git"
   },
-  "author": "Sam Harris <sam@jam-bc.com> (https://www.growthmindset.space)",
+  "author": "Frédérique Mittelstaedt <frederique@gfm.io> (https://www.gfm.io)",
   "license": "UNLICENSED",
   "bugs": {
-    "url": "https://github.com/samjam48/growth-mindset/issues"
+    "url": "https://github.com/gfmio/jaa-website/issues"
   },
-  "homepage": "https://github.com/samjam48/growth-mindset#readme",
+  "homepage": "https://github.com/gfmio/jaa-website#readme",
   "dependencies": {
     "csam-api": "^0.1.0",
     "mongoose": "^4.10.0",

@@ -16,18 +16,18 @@ docker run --name redis \
   -d \
   redis:3.0.7
 
-# Run the growth-mindset website
-docker stop growth-mindset
-docker rm growth-mindset
-docker run --name growth-mindset \
+# Run the JAA website
+docker stop jaa-website
+docker rm jaa-website
+docker run --name jaa-website \
   -p 8000:3000 \
   -d \
-  growth-mindset:website
+  jaa:website
 
-# Run the growth-mindset api
-docker stop growth-mindset-api
-docker rm growth-mindset-api
-docker run --name growth-mindset-api \
+# Run the JAA api
+docker stop jaa-api
+docker rm jaa-api
+docker run --name jaa-api \
   --link mongodb \
   --link redis \
   -p 8001:3000 \
@@ -37,7 +37,7 @@ docker run --name growth-mindset-api \
   -e REDIS_HOST=redis \
   -e REDIS_PORT=6379 \
   -d \
-  growth-mindset:api
+  jaa:api
 
 # Run the updater
 

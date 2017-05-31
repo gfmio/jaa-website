@@ -13,7 +13,7 @@ module.exports = function(props, children) {
       </figure>
 
       <p class="uk-text-lead">
-        Welcome to mindset 101
+        We are the Alumni Association of Jacobs University Bremen!
       </p>
     </article>
   )

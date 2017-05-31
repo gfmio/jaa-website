@@ -7,17 +7,17 @@ module.exports = function(props, children) {
   return (
     <article class="uk-article">
       <h1 class="uk-article-title">
-        { props.podcast.title }
+        { props.article.title }
       </h1>
       <p class="uk-article-meta">
-        { props.podcast.date }
+        By { props.article.author } | { props.article.date }
       </p>
 
       <figure class="uk-width-1-1">
-        <img class="uk-width-1-1" src={ props.podcast.Image } alt={ props.podcast.title } />
+        <img class="uk-width-1-1" src={ props.article.titleImage } alt={ props.article.title } />
       </figure>
 
-      { props.podcast.content }
+      { props.article.content }
     </article>
   )
 }
