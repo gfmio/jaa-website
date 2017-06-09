@@ -16,11 +16,11 @@ module.exports = function(props, children) {
       </div>
 
       <figure>
-        <img src="media/logo.jpg" />
+        <img src="/media/logo.jpg" />
       </figure>
 
       <p class="uk-text-lead">
-        The Alumni Association of Jacobs University Bremen
+        Your Alumni Association of Jacobs University Bremen
       </p>
     </article>
   )
