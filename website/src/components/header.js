@@ -15,6 +15,22 @@ module.exports = function(props, children) {
     UIkit.offcanvas('#off-canvas').toggle()
   }
 
+  // Goes after Blog
+  // <li><Link href="/shop">Shop</Link></li>
+  //             <li class="uk-inline">
+  //               <Link href="">Log in</Link>
+
+  //               <div class="uk-background-muted uk-dropdown" uk-dropdown="pos: bottom-justify">
+  //                 <p>
+  //                   Log in using your Alumni Google account
+  //                 </p>
+  //                 <Link class="google-signin-button uk-width-1-1" href={ props.loginLink }>
+  //                   <img class="normal" src="/media/btn_google_signin_light_normal_web@2x.png" alt="Log in with Google"/>
+  //                   <img class="pressed" src="/media/btn_google_signin_light_pressed_web@2x.png" alt="Log in with Google"/>
+  //                 </Link>
+  //               </div>
+  //             </li>
+
   return (
     <header class="uk-sticky uk-sticky-fixed uk-width-1-1" style={{ position: 'fixed', top: '0', width: '100%' }}>
       <div class="uk-navbar-container navbar uk-dark">
@@ -86,20 +102,6 @@ module.exports = function(props, children) {
                 </div>
               </li>
               <li><Link href="/blog">Blog</Link></li>
-              <li><Link href="/shop">Shop</Link></li>
-              <li class="uk-inline">
-                <Link href="">Log in</Link>
-
-                <div class="uk-background-muted uk-dropdown" uk-dropdown="pos: bottom-justify">
-                  <p>
-                    Log in using your Alumni Google account
-                  </p>
-                  <Link class="google-signin-button uk-width-1-1" href={ props.loginLink }>
-                    <img class="normal" src="/media/btn_google_signin_light_normal_web@2x.png" alt="Log in with Google"/>
-                    <img class="pressed" src="/media/btn_google_signin_light_pressed_web@2x.png" alt="Log in with Google"/>
-                  </Link>
-                </div>
-              </li>
             </ul>
             <div class="uk-navbar-item">
               <Link href="/join" class="uk-button uk-button-primary rounded bg-transparent uk-text-primary">

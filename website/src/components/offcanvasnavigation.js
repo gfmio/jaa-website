@@ -8,6 +8,19 @@ module.exports = function(props, children) {
 
   props.loginLink = ''
 
+  // Goes after Home
+  // <li>
+  //             <Link href={ props.loginLink }>
+  //               Log in
+  //             </Link>
+  //           </li>
+  //           <li>
+  //             <Link class="uk-text-bold uk-text-primary" href="/join">
+  //               Join
+  //             </Link>
+  //           </li>
+  //           <li><Link href="/shop">Shop</Link></li>
+
   return (
     <div id="off-canvas" uk-offcanvas="mode: push; overlay: true">
       <div class="uk-offcanvas-bar uk-dark uk-background-muted">
@@ -20,17 +33,7 @@ module.exports = function(props, children) {
           </h3>
           <ul class="uk-nav uk-nav-primary">
             <li><Link class="uk-active" href="/">Home</Link></li>
-            <li>
-              <Link href={ props.loginLink }>
-                Log in
-              </Link>
-            </li>
-            <li>
-              <Link class="uk-text-bold uk-text-primary" href="/join">
-                Join
-              </Link>
-            </li>
-            <li><Link href="/shop">Shop</Link></li>
+
             <li>
               <Link href="/who-we-are">Who We Are</Link>
 
