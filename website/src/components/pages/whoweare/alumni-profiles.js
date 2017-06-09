@@ -114,7 +114,7 @@ module.exports = function(props, children) {
             <li>
               <h1 class="uk-article-title">Noor Cornelissen (‘13)</h1>
               <figure class="uk-padding-small uk-margin-remove" style={{ float: 'right' }}>
-                <img src="/media/who-we-are/alumni-profiles-J.-Eduardo-Marquez-11.jpg" alt="" />
+                <img src="/media/who-we-are/Noor-Cornelissen-%E2%80%9813.jpg" alt="" />
               </figure>
               <p>
                 After graduating from Jacobs with a BA International Politics and History, Noor pursued a Master of Arts in International Development (direction Public Health and Gender) at the Geneva Graduate Institute. She is currently employed by Doctors without Borders, awaiting to be deployed for the first mission in the field.
