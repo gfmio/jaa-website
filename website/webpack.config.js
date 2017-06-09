@@ -50,6 +50,9 @@ module.exports = {
     }, {
       from: '../public/scss/uikit/dist/js/uikit-icons.min.js',
       to: './dist/public/js/uikit-icons.min.js'
+    }, {
+      from: '../public/js/ga.js',
+      to: './dist/public/js/ga.js'
     }]),
     new webpack.optimize.UglifyJsPlugin({
       minimize: false,

@@ -27,6 +27,7 @@ module.exports = function(props, children) {
       <script src="/js/uikit.min.js" type="text/javascript" async></script>
       <script src="/js/uikit-icons.min.js" type="text/javascript" async></script>
       <script src="/js/app.js" type="text/javascript" async></script>
+      <script type="text/javascript" src="js/ga.js" async></script>
     </body>
   </html>
 }
