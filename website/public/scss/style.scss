@@ -239,6 +239,10 @@ ul {
   background: #0077b5 !important;
 }
 
+.bg-mediumgrey {
+  background: $mediumgrey;
+}
+
 header {
   width: 100% !important;
 }
@@ -279,6 +283,37 @@ header {
 
 iframe {
   max-width: 100%;
+}
+
+.square-box{
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    // background: #4679BD;
+}
+.square-box:before{
+    content: "";
+    display: block;
+    padding-top: 100%;
+}
+.square-content{
+    position:  absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    color: white;
+}
+.square-content div {
+   display: table;
+   width: 100%;
+   height: 100%;
+}
+.square-content span {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    color: white
 }
 
 // @import 'csam';
