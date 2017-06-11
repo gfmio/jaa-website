@@ -52,9 +52,9 @@ Why? How? What?
 # Colors, Fonts
 
 Blue: , # !importantstyle.css?ver=3.7.1:16799
-Grey: #E5E5E5, #747474, #, 
+Grey: #E5E5E5, #747474, #,
 
-
+console.log(document.getElementsByClassName('post-content')[0].innerHTML.trim().split('><').join('>\n      <').split('\n<').join('\n      <')).split('<br>').join('')
 
 
 
