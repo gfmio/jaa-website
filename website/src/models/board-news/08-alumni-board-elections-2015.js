@@ -5,7 +5,7 @@ module.exports = {
   title: 'Alumni Board Elections 2015',
   date: 'August 27th, 2015',
   author: 'Stefan Anca',
-  alias: '/board-news/09-alumni-board-elections-2015',
+  alias: '/board-news/08-alumni-board-elections-2015',
   titleImage: '/media/board-news/IMG_20140920_123358.jpg',
   preview: 'Over the past year, the Alumni Association has grown and transformed into a non-profit entity, independent from our University. Along with the organizational growth, the responsibilities have increased as well and thus, we need your',
   content: (

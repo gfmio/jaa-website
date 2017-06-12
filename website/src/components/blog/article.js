@@ -13,9 +13,9 @@ module.exports = function(props, children) {
         By { props.article.author } | { props.article.date }
       </p>
 
-      <figure class="uk-width-1-1">
+      { props.article.titleImage != undefined ? <figure class="uk-width-1-1">
         <img class="uk-width-1-1" src={ props.article.titleImage } alt={ props.article.title } />
-      </figure>
+      </figure> : '' }
 
       { props.article.content }
     </article>

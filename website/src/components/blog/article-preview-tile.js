@@ -10,11 +10,11 @@ module.exports = function(props, children) {
 
   return (
     <div class="uk-card uk-card-default">
-      <div class="uk-card-media-top">
+      { props.article.titleImage != undefined ? <div class="uk-card-media-top">
          <Link href={ postLink }>
           <img class="uk-width-1-1" src={ props.article.titleImage } alt={ props.article.title } />
         </Link>
-      </div>
+      </div> : '' }
       <div class="uk-card-body">
         <h3 class="uk-card-title"><Link href={ postLink }>{ props.article.title }</Link></h3>
         <p class="uk-article-meta">
