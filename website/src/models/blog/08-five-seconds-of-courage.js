@@ -5,7 +5,7 @@ module.exports = {
   title: 'Five Seconds of Courage',
   date: 'March 3rd, 2015',
   author: 'Eva Schmitz',
-  alias: 'five-seconds-of-courage',
+  alias: '/blog/five-seconds-of-courage',
   titleImage: '/media/blog/08-five-seconds-of-courage-title.jpg',
   preview: 'Many things can have an impact that will change your life forever. It could be a friend, a TED talk or a random kid you meet on the street. Those situations of impact may vary greatly in length. However, what I have learned recently is that it generally takes just five seconds of courage to change your life.',
   content: (

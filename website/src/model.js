@@ -13,6 +13,7 @@ const Model = require('csam/lib/model')
 const c = require('csam/lib/component')
 
 const blogPosts = require('./models/blog')
+const boardNews = require('./models/board-news')
 
 const Layout = require('./components/layout')
 const ErrorPage = require('./components/errorpage')
@@ -82,7 +83,7 @@ const model = function() {
         '/by-laws': { children: [<ContributionsByLawsPage />], currentTitle: 'Contributions By-Laws' },
           '/beitragsordnung': { children: [<GermanContributionsByLawsPage />], currentTitle: 'Beitragsordnung' },
       '/alumni-board': { children: [<AlumniBoardPage />], currentTitle: 'Alumni Board' },
-        '/board-news': { children: [<BoardNewsPage />], currentTitle: 'Board news' },
+        '/board-news': { children: [<BoardNewsPage articles={ boardNews } />], currentTitle: 'Board news' },
         '/elections': { children: [<ElectionsPage />], currentTitle: 'Elections' },
       '/class-reps': { children: [<ClassRepsPage />], currentTitle: 'Class reps' },
       '/alumni-profiles': { children: [<AlumniProfilesPage />], currentTitle: 'Alumni profiles' },
@@ -120,9 +121,14 @@ const model = function() {
 
   for (var n in blogPosts) {
     var post = blogPosts[n]
-    var postLink = '/blog/' + post.alias
-    this.routes[postLink] = { children: [<BlogPost article={ post } />], currentTitle: post.title + ' - Alumni Blog' }
+    this.routes[post.alias] = { children: [<BlogPost article={ post } />], currentTitle: post.title + ' - Alumni Blog' }
   }
+
+  for (var n in boardNews) {
+    var post = boardNews[n]
+    this.routes[post.alias] = { children: [<BlogPost article={ post } />], currentTitle: post.title + ' - Board News' }
+  }
+
 
   this.defaultRoute = {
     children: [<ErrorPage errorCode={404} />],

@@ -5,7 +5,7 @@ module.exports = {
   title: 'Ghosts that Haunt Me',
   date: 'December 15th, 2014',
   author: 'Omaina Aziz',
-  alias: 'ghosts-that-haunt-me',
+  alias: '/blog/ghosts-that-haunt-me',
   titleImage: '/media/blog/03-ghosts-that-haunt-me-title.jpg',
   preview: 'Moving is hard. You leave behind all you know and are comfortable with, all the people who know your quirks and your history, your favourite coffee place!, and all of this can quickly escalate into a spiral of depression and panic.',
   content: (

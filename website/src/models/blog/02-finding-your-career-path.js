@@ -5,7 +5,7 @@ module.exports = {
   title: 'Finding Your Career Path – For Now',
   date: 'December 13th, 2014',
   author: 'Victoria Rivera Marrero',
-  alias: 'finding-your-career-path',
+  alias: '/blog/finding-your-career-path',
   titleImage: '/media/blog/02-finding-your-career-path-title.jpg',
   preview: 'You don’t have to be a rocket scientist to know that deciding what you want to do for the rest of your life is no cakewalk. It is that big question that seems to plague us throughout and especially after college.',
   content: (

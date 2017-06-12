@@ -5,7 +5,7 @@ module.exports = {
   title: 'Neil D’souza’s thoughts on Charlie Hebdo and the Terrorists – This is not about Freedom of Expression',
   date: 'January 25th, 2015',
   author: 'Neil D\'Souza',
-  alias: 'freedom-of-expression-and-terrorism',
+  alias: '/blog/freedom-of-expression-and-terrorism',
   titleImage: '/media/blog/06-freedom-of-expression-and-terrorism-title.jpg',
   preview: 'There is no absolute freedom of expression – anywhere in the world. There are generally content and conduct exceptions that make this freedom practical for civil society.',
   content: (

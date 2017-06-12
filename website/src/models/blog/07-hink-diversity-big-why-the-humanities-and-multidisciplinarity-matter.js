@@ -5,7 +5,7 @@ module.exports = {
   title: 'Think Diversity Big – Why the Humanities and Multidisciplinarity Matter',
   date: 'February 5th, 2015',
   author: 'Suna Turhan',
-  alias: 'hink-diversity-big-why-the-humanities-and-multidisciplinarity-matter',
+  alias: '/blog/hink-diversity-big-why-the-humanities-and-multidisciplinarity-matter',
   titleImage: '/media/blog/07-hink-diversity-big-why-the-humanities-and-multidisciplinarity-matter-title.jpg',
   preview: 'At times, I am frustrated with my job search. No, not true. I am really good at researching job openings and interesting companies. Also, I am getting better and better at  selling myself – I mean selling my skills and talents and various qualifications and bla. The job search is not what I am frustrated with.',
   content: (

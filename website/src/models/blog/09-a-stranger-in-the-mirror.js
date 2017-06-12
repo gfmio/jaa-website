@@ -5,7 +5,7 @@ module.exports = {
   title: 'A Stranger in the Mirror',
   date: 'March 10th, 2015',
   author: 'Omaina Aziz',
-  alias: 'a-stranger-in-the-mirror',
+  alias: '/blog/a-stranger-in-the-mirror',
   titleImage: '/media/blog/09-a-stranger-in-the-mirror-title.jpg',
   preview: 'It is ironic that a nation which started a movement for Urdu that led to the creation of a new sovereign state would have a separate ethnic group called “Urdu Speaking People”. These are the people known for migrating to Pakistan, from Urdu speaking regions of India.',
   content: (

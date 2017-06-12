@@ -5,7 +5,7 @@ module.exports = {
   title: 'Miss Congeniality',
   date: 'January 14th, 2015',
   author: 'Omaina Aziz',
-  alias: 'miss-congeniality',
+  alias: '/blog/miss-congeniality',
   titleImage: '/media/blog/05-miss-congeniality-title.jpg',
   preview: 'The day had been particularly long. The commute to work had taken two hours in the interminable Shenzhen traffic; in the office, one problem after the other kept me occupied- payments were delayed, machines were broken, products were failing quality tests.',
   content: (

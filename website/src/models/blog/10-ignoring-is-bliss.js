@@ -5,7 +5,7 @@ module.exports = {
   title: 'Ignoring is Bliss',
   date: 'May 14th, 2015',
   author: 'Suna Turhan',
-  alias: 'ignoring-is-bliss',
+  alias: '/blog/ignoring-is-bliss',
   titleImage: '/media/blog/10-ignoring-is-bliss-title.jpg',
   preview: 'An essential technique in time management is one which people like you and me risk being scolded for: ignoring. A few weeks ago, I read a very interesting article in the Harvard Business Review on how “The Most Productive People Know Who to Ignore” by Ed Batista.',
   content: (

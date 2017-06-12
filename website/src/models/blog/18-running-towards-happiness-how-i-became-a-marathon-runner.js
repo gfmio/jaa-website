@@ -5,7 +5,7 @@ module.exports = {
   title: 'Running towards happiness – how I became a marathon runner',
   date: 'May 21st, 2017',
   author: 'Justas Balciunas',
-  alias: 'running-towards-happiness-how-i-became-a-marathon-runner',
+  alias: '/blog/running-towards-happiness-how-i-became-a-marathon-runner',
   titleImage: '/media/blog/18-running-towards-happiness-how-i-became-a-marathon-runner-title.jpg',
   preview: 'It is roughly over 10 years since I started running – or at least something close to running. Initially it was all about losing weight. So I started for 5-10 minutes at a time. Before I would run with my brother for about 30 minutes, but would feel like about to die afterwards.',
   content: (

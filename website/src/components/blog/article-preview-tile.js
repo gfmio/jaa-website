@@ -6,7 +6,7 @@ const Link = require('../uikit/link')
 module.exports = function(props, children) {
   var props = props || {}
 
-  var postLink = '/blog/' + props.article.alias
+  var postLink = props.article.alias
 
   return (
     <div class="uk-card uk-card-default">
@@ -22,7 +22,7 @@ module.exports = function(props, children) {
         </p>
 
         <p>
-          { props.article.preview }…
+          { props.article.preview } <Link class="uk-button uk-button-text" href={ postLink }>[…]</Link>
         </p>
         <p>
           <Link class="uk-button uk-button-text" href={ postLink }>Read more…</Link>

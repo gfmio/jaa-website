@@ -5,7 +5,7 @@ module.exports = {
   title: 'How I Met My Cousin',
   date: 'June 17th, 2015',
   author: 'Omaina Aziz',
-  alias: 'how-i-met-my-cousin',
+  alias: '/blog/how-i-met-my-cousin',
   titleImage: '/media/blog/12-how-i-met-my-cousin-title.jpg',
   preview: 'I have a close friend who is a US migrant. One of our favourite pastimes is to argue over the superiority of Europe to North America and vice versa. We dig up articles, send each other reports and news articles and butt heads – sometimes literally – over opinions.',
   content: (
