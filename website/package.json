@@ -19,7 +19,8 @@
   "homepage": "https://github.com/gfmio/jaa-website#readme",
   "dependencies": {
     "csam": "^0.1.4",
-    "csam-router": "^0.1.0"
+    "csam-router": "^0.1.0",
+    "object-assign": "^4.1.1"
   },
   "devDependencies": {
     "copy-webpack-plugin": "^4.0.1",

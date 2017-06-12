@@ -60,7 +60,12 @@ html, body, input, textarea, button {
 
 body {
   display: flex;
+
   flex: 1;
+  // -ms-flex: 1; // Doesn't work, so we hack our way around, by setting an invalid value
+  -ms-flex: none;
+  -webkit-flex: 1;
+
   min-height: 100vh;
   flex-direction: column;
 
@@ -70,6 +75,9 @@ body {
 
 .fill {
   flex: 1;
+  // -ms-flex: 1; // Doesn't work, so we hack our way around, by setting an invalid value
+  -ms-flex: none;
+  -webkit-flex: 1;
 }
 
 .uk-light {

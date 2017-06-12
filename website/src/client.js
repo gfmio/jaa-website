@@ -2,6 +2,10 @@
 // Client side script
 //
 
+if (Object.assign == undefined) {
+  Object.assign = require('object-assign')
+}
+
 Client = require('csam/lib/client')
 
 const main = function() {
