@@ -167,7 +167,7 @@ module.exports = function(props, children) {
       <h3>Application for President</h3>
       <ElectionApplication application={ applications["2016"].anne } />
 
-      <h3>Application for Vide-President</h3>
+      <h3>Application for Vice-President</h3>
       <ElectionApplication application={ applications["2016"].stefanR } />
 
       <h3>Application for Secretary</h3>
