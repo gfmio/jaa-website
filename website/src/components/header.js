@@ -75,6 +75,7 @@ module.exports = function(props, children) {
                     <li><Link href="/campus-news">Campus News</Link></li>
                     <li class="uk-nav-divider"></li>
                     <li class="uk-text-bold"><Link href="/homecoming">Homecoming</Link></li>
+                    <li><Link href="/homecoming/2017">Homecoming 2017</Link></li>
                     <li><Link href="/homecoming/2016">Homecoming 2016</Link></li>
                     <li><Link href="/homecoming/2015">Homecoming 2015</Link></li>
                     <li><Link href="/homecoming/2014">Homecoming 2014</Link></li>

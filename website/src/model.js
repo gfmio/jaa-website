@@ -39,9 +39,10 @@ const WhatWeDoPage = require('./components/pages/whatwedo')
   const NewsletterPage = require('./components/pages/whatwedo/newsletter')
   const CampusNewsPage = require('./components/pages/whatwedo/campusnews')
   const HomecomingPage = require('./components/pages/whatwedo/homecoming')
-    const Homecoming2016Page = require('./components/pages/whatwedo/homecoming2016')
-    const Homecoming2015Page = require('./components/pages/whatwedo/homecoming2015')
-    const Homecoming2014Page = require('./components/pages/whatwedo/homecoming2014')
+    const Homecoming2017Page = require('./components/pages/whatwedo/homecoming-2017')
+    const Homecoming2016Page = require('./components/pages/whatwedo/homecoming-2016')
+    const Homecoming2015Page = require('./components/pages/whatwedo/homecoming-2015')
+    const Homecoming2014Page = require('./components/pages/whatwedo/homecoming-2014')
   const AlumniProjectsPage = require('./components/pages/whatwedo/alumni-projects')
     const AlumniConsultingInitiativePage = require('./components/pages/whatwedo/alumni-consulting-initiative')
     const GenerationFundPage = require('./components/pages/whatwedo/generation-fund')
@@ -90,6 +91,7 @@ const model = function() {
       '/newsletter': { children: [<NewsletterPage />], currentTitle: 'Newsletter' },
       '/campus-news': { children: [<CampusNewsPage />], currentTitle: 'Campus News' },
       '/homecoming': { children: [<HomecomingPage />], currentTitle: 'Homecoming' },
+        '/homecoming/2017': { children: [<Homecoming2017Page />], currentTitle: 'Homecoming 2017' },
         '/homecoming/2016': { children: [<Homecoming2016Page />], currentTitle: 'Homecoming 2016' },
         '/homecoming/2015': { children: [<Homecoming2015Page />], currentTitle: 'Homecoming 2015' },
         '/homecoming/2014': { children: [<Homecoming2014Page />], currentTitle: 'Homecoming 2014' },
