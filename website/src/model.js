@@ -46,6 +46,9 @@ const WhatWeDoPage = require('./components/pages/whatwedo')
     const Homecoming2014Page = require('./components/pages/whatwedo/homecoming-2014')
   const AlumniProjectsPage = require('./components/pages/whatwedo/alumni-projects')
     const AlumniConsultingInitiativePage = require('./components/pages/whatwedo/alumni-consulting-initiative')
+      const JacobsFeedEpisode1Page = require('./components/pages/whatwedo/jacobs-feed/episode1')
+      const JacobsFeedEpisode2Page = require('./components/pages/whatwedo/jacobs-feed/episode2')
+      const JacobsFeedEpisode3Page = require('./components/pages/whatwedo/jacobs-feed/episode3')
     const GenerationFundPage = require('./components/pages/whatwedo/generation-fund')
     const AlumniScholarshipsPage = require('./components/pages/whatwedo/alumni-scholarships')
 
@@ -98,6 +101,9 @@ const model = function() {
         '/homecoming/2014': { children: [<Homecoming2014Page />], currentTitle: 'Homecoming 2014' },
       '/alumni-projects': { children: [<AlumniProjectsPage />], currentTitle: 'Alumni Projects' },
         '/alumni-projects/alumni-consulting-initiative': { children: [<AlumniConsultingInitiativePage />], currentTitle: 'Alumni Consulting Initiative' },
+          '/alumni-projects/alumni-consulting-initiative/jacobs-feed-episode-1': { children: [<JacobsFeedEpisode1Page />], currentTitle: 'Jacobs Feed Episode 1 - Alumni Consulting Initiative' },
+          '/alumni-projects/alumni-consulting-initiative/jacobs-feed-episode-2': { children: [<JacobsFeedEpisode2Page />], currentTitle: 'Jacobs Feed Episode 2 - Alumni Consulting Initiative' },
+          '/alumni-projects/alumni-consulting-initiative/jacobs-feed-episode-3': { children: [<JacobsFeedEpisode3Page />], currentTitle: 'Jacobs Feed Episode 3 - Alumni Consulting Initiative' },
         '/alumni-projects/generation-fund': { children: [<GenerationFundPage />], currentTitle: 'Generation Fund' },
         '/alumni-projects/alumni-scholarships': { children: [<AlumniScholarshipsPage />], currentTitle: 'Alumni Scholarships' },
 
