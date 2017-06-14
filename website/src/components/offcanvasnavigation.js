@@ -68,11 +68,11 @@ module.exports = function(props, children) {
                     <li><Link href="/homecoming/2014">Homecoming 2014</Link></li>
                   </ul>
                 </li>
-                <li><Link href="/alumni-board">Alumni Projects</Link>
+                <li><Link href="/alumni-projects">Alumni Projects</Link>
                   <ul class="uk-nav-sub">
-                    <li><Link href="/board-news">Alumni Consulting Initiative</Link></li>
-                    <li><Link href="/elections">Generation Fund</Link></li>
-                    <li><Link href="/class-reps">Alumni Scholarships</Link></li>
+                    <li><Link href="/alumni-projects/alumni-consulting-initiative">Alumni Consulting Initiative</Link></li>
+                    <li><Link href="/alumni-projects/generation-fund">Generation Fund</Link></li>
+                    <li><Link href="/alumni-projects/alumni-scholarships">Alumni Scholarships</Link></li>
                   </ul>
                 </li>
               </ul>
