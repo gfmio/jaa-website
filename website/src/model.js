@@ -14,6 +14,7 @@ const c = require('csam/lib/component')
 
 const blogPosts = require('./models/blog')
 const boardNews = require('./models/board-news')
+const campusNews = require('./models/campus-news')
 
 const Layout = require('./components/layout')
 const ErrorPage = require('./components/errorpage')
@@ -93,7 +94,7 @@ const model = function() {
 
     '/what-we-do': { children: [<WhatWeDoPage />], currentTitle: 'What we do' },
       '/newsletter': { children: [<NewsletterPage />], currentTitle: 'Newsletter' },
-      '/campus-news': { children: [<CampusNewsPage />], currentTitle: 'Campus News' },
+      '/campus-news': { children: [<CampusNewsPage articles={ campusNews } />], currentTitle: 'Campus News' },
       '/homecoming': { children: [<HomecomingPage />], currentTitle: 'Homecoming' },
         '/homecoming/2017': { children: [<Homecoming2017Page />], currentTitle: 'Homecoming 2017' },
         '/homecoming/2016': { children: [<Homecoming2016Page />], currentTitle: 'Homecoming 2016' },
@@ -108,7 +109,7 @@ const model = function() {
         '/alumni-projects/alumni-scholarships': { children: [<AlumniScholarshipsPage />], currentTitle: 'Alumni Scholarships' },
 
     '/get-involved': { children: [<GetInvolvedPage />], currentTitle: 'Get Involved!' },
-      '/alumni-chapters': { children: [<AlumniChapters />], currentTitle: '' },
+      '/alumni-chapters': { children: [<AlumniChapters />], currentTitle: 'Alumni Chapters' },
         '/alumni-chapters/what-is-an-alumni-chapter': { children: [<WhatIsAnAlumniChapterPage />], currentTitle: 'What is an alumni chapter?' },
         '/alumni-chapters/starting-a-chapter': { children: [<StartingAChapterPage />], currentTitle: 'Starting a Chapter' },
         '/alumni-chapters/faq': { children: [<ChapterFAQPage />], currentTitle: 'Alumni Chapters - FAQ' },
@@ -133,6 +134,11 @@ const model = function() {
   for (var n in boardNews) {
     var post = boardNews[n]
     this.routes[post.alias] = { children: [<BlogPost article={ post } />], currentTitle: post.title + ' - Board News' }
+  }
+
+  for (var n in campusNews) {
+    var post = campusNews[n]
+    this.routes[post.alias] = { children: [<BlogPost article={ post } />], currentTitle: post.title + ' - Campus News' }
   }
 
 
