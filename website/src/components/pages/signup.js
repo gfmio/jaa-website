@@ -60,9 +60,10 @@ const showForm = function(e) {
 const completeStep = function(n) {
   return function(e) {
     e.preventDefault()
-    var $child = $($('#tabList')[0].children[n])
-    $child.removeClass("uk-disabled").removeClass("uk-hidden")
-
+    // var $child = $($('#tabList')[0].children[n])
+    setTimeout(function(){
+      // UIkit.tab('#tabList').show(n)
+    }, 0)
     return false
   }
 }
