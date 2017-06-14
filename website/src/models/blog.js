@@ -17,5 +17,6 @@ module.exports = [
   require('./blog/15-losing-my-religion-part-1'),
   require('./blog/16-angry-losing-my-religion-part-2'),
   require('./blog/17-flower-power'),
-  require('./blog/18-running-towards-happiness-how-i-became-a-marathon-runner')
+  require('./blog/18-and-then-there-was-trump'),
+  require('./blog/19-running-towards-happiness-how-i-became-a-marathon-runner')
 ]
