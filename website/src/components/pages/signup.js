@@ -61,10 +61,10 @@ const completeStep = function(n) {
   return function(e) {
     e.preventDefault()
     var $child = $($('#tabList')[0].children[n])
-    $child.removeClass("uk-disabled").removeClass("uk-hidden")
-    setTimeout(function(){
-      UIkit.tab('#tabList').show(n)
-    }, 0)
+    // $child.removeClass("uk-disabled").removeClass("uk-hidden")
+    // setTimeout(function(){
+    //   UIkit.tab('#tabList').show(n)
+    // }, 0)
     return false
   }
 }
@@ -73,6 +73,8 @@ const formInfo = computeFormInfo(User)
 
 module.exports = function(props, children) {
   var props = props || {}
+
+  //        <a class="uk-button uk-button-primary" href="#" on={{ click: showForm }}>Get started</a>
 
   return (
     <article class="uk-article">
@@ -86,7 +88,11 @@ module.exports = function(props, children) {
           Students of the current graduating class can enjoy up to two years free membership, students of the previous graduating class can enjoy up to one years free membership and all other new alumni members enjoy 6 months free membership.
         </p>
         <div class="uk-margin">
-          <a class="uk-button uk-button-primary" href="#" on={{ click: showForm }}>Get started</a>
+          <p class="uk-text-lead">
+            <strong>
+              The registration is currently being upgraded. Please check back later today!
+            </strong>
+          </p>
         </div>
       </div>
 
