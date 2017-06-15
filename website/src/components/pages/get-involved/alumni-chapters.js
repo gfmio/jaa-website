@@ -1,5 +1,6 @@
 
 const c = require('csam/lib/component')
+const EmbedIFrame = require('../../uikit/embed-iframe')
 
 module.exports = function(props, children) {
   var props = props || {}
@@ -9,10 +10,7 @@ module.exports = function(props, children) {
       <h1 class="uk-article-title">Alumni Chapters</h1>
 
       <div class="uk-width-xlarge">
-        <div class="embed-container">
-          <iframe src="https://www.youtube.com/embed/yDAXfMEBrnI?enablejsapi=1" frameborder="0" allowfullscreen="allowfullscreen">
-          </iframe>
-        </div>
+        <EmbedIFrame src="https://www.youtube.com/embed/yDAXfMEBrnI?enablejsapi=1" />
       </div>
 
       <p>Alumni chapters are groups of alumni who share a common ground and come together to foster the Jacobs network. As such chapters form the hubs of the alumni network, where alumni not only stay in touch but also forge new connections. They are about keeping the spirit of our university alive by supporting each other a life long wherever we are on the globe. In this manner they also spread the name of our university all over the world. The common goals of all alumni chapters are the following.</p>
