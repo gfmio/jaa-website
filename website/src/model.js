@@ -64,6 +64,8 @@ const GetInvolvedPage = require('./components/pages/get-involved')
 const SignupPage = require('./components/pages/signup')
 const SignupCompletePage = require('./components/pages/signup-complete')
 
+const Form = require('./components/form')
+
 const PrivacyPage = require('./components/pages/privacy')
 const ImprintPage = require('./components/pages/imprint')
 
@@ -79,6 +81,7 @@ const model = function() {
 
   this.routes = {
     '/': { children: [<HomePage />], currentTitle: 'Home' },
+    '/sample': { children: [<Form />], currentTitle: 'Sample Form' },
 
     '/who-we-are': { children: [<WhoWeArePage />], currentTitle: 'Who we are' },
       '/alumni-association': { children: [<AlumniAssocationPage />], currentTitle: 'Alumni association' },

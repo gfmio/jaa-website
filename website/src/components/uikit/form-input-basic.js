@@ -42,7 +42,7 @@ module.exports = function(props, children) {
   props.type = props.type || 'text'
   props.label = props.label || props.placeholder || ''
   props.placeholder = props.placeholder || props.label || ''
-  props.value = props.value || ''
+  props.value = props.value || undefined
   props.validation = props.validation || {
     state: 'warning',
     alerts: [
@@ -163,7 +163,7 @@ module.exports = function(props, children) {
 
       for (var key in props.options) {
         options.push(<li>
-          <input class={ formElementClasses.join(' ') } type={ type } name={ props.name } placeholder={ props.placeholder } value={ key } on={{ change: onChangeHandler }} /> { props.options[key] }
+          <input class={ formElementClasses.join(' ') } type={ type } name={ props.name } placeholder={ props.placeholder } checked={ props.value == key ? true : false } value={ key } on={{ click: onChangeHandler }} /> { props.options[key] }
         </li>)
       }
 
