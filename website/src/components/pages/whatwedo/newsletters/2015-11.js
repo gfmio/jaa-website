@@ -119,35 +119,37 @@ module.exports = function(props, children) {
         <a href="https://drive.google.com/open?id=0B12tib4CBut4c3drcVFVUDVFaUk">https://drive.google.com/open?id=0B12tib4CBut4c3drcVFVUDVFaUk</a>
       </p>
 
-      <table class="uk-table uk-table-divider uk-width-auto">
-        <thead>
-          <tr>
-            <th class="uk-table-shrink">Tier</th>
-            <th class="uk-table-shrink">Attributes</th>
-            <th class="uk-table-shrink">Timing</th>
-            <th class="uk-table-shrink">Rates</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Alumni Starter</td>
-            <td class="uk-table-middle" rowspan="2"I>Google Apps, AlmaLink, Newsletters, Career Services, Job Postings, Library Resources</td>
-            <td>Annual for the first 2 years after graduating</td>
-            <td>Free</td>
-          </tr>
-          <tr>
-            <td>Alumni Contributor</td>
-            <td>Annual with the option to request free membership(plus possible Alumni Chapter Fees)</td>
-            <td>39 € = 1 coffee per month</td>
-          </tr>
-          <tr>
-            <td>Alumni Patron</td>
-            <td>the above + Invitation to Graduation & Patron’s Round Table, Engraved Brick & Special Mention</td>
-            <td>Annual (plus possible Alumni Chapter Fees)</td>
-            <td>249 € = 1 coffee per week</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="uk-overflow-auto">
+        <table class="uk-table uk-table-divider uk-width-auto">
+          <thead>
+            <tr>
+              <th class="uk-table-shrink">Tier</th>
+              <th class="uk-table-shrink">Attributes</th>
+              <th class="uk-table-shrink">Timing</th>
+              <th class="uk-table-shrink">Rates</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Alumni Starter</td>
+              <td class="uk-table-middle" rowspan="2"I>Google Apps, AlmaLink, Newsletters, Career Services, Job Postings, Library Resources</td>
+              <td>Annual for the first 2 years after graduating</td>
+              <td>Free</td>
+            </tr>
+            <tr>
+              <td>Alumni Contributor</td>
+              <td>Annual with the option to request free membership(plus possible Alumni Chapter Fees)</td>
+              <td>39 € = 1 coffee per month</td>
+            </tr>
+            <tr>
+              <td>Alumni Patron</td>
+              <td>the above + Invitation to Graduation & Patron’s Round Table, Engraved Brick & Special Mention</td>
+              <td>Annual (plus possible Alumni Chapter Fees)</td>
+              <td>249 € = 1 coffee per week</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
       <hr />
 

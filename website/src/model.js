@@ -41,10 +41,15 @@ const WhatWeDoPage = require('./components/pages/whatwedo')
   const NewsletterPage = require('./components/pages/whatwedo/newsletter')
   const CampusNewsPage = require('./components/pages/whatwedo/campusnews')
   const HomecomingPage = require('./components/pages/whatwedo/homecoming')
-    const Homecoming2017Page = require('./components/pages/whatwedo/homecoming-2017')
-    const Homecoming2016Page = require('./components/pages/whatwedo/homecoming-2016')
-    const Homecoming2015Page = require('./components/pages/whatwedo/homecoming-2015')
-    const Homecoming2014Page = require('./components/pages/whatwedo/homecoming-2014')
+    const Homecoming2017Page = require('./components/pages/whatwedo/homecoming/2017/overview')
+    const Homecoming2016Page = require('./components/pages/whatwedo/homecoming/2016/overview')
+      const Homecoming2016GAPage = require('./components/pages/whatwedo/homecoming/2016/general-assembly')
+      const Homecoming2016JacobsGivesPage = require('./components/pages/whatwedo/homecoming/2016/jacobs-gives')
+      const Homecoming2016PictureGalleryPage = require('./components/pages/whatwedo/homecoming/2016/picture-gallery')
+    const Homecoming2015Page = require('./components/pages/whatwedo/homecoming/2015/overview')
+      const Homecoming2015GAPage = require('./components/pages/whatwedo/homecoming/2015/general-assembly')
+      const Homecoming2015PictureGalleryPage = require('./components/pages/whatwedo/homecoming/2015/picture-gallery')
+    const Homecoming2014Page = require('./components/pages/whatwedo/homecoming/2014/general-assembly')
   const AlumniProjectsPage = require('./components/pages/whatwedo/alumni-projects')
     const AlumniConsultingInitiativePage = require('./components/pages/whatwedo/alumni-consulting-initiative')
       const JacobsFeedEpisode1Page = require('./components/pages/whatwedo/jacobs-feed/episode1')
@@ -101,8 +106,13 @@ const model = function() {
       '/homecoming': { children: [<HomecomingPage />], currentTitle: 'Homecoming' },
         '/homecoming/2017': { children: [<Homecoming2017Page />], currentTitle: 'Homecoming 2017' },
         '/homecoming/2016': { children: [<Homecoming2016Page />], currentTitle: 'Homecoming 2016' },
+          '/homecoming/2016/general-assembly': { children: [<Homecoming2016GAPage />], currentTitle: 'Homecoming 2016 - General Assembly' },
+          '/homecoming/2016/jacobs-gives': { children: [<Homecoming2016JacobsGivesPage />], currentTitle: 'Homecoming 2016 - #JacobsGives' },
+          '/homecoming/2016/picture-gallery': { children: [<Homecoming2016PictureGalleryPage />], currentTitle: 'Homecoming 2016 - Picture Gallery' },
         '/homecoming/2015': { children: [<Homecoming2015Page />], currentTitle: 'Homecoming 2015' },
-        '/homecoming/2014': { children: [<Homecoming2014Page />], currentTitle: 'Homecoming 2014' },
+          '/homecoming/2015/general-assembly': { children: [<Homecoming2015GAPage />], currentTitle: 'Homecoming 2015 - General Assembly' },
+          '/homecoming/2015/picture-gallery': { children: [<Homecoming2015PictureGalleryPage />], currentTitle: 'Homecoming 2015 - Picture Gallery' },
+        '/homecoming/2014': { children: [<Homecoming2014Page />], currentTitle: 'Homecoming 2014 - General Assembly' },
       '/alumni-projects': { children: [<AlumniProjectsPage />], currentTitle: 'Alumni Projects' },
         '/alumni-projects/alumni-consulting-initiative': { children: [<AlumniConsultingInitiativePage />], currentTitle: 'Alumni Consulting Initiative' },
           '/alumni-projects/alumni-consulting-initiative/jacobs-feed-episode-1': { children: [<JacobsFeedEpisode1Page />], currentTitle: 'Jacobs Feed Episode 1 - Alumni Consulting Initiative' },
