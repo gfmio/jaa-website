@@ -112,6 +112,10 @@ module.exports = function(props, children) {
       </div>
 
       <p>
+        Graduation pictures are available at <a href="http://shotby.zetta.photography/commencementportraits/">http://shotby.zetta.photography/commencementportraits/</a>. Find yourself and if you like your picture, please email us at graduation@zetta.photography and we’ll arrange for you to receive your picture.
+      </p>
+
+      <p>
         Contributor: Alumni Board
       </p>
       <p>

@@ -49,7 +49,8 @@ const WhatWeDoPage = require('./components/pages/whatwedo')
     const Homecoming2015Page = require('./components/pages/whatwedo/homecoming/2015/overview')
       const Homecoming2015GAPage = require('./components/pages/whatwedo/homecoming/2015/general-assembly')
       const Homecoming2015PictureGalleryPage = require('./components/pages/whatwedo/homecoming/2015/picture-gallery')
-    const Homecoming2014Page = require('./components/pages/whatwedo/homecoming/2014/general-assembly')
+    const Homecoming2014Page = require('./components/pages/whatwedo/homecoming/2014/overview')
+      const Homecoming2014GAPage = require('./components/pages/whatwedo/homecoming/2014/general-assembly')
   const AlumniProjectsPage = require('./components/pages/whatwedo/alumni-projects')
     const AlumniConsultingInitiativePage = require('./components/pages/whatwedo/alumni-consulting-initiative')
       const JacobsFeedEpisode1Page = require('./components/pages/whatwedo/jacobs-feed/episode1')
@@ -112,7 +113,8 @@ const model = function() {
         '/homecoming/2015': { children: [<Homecoming2015Page />], currentTitle: 'Homecoming 2015' },
           '/homecoming/2015/general-assembly': { children: [<Homecoming2015GAPage />], currentTitle: 'Homecoming 2015 - General Assembly' },
           '/homecoming/2015/picture-gallery': { children: [<Homecoming2015PictureGalleryPage />], currentTitle: 'Homecoming 2015 - Picture Gallery' },
-        '/homecoming/2014': { children: [<Homecoming2014Page />], currentTitle: 'Homecoming 2014 - General Assembly' },
+        '/homecoming/2014': { children: [<Homecoming2014Page />], currentTitle: 'Homecoming 2014' },
+          '/homecoming/2014/general-assembly': { children: [<Homecoming2014GAPage />], currentTitle: 'Homecoming 2014 - General Assembly' },
       '/alumni-projects': { children: [<AlumniProjectsPage />], currentTitle: 'Alumni Projects' },
         '/alumni-projects/alumni-consulting-initiative': { children: [<AlumniConsultingInitiativePage />], currentTitle: 'Alumni Consulting Initiative' },
           '/alumni-projects/alumni-consulting-initiative/jacobs-feed-episode-1': { children: [<JacobsFeedEpisode1Page />], currentTitle: 'Jacobs Feed Episode 1 - Alumni Consulting Initiative' },
