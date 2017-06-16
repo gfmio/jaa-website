@@ -43,6 +43,7 @@ module.exports = function(props, children) {
             <ul id="tabList" class="uk-tab uk-tab-left" uk-tab="connect: #form-steps">
               <li class="uk-active"><a href="#">J. Eduardo Marquez (‘11)</a></li>
               <li class=""><a href="#">Noor Cornelissen (‘13)</a></li>
+              <li class=""><a href="#">Chirin Khawatmi (‘10)</a></li>
             </ul>
           </div>
         </div>
@@ -139,6 +140,39 @@ module.exports = function(props, children) {
               <p>I am grateful for the people I met at Jacobs and the connections we established. Coming from a somewhat Utopian international high school (UWC), I was a bit scared that it could only go downhill from there. Fortunately, Jacobs offered a really wonderful, warm, and diverse community that made me feel at home very soon. My favorite memories include shisha nights at the Cottage and the silent disco outside at the pond.</p>
               <p><em>Interesting “Jacobs” fact about Noor</em></p>
               <p>I just spent a wonderful night in Kenya partying at the beach with five generations of Jacobs alumni. We were the only ones on the dance floor, having lots of fun, and looking quite ridiculous. When I closed my eyes, I felt like I could see the lime-green walls and the trash bag covered windows of H3.</p>
+            </li>
+            <li>
+              <h1 class="uk-article-title">Chirin Khawatmi (‘10)</h1>
+              <figure class="uk-padding-small uk-margin-remove" style={{ float: 'right' }}>
+                <img src="/media/who-we-are/Chirin_Khawatmi.jpg" alt="" />
+              </figure>
+              <p>
+                After graduating from Jacobs with a BSc in International Logistics, Chirin continued her higher education at Hult University, obtaining a Master’s in International Business. Further on, she was employed at Johnson &amp; Johnson as an Assistant Supply and Demand Planner, after which she decided to start up her own business, thus the beginnings of a new venture – Mama’s Box.
+              </p>
+              <p><strong>Current location:</strong> Dubai, United Arab Emirates</p>
+              <p><strong>Nationality</strong> Syrian</p>
+              <p><strong>Job title:</strong> Founder and Owner</p>
+              <p><strong>Current employer:</strong>
+                <a href="http://mamas-box.com/">
+                Mama’s Box
+                </a>
+              </p>
+              <p><em>What was your journey since you graduated from Jacobs?</em></p>
+              <p>I moved to Dubai to pursue my Masters, after graduation I worked for Johnson &amp; Johnson. I quit my job when I was pregnant to be able to take care of my baby since the maternity leave in the UAE is very short.  After having my second baby I decided to start my own business – a subscription box service for pregnant and new mothers in the UAE. This month the business turns one year old!</p>
+              <p><em>What is the story behind Mamas Box?</em></p>
+              <p>My experience of  living in Dubai away from family and having my two children very close in age inspired me to start Mama’s Box. Mama’s Box is basically a monthly box of surprise goodies and essentials customized to the mother’s pregnancy stage or her baby’s age and delivered to her doorstep monthly. It is a fantastic way for mothers to be introduced to new products and brands at just the right time and a great way for brands to allow mothers to test their products!</p>
+              <p><em>What plans do you have for the near future – for your business, as well as personal?</em></p>
+              <p>We aim to grow Mama’s Box as there is currently no other business that does what we do in the UAE. We also plan to expand in the ‘pregnancy’ sector as there is a lot of room for new ideas. In terms of personal plans – simply to focus on my two children and make the best of this special time with them!</p>
+              <p><em>What tips do you have for those who want to start their own business? </em></p>
+              <p>If you have an idea and you really believe in it, then just do it! Logically it made no sense that I start a business with a 1 year old and a newborn, but my instincts told me go for it and I am so glad I did. </p>
+              <p><em>Looking back, what do you miss most about Jacobs?</em></p>
+              <p>The people for sure!</p>
+              <p><em>What advice would you give to current Jacobs students?</em></p>
+              <p>Enjoy every second! Time flies and there is no experience like the Jacobs Experience!</p>
+              <p><em>One favorite Jacobs memory/ or one thing you are grateful for.</em></p>
+              <p>This may sound crazy – but I am grateful for how hard we were pushed! It has prepared me for life and made everything ahead seam a little easier. </p>
+              <p><em>Interesting fact about Chirin (&amp;Mama’s Box)</em></p>
+              <p>Mama’s Box has recently been nominated &amp; is shortlisted for Time Out Kids Family Entrepreneurial Award!</p>
             </li>
           </ul>
         </div>

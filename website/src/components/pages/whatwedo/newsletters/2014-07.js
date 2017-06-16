@@ -1,5 +1,6 @@
 
 const c = require('csam/lib/component')
+const EmbedIFrame = require('../../../uikit/embed-iframe')
 
 module.exports = function(props, children) {
   var props = props || {}
@@ -70,11 +71,17 @@ module.exports = function(props, children) {
         Welcome Graduates of Class 2014!
       </h2>
 
-      <div class="headerimg">
-        <img src="/wp-content/uploads/2015/03/news1.jpg" alt="" width="250" height="200" />
-        <img style="margin: 0 10px 0 10px;" src="/wp-content/uploads/2015/03/news2.jpg" alt="" width="250" height="200" />
-        <img src="/wp-content/uploads/2015/03/news3.jpg" alt="" width="250" height="200" />
-      </div>
+      <figure class="uk-grid uk-grid-small uk-child-width-1-3" uk-grid>
+        <div>
+          <img src="/media/newsletters/2014-07/news1.jpg" />
+        </div>
+        <div>
+          <img src="/media/newsletters/2014-07/news2.jpg" />
+        </div>
+        <div>
+          <img src="/media/newsletters/2014-07/news3.jpg" />
+        </div>
+      </figure>
 
       <p>
         Congratulations and a very warm-hearted welcome to a total of 386 new alumni! On Friday, June 6, 262 Bachelor, 70 Master and 54 PhD students received their diplomas at their graduation. An audience of more than 1,200 guests cheered for the Class of 2014 as President Katja Windt, and keynote speaker Angela Titzrath, Board Member for Human Resources of Deutsch Post DHL, congratulated the graduates on their achievements.
@@ -95,12 +102,13 @@ module.exports = function(props, children) {
         In typical Jacobs graduation tradition, the Bremen weather presented itself from its best side with clear blue skies and 28 degrees while the ceremony finished off with a well-attended reception in front of the IRC and a graduation ball that went on until the early morning hours.
       </p>
 
-      <div class="video rtecenter">
-        <iframe src="//www.youtube.com/embed/aEGXH6J9ja0?&amp;rel=0" width="853" height="480" frameborder="0">&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;lt;/div&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;gt;</iframe>
-      </div>
-
-      <div class="video rtecenter">
-        <iframe src="//www.youtube.com/embed/ifNQsarhNZw?&amp;rel=0" width="853" height="480" frameborder="0">&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;lt;/div&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;gt;</iframe>
+      <div class="uk-grid uk-grid-small" uk-grid>
+        <div class="uk-width-1-2@s">
+          <EmbedIFrame src="//www.youtube.com/embed/aEGXH6J9ja0?&amp;rel=0" />
+        </div>
+        <div class="uk-width-1-2@s">
+          <EmbedIFrame src="//www.youtube.com/embed/ifNQsarhNZw?&amp;rel=0" />
+        </div>
       </div>
 
       <p>
@@ -188,7 +196,7 @@ module.exports = function(props, children) {
         AlmaLink Update
       </h2>
       <figure>
-        <img style="float: right; height: 325px; margin: 5px; width: 280px;" src="/wp-content/uploads/2015/03/news4.jpg" alt="" />
+        <img src="/media/newsletters/2014-07/news4.jpg" alt="" />
       </figure>
       <p>
         AlmaLink Phase I is completed! And you’re looking at it right now : Previewed at the Jacobs University Foundation of America reunion at the end of April, the new version of AlmaLink officially went live under www.jacobs-alumni.de on Graduation day in June. The system, currently still under development, was presented to the freshest of graduates in Peter’s Alumni address at the end of the Graduation ceremony on campus.
@@ -224,7 +232,7 @@ module.exports = function(props, children) {
         Homecoming 2014
       </h2>
       <figure>
-        <img style="float: left; height: 215px; margin-left: 5px; margin-right: 5px; width: 348px;" src="/wp-content/uploads/2015/03/news5.jpg" alt="" />
+        <img src="/media/newsletters/2014-07/news5.jpg" alt="" />
         <figcaption>Remember the feeling of meeting an alumnus you hadn’t seen after a long time?</figcaption>
       </figure>
       <p>
@@ -279,7 +287,7 @@ module.exports = function(props, children) {
         Become an Alumni Blogger
       </h2>
       <figure>
-        <img style="float: right; height: 190px; margin: 5px 3px; width: 286px;" src="/wp-content/uploads/2015/03/news6.jpg" alt="" />
+        <img src="/media/newsletters/2014-07/news6.jpg" alt="" />
         <figcaption>Ever had to deal with a difficult boss and found a feasible solution?</figcaption>
       </figure>
       <p>
@@ -310,7 +318,7 @@ module.exports = function(props, children) {
         From Idea to Business: Entrepreneurs’ Day at Jacobs University
       </h2>
       <figure>
-        <img style="float: left; height: 199px; width: 197px; margin-right: 1%;" src="/wp-content/uploads/2015/03/news7.jpg" alt="" />
+        <img src="/media/newsletters/2014-07/news7.jpg" alt="" />
         <figcaption>
           A university is a melting pot of ideas. Some of them might be so enticing that those first thoughts soon take on shape: a student project turned into a business. At the first Entrepreneurs’ Day at Jacobs University students and alumni have had the chance to present a number of different projects. The Entrepreneur’s Day offered the opportunity for future business founders to enter into a dialogue with potential partners and experts. The start-up founders could have their business model evaluated and got tips how to possibly optimize their solutions and market them effectively.
         </figcaption>
@@ -384,7 +392,7 @@ module.exports = function(props, children) {
         Two years later, in September 2001, Jacobs University – then called International University Bremen – opened, just days after the 9/11 attack in America. The effects of 9/11 created great uncertainty that lasted for many years in Europe as well as in the United States.
       </p>
       <figure>
-        <img style="float: right; height: 210px; margin: 3px 4px; width: 316px;" src="/wp-content/uploads/2015/03/news8.jpg" alt=""/>
+        <img src="/media/newsletters/2014-07/news8.jpg" alt=""/>
         <figcaption>
           The uncertainty made it difficult to get the attention of potential benefactors. It was a difficult time to be raising money, no matter how promising the hopes for the new university might be. In America, which has a tradition of educational and international philanthropy, all eyes were turned inward and wallets were closed. In Bremen, which had no tradition of private philanthropy for education, many potential benefactors and the general public were hostile to the new institution which they saw as elitist and in potential competition with the older, established, University of Bremen. Although the people of Bremen relied on and rewarded elitism in their football team, they objected to it in education. Others failed to see the need for the new style of education that Jacobs represented, or saw its internationalism as a threat.
         </figcaption>
@@ -405,7 +413,7 @@ module.exports = function(props, children) {
       <hr />
 
       <figure>
-        <img dir="ltr" style="float: left; height: 275px; width: 208px; margin-right: 1%;" src="/wp-content/uploads/2015/03/news9.jpg" alt="" />
+        <img src="/media/newsletters/2014-07/news9.jpg" alt="" />
       </figure>
       <p>
         In the meantime, the growing number of alumni of Jacobs University have gone on to prestigious graduate schools and to significant positions in corporations; the faculty have succeeded in winning an ever-growing number of research contracts and grants; and students from more than 100 countries rate Jacobs University highly and testify to the effectiveness of its educational programs.
@@ -431,7 +439,7 @@ module.exports = function(props, children) {
         Announcement of the Alumni Board Meeting in Augus
       </h2>
       <figure>
-        <img style="float: right; height: 256px; margin: 3px 6px; width: 380px;" src="/wp-content/uploads/2015/03/news10.jpg" alt="" />
+        <img src="/media/newsletters/2014-07/news10.jpg" alt="" />
         <figcaption>
           The Alumni Board will get together for its second meeting of 2014 on the 9th and 10th of August.
         </figcaption>
