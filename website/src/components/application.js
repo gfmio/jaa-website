@@ -17,17 +17,17 @@ module.exports = function(props, children) {
       <meta name="description" content={ props.description } />
       <meta name="keywords" content={ props.keywords.join(',') } />
 
-      <link href="/css/style.css" media="all" rel="stylesheet" />
+      <link href="/css/styles.min.css" media="all" rel="stylesheet" />
       <link rel="icon" type="image/png" href="/media/favicon.png" />
       <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i&amp;subset=cyrillic,cyrillic-ext,latin-ext" rel="stylesheet" />
     </head>
     <body>
       { children }
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" async></script>
-      <script src="/js/uikit.min.js" type="text/javascript" async></script>
-      <script src="/js/uikit-icons.min.js" type="text/javascript" async></script>
-      <script src="/js/app.js" type="text/javascript" async></script>
-      <script type="text/javascript" src="/js/ga.js" async></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="/js/uikit.min.js" type="text/javascript"></script>
+      <script src="/js/uikit-icons.min.js" type="text/javascript"></script>
+      <script src="/js/app.js" type="text/javascript"></script>
+      <script type="text/javascript" src="/js/ga.js"></script>
     </body>
   </html>
 }

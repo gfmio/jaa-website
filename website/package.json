@@ -5,7 +5,9 @@
   "main": "dist/server.js",
   "scripts": {
     "start": "node dist/server.js",
-    "watch": "nodemon dist/server.js"
+    "watch": "concurrently 'webpack --watch' 'nodemon --delay 2 dist/server.js'",
+    "build": "webpack --display-error-details",
+    "build:watch": "webpack --watch"
   },
   "repository": {
     "type": "git",
@@ -23,8 +25,15 @@
     "object-assign": "^4.1.1"
   },
   "devDependencies": {
+    "concurrently": "^3.5.0",
     "copy-webpack-plugin": "^4.0.1",
+    "css-loader": "^0.28.4",
+    "extract-text-webpack-plugin": "^2.1.2",
     "jsx-transform-2-loader": "^1.0.2",
+    "node-sass": "^4.5.3",
+    "nodemon": "^1.11.0",
+    "optimize-css-assets-webpack-plugin": "^2.0.0",
+    "sass-loader": "^6.0.6",
     "webpack": "^2.5.1"
   }
 }

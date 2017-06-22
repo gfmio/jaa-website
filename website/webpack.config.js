@@ -2,6 +2,9 @@ const webpack = require('webpack');
 
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const jsxtransform = require('jsx-transform');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+
 
 module.exports = {
   context: __dirname + '/src',
@@ -15,7 +18,7 @@ module.exports = {
       // This is required for older versions of webpack-dev-server
       // if you use absolute 'to' paths. The path should be an
       // absolute path to your build destination.
-      outputPath: __dirname + '/dist'
+      publicPath: "./dist/public/"
   },
   module: {
     loaders: [
@@ -26,10 +29,21 @@ module.exports = {
           factory: 'c'
         },
         loader: 'jsx-transform-2-loader'
+      },
+      {
+        test: /\.scss$/,
+        use: ExtractTextPlugin.extract({
+                use: [{
+                        loader: "css-loader"
+                      }, {
+                        loader: "sass-loader"
+                      }]
+              })
       }
     ]
   },
   plugins: [
+    new ExtractTextPlugin('./dist/public/css/styles.min.css'),
     new CopyWebpackPlugin([{
       from: './**/*',
       to: './dist',
@@ -38,9 +52,6 @@ module.exports = {
           factory: 'c'
         });
       }
-    }, {
-      from: '../public/css/style.css',
-      to: './dist/public/css/style.css'
     }, {
       from: '../public/media/**/*',
       to: './dist/media'
@@ -57,6 +68,10 @@ module.exports = {
     new webpack.optimize.UglifyJsPlugin({
       minimize: false,
       compress: { warnings: false }
+    }),
+    new OptimizeCssAssetsPlugin({
+      assetNameRegExp: /\.min\.css$/,
+      cssProcessorOptions: { discardComments: { removeAll: true } }
     })
   ]
 };

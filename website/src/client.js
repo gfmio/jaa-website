@@ -5,7 +5,7 @@
 if (Object.assign == undefined) {
   Object.assign = require('object-assign')
 }
-
+require('../public/scss/style.scss');
 Client = require('csam/lib/client')
 
 const main = function() {
