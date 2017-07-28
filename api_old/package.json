@@ -1,0 +1,30 @@
+{
+  "name": "jaa-api",
+  "version": "0.1.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "watch": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gfmio/jaa-website.git"
+  },
+  "author": "Frédérique Mittelstaedt <frederique@gfm.io> (https://www.gfm.io)",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/gfmio/jaa-website/issues"
+  },
+  "homepage": "https://github.com/gfmio/jaa-website#readme",
+  "dependencies": {
+    "compression": "^1.6.2",
+    "csam-api": "^0.1.0",
+    "express": "^4.15.3",
+    "googleapis": "^20.0.1",
+    "mongoose": "^4.10.0",
+    "mongoose-type-email": "^1.0.5",
+    "mongoose-type-url": "^1.0.2",
+    "passport-google-oauth20": "^1.0.0"
+  }
+}

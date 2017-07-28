@@ -3,18 +3,18 @@
 //
 
 const config = {
-  host: process.env.HOST || '0.0.0.0',
-  port: process.env.PORT || 3000,
+  host: process.env.HOST || 'localhost',
+  port: process.env.PORT || 3001,
   printLog: true,
 
   mongoDB: {
-    host: process.env.MONGODB_HOST || '0.0.0.0',
+    host: process.env.MONGODB_HOST || 'localhost',
     port: process.env.MONGODB_PORT || 27017,
     database: process.env.MONGODB_DATABASE || 'test',
     options: {}
   }, // see also http://mongoosejs.com/docs/connections.html
   redis: {
-    host: process.env.REDIS_HOST || '0.0.0.0',
+    host: process.env.REDIS_HOST || 'localhost',
     port: process.env.REDIS_PORT || 6379
   },
   session: {

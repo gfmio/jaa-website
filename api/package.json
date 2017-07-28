@@ -1,27 +1,52 @@
 {
   "name": "jaa-api",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "description": "",
-  "main": "server.js",
+  "main": "dist/app.js",
   "scripts": {
-    "start": "node server.js",
-    "watch": "nodemon server.js"
+    "build": "./node_modules/.bin/tsc --strict",
+    "build:watch": "./node_modules/.bin/tsc -w --strict",
+    "clean": "rm -rf ./lib ./docs",
+    "clean:docs": "rm -rf ./docs",
+    "clean:dist": "rm -rf ./dist",
+    "docs": "./node_modules/.bin/typedoc --theme default --name CSAM documentation --out ./docs ./src/**/*.ts",
+    "lint": "./node_modules/.bin/tslint -c tslint.json 'src/**/*.ts'",
+    "start": "node dist/app.js",
+    "start:watch": "nodemon --delay 2 dist/app.js",
+    "watch": "concurrently --kill-others \"npm run build:watch\" \"npm run start:watch\""
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/gfmio/jaa-website.git"
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/body-parser": "^1.16.4",
+    "@types/compression": "0.0.33",
+    "@types/express": "^4.0.36",
+    "@types/mongoose": "^4.7.19",
+    "@types/node": "^8.0.17",
+    "@types/passport": "^0.3.3",
+    "@types/redis": "^2.6.0",
+    "concurrently": "^3.5.0",
+    "nodemon": "^1.11.0",
+    "tslint": "^5.4.3",
+    "typedoc": "^0.7.1"
   },
-  "author": "Frédérique Mittelstaedt <frederique@gfm.io> (https://www.gfm.io)",
-  "license": "UNLICENSED",
-  "bugs": {
-    "url": "https://github.com/gfmio/jaa-website/issues"
-  },
-  "homepage": "https://github.com/gfmio/jaa-website#readme",
   "dependencies": {
-    "csam-api": "^0.1.0",
-    "mongoose": "^4.10.0",
+    "body-parser": "^1.17.2",
+    "compression": "^1.7.0",
+    "connect-redis": "^3.3.0",
+    "express": "^4.15.3",
+    "express-session": "^1.15.4",
+    "googleapis": "^20.1.0",
+    "jwt-redis-session": "^1.0.5",
+    "mongoose": "^4.11.4",
     "mongoose-type-email": "^1.0.5",
     "mongoose-type-url": "^1.0.2",
-    "passport-google-oauth20": "^1.0.0"
+    "nodemailer": "^4.0.1",
+    "nodemailer-html-to-text": "^2.1.0",
+    "passport": "^0.3.2",
+    "passport-google-oauth20": "^1.0.0",
+    "performance-now": "^2.1.0",
+    "redis": "^2.7.1",
+    "stripe": "^4.23.1"
   }
 }
