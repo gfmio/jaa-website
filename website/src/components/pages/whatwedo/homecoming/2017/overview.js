@@ -9,7 +9,7 @@ const InputWrapper = require('../../../../uikit/form-components').InputWrapper;
 module.exports = function(props, children) {
   var props = props || {}
 
-  let payButtonInitialised = false;
+  var payButtonInitialised = false;
 
   const ticketModel = {
     basicAmount: 0,
