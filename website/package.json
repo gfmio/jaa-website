@@ -1,7 +1,7 @@
 {
   "name": "jaa-website",
   "version": "0.1.0",
-  "description": "JAA website draft",
+  "description": "JAA website",
   "main": "dist/server.js",
   "scripts": {
     "start": "node dist/server.js",

@@ -27,7 +27,8 @@ module.exports = function(props, children) {
       <script src="/js/uikit.min.js" type="text/javascript"></script>
       <script src="/js/uikit-icons.min.js" type="text/javascript"></script>
       <script src="/js/app.js" type="text/javascript"></script>
-      <script type="text/javascript" src="/js/ga.js"></script>
+      <script src="/js/ga.js" type="text/javascript"></script>
     </body>
   </html>
 }
+//       <script src="https://js.stripe.com/v3/" type="text/javascript"></script>
