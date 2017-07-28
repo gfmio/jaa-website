@@ -4,8 +4,113 @@ const c = require('csam/lib/component')
 const Link = require('../../../../uikit/link')
 const EmbedIFrame = require('../../../../uikit/embed-iframe')
 
+const InputWrapper = require('../../../../uikit/form-components').InputWrapper;
+
 module.exports = function(props, children) {
   var props = props || {}
+
+  let payButtonInitialised = false;
+
+  const ticketModel = {
+    basicAmount: 0,
+    halfAmount: 0,
+    fullAmount: 0,
+    brunchAmount: 0,
+  };
+
+  const initialisePayButton = function() {
+    var handler = window.StripeCheckout.configure({
+      key: 'pk_test_0ljYtCT6Wb27hvSgVxZ0Ztn4',
+      image: '/media/favicon.png',
+      locale: 'auto',
+      token: function(token) {
+        console.log(token);
+
+        const ticketStrings = []
+        if (ticketModel.basicAmount > 0) {
+          ticketStrings.push(ticketModel.basicAmount.toString() + "x Basic");
+        }
+        if (ticketModel.halfAmount > 0) {
+          ticketStrings.push(ticketModel.halfAmount.toString() + "x Half");
+        }
+        if (ticketModel.fullAmount > 0) {
+          ticketStrings.push(ticketModel.fullAmount.toString() + "x Full");
+        }
+        if (ticketModel.brunchAmount > 0) {
+          ticketStrings.push(ticketModel.brunchAmount.toString() + "x Brunch Only");
+        }
+
+        $("#homecoming-2017-purchase-complete-message")[0].innerText = "Your ticket purchase (" + ticketStrings.join(", ") + ") for Homecoming 2017 was successful."
+        $("#homecoming-2017-ticket-shop").fadeOut().addClass("uk-hidden");
+        $("#homecoming-2017-purchase-complete-wrapper").hide().removeClass("uk-hidden").fadeIn();
+
+        // You can access the token ID with `token.id`.
+        // Get the token ID to your server-side code for use.
+      }
+    });
+
+    document.getElementById('payButton').addEventListener('click', function(e) {
+      const ticketStrings = []
+      if (ticketModel.basicAmount > 0) {
+        ticketStrings.push(ticketModel.basicAmount.toString() + "x Basic");
+      }
+      if (ticketModel.halfAmount > 0) {
+        ticketStrings.push(ticketModel.halfAmount.toString() + "x Half");
+      }
+      if (ticketModel.fullAmount > 0) {
+        ticketStrings.push(ticketModel.fullAmount.toString() + "x Full");
+      }
+      if (ticketModel.brunchAmount > 0) {
+        ticketStrings.push(ticketModel.brunchAmount.toString() + "x Brunch Only");
+      }
+
+      const description = "Homecoming tickets \n(" + ticketStrings.join(", ") + ")"
+
+      // Open Checkout with further options:
+      handler.open({
+        name: 'Jacobs Alumni Association',
+        description: description,
+        // email: "fred@jacobs-alumni.de",
+        zipCode: false,
+        currency: 'eur',
+        amount: calcPrice(ticketModel) * 100
+      });
+      e.preventDefault();
+    });
+
+    // Close Checkout on page navigation:
+    window.addEventListener('popstate', function() {
+      handler.close();
+    });
+
+    payButtonInitialised = true;
+  }
+
+  const updateTicketAmounts = function(e) {
+    ticketModel.basicAmount = document.getElementById("basicAmountInput").valueAsNumber || 0;
+    ticketModel.halfAmount = document.getElementById("halfAmountInput").valueAsNumber || 0;
+    ticketModel.fullAmount = document.getElementById("fullAmountInput").valueAsNumber || 0;
+    ticketModel.brunchAmount = document.getElementById("brunchAmountInput").valueAsNumber || 0;
+    const totalAmount = calcPrice(ticketModel);
+    document.getElementById("totalAmount").innerText = totalAmount.toFixed(2);
+
+    if (!payButtonInitialised) {
+      initialisePayButton()
+    }
+
+    if (totalAmount > 0) {
+      $("#payButtonWrapper").removeClass("uk-hidden").show();
+    } else {
+      $("#payButtonWrapper").hide().addClass("uk-hidden");
+    }
+  }
+
+  const calcPrice = function(ticketModel) {
+    return ticketModel.basicAmount * 15 +
+           ticketModel.halfAmount * 45 +
+           ticketModel.fullAmount * 75 +
+           ticketModel.brunchAmount * 8.50;
+  }
 
   return (
     <article class="uk-article">
@@ -156,7 +261,7 @@ module.exports = function(props, children) {
         <li>Jacobs Games schedule: TBD</li>
       </ul>
 
-      <h2>Ticket Shop</h2>
+      <h2>Ticket Infos</h2>
       <p>
         Welcome to the Homecoming Ticket Shop! We look forward to seeing you on campus this year to reunite, reminisce and relive.
       </p>
@@ -208,7 +313,7 @@ module.exports = function(props, children) {
         <li>Reunion dinner and drinks</li>
       </ul>
 
-      <h4>Optional: “Brunch, Baby”</h4>
+      <h4>Brunch Only Ticket: “Brunch, Baby”</h4>
       <p><strong>8,50 €</strong></p>
       <p>
         You can add this item to all three of the above Options. The Farewell Brunch will take place at the College III servery and round up your Homecoming weekend, just like in the good old days.
@@ -217,6 +322,42 @@ module.exports = function(props, children) {
       <ul>
         <li>Brunch on Sunday morning</li>
       </ul>
+
+      <hr/>
+
+      <div id="homecoming-2017-ticket-shop">
+        <h3>Ticket Shop</h3>
+
+        <form>
+          <InputWrapper name="basic" label="Basic Ticket – „Just Dance!“ 15 €" alerts={[]}>
+            <input class="uk-input" type="number" id="basicAmountInput" name="basic" min="0" value="0" on={{ change: updateTicketAmounts, click: updateTicketAmounts }} />
+          </InputWrapper>
+          <InputWrapper name="half" label="Half Ticket – „Sweet Saturday“ 45 €" alerts={[]}>
+            <input class="uk-input" type="number" id="halfAmountInput" name="half" min="0" value="0" on={{ change: updateTicketAmounts, click: updateTicketAmounts }} />
+          </InputWrapper>
+          <InputWrapper name="full" label="Full Ticket – „Gimme Everything” 75 €" alerts={[]}>
+            <input class="uk-input" type="number" id="fullAmountInput" name="full" min="0" value="0" on={{ change: updateTicketAmounts, click: updateTicketAmounts }} />
+          </InputWrapper>
+          <InputWrapper name="brunch" label="Brunch Only Ticket - “Brunch, Baby” 8,50 €" alerts={[]}>
+            <input class="uk-input" type="number" id="brunchAmountInput" name="brunch" min="0" value="0" on={{ change: updateTicketAmounts, click: updateTicketAmounts }} />
+          </InputWrapper>
+
+          <p>
+            <strong>TOTAL: <span id="totalAmount">0.00</span> €</strong>
+          </p>
+          <div id="payButtonWrapper" class="uk-hidden">
+            <button id="payButton" class="uk-button uk-button-primary">Purchase tickets</button>
+          </div>
+        </form>
+      </div>
+      <div id="homecoming-2017-purchase-complete-wrapper" class="uk-hidden">
+        <h1 class="uk-text-primary">You're coming to Homecoming 2017!</h1>
+        <p class="uk-text-lead" id="homecoming-2017-purchase-complete-message">
+        </p>
+        <p class="uk-text-lead">We're looking forward to having you join us!</p>
+        <p class="uk-text-lead">See you in September!</p>
+      </div>
+      <script src="https://checkout.stripe.com/checkout.js"></script>
     </article>
   )
 }
