@@ -75,7 +75,7 @@ module.exports = function(props, children) {
         <strong>I’m having trouble to log in. How do I set up a new account or reset my password?</strong>
       </p>
       <p>
-        If you are unsure about your log in details, make sure you type in your username as ppan@jacobs-alumni.de (for Peter Pan) as well as trying to log in on mail.jacobs-alumni.de first, before getting in touch with us via support@jacobs-alumni.de. We can then send you your username and new password. If you are still experiencing any trouble, you can make your reservation via e-mail to <a href="mailto:homecoming@jacobs-alumni.de">homecoming@jacobs-alumni.de</a>. [Need to double check process with Fred]
+        If you are unsure about your log in details, make sure you type in your username as ppan@jacobs-alumni.de (for Peter Pan) as well as trying to log in on mail.jacobs-alumni.de first, before getting in touch with us via support@jacobs-alumni.de. We can then send you your username and new password. If you are still experiencing any trouble, you can make your reservation via e-mail to <a href="mailto:homecoming@jacobs-alumni.de">homecoming@jacobs-alumni.de</a>.
       </p>
       <p>
         <strong>I am not part of Class of 2007 or 2012. Can I still join the event?</strong>
@@ -123,7 +123,7 @@ module.exports = function(props, children) {
         <strong>Can I cancel my ticket purchases?</strong>
       </p>
       <p>
-        Please refer to our cancellation policy to be found here [same but need to update dates].
+        All tickets are fully refundable before the end of the sales period on September 17. After the salse period ends, only 50% of the ticket price will be refunded upon cancellation. There will be a late registration phase on Thursday, September 21, 12pm CET till Friday, September 22, 3pm. No refunds will be given upon cancellation of late registrations.
       </p>
       <p>
         <strong>Can I get accommodation on campus?</strong>
@@ -143,12 +143,6 @@ module.exports = function(props, children) {
       <p>
         The Welcome Packages will be ready in the foyer of the foyer of the university Campus Center. If you are arriving late, you can also pick them up Saturday during the Chill&Grill-BBQ. The package will include your wristband for the BBQ, Gala Dinner and party, meal vouchers, prints of all schedules.
       </p>
-      <p>
-        <strong>When and how can I buy Jacobs merchandise?</strong>
-      </p>
-      <p>
-        You can find the opening times and the location of the campus store in the agenda. The store accepts cash (Euro) and credit
-      cards.</p>
 
       <h2>At a Glance</h2>
       <ul>
