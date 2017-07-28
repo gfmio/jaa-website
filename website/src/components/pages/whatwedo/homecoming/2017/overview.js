@@ -25,7 +25,7 @@ module.exports = function(props, children) {
       <h2>Ticket sales</h2>
 
       <p>
-        The ticket sales will be opened from July 28th onwards. There are three ticket options – from the full package to the basic ticket for just a few Euros. Unfortunately, there will be no rooms to stay on campus this year because of a very big incoming Class of 2020. <strong>To facilitate your stay in Bremen, we have blocked a number of rooms at local hotels in Bremen Nord or downtown.</strong> You can find all information <a target="_blank" href="">here</a>. To purchase tickets, make sure you have access to your Jacobs-Alumni account! If you run into any trouble, contact our IT-volunteers via <a href="mailto:support@jacobs-alumni.de">support@jacobs-alumni.de</a> – or ask a registered friend to buy tickets for you.
+        The ticket sales will be opened from July 28th onwards. There are three ticket options – from the full package to the basic ticket for just a few Euros. Unfortunately, there will be no rooms to stay on campus this year because of a very big incoming Class of 2020. <strong>To facilitate your stay in Bremen, we have blocked a number of rooms at local hotels in Bremen Nord or downtown.</strong> You can find all information <a target="_blank" href="/media/what-we-do/homecoming/2017/HC 2017 - Hotels Overview.pdf">here</a>. To purchase tickets, make sure you have access to your Jacobs-Alumni account! If you run into any trouble, contact our IT-volunteers via <a href="mailto:support@jacobs-alumni.de">support@jacobs-alumni.de</a> – or ask a registered friend to buy tickets for you.
       </p>
 
       <h2>Career Symposium</h2>
@@ -93,7 +93,7 @@ module.exports = function(props, children) {
         <strong>Will there be any sports activities?</strong>
       </p>
       <p>
-        We are lucky to have Olympix – now “Jacobs Games” – taking place on the same weekend as Homecoming. Alumni are invited to join the “graduate teams” and be once again part of this crazy competition. Sports alumni can join are the following: Basketball, Football, Dodgeball, Volleyball, Tug of War, E-sports. You may already voice your interested in joining any sport by writing to <a href="mailto:homecoming@jacobs-alumni.de">homecoming@jacobs-alumni.de</a> but we will also send out a survey for this purpose closer to the events once also the grad captains are settled. The main venue of the Jacobs Games will be the Sports and Convention Center, where there are also showers available. A detailed schedule of the event can be found here [add link to pdf] and at the bottom of this page. One event that we would like to point out here, though, is the Cheerleading Finale right after the Gala Dinner on Saturday. An alumni group will be performing (out of competition), too!
+        We are lucky to have Olympix – now “Jacobs Games” – taking place on the same weekend as Homecoming. Alumni are invited to join the “graduate teams” and be once again part of this crazy competition. Sports alumni can join are the following: Basketball, Football, Dodgeball, Volleyball, Tug of War, E-sports. You may already voice your interested in joining any sport by writing to <a href="mailto:homecoming@jacobs-alumni.de">homecoming@jacobs-alumni.de</a> but we will also send out a survey for this purpose closer to the events once also the grad captains are settled. The main venue of the Jacobs Games will be the Sports and Convention Center, where there are also showers available. A detailed schedule of the event can be found at the bottom of this page when it becomes available. One event that we would like to point out here, though, is the Cheerleading Finale right after the Gala Dinner on Saturday. An alumni group will be performing (out of competition), too!
       </p>
       <p>
         <strong>Where can I RSVP for Homecoming and check who else is coming?</strong>
@@ -155,7 +155,7 @@ module.exports = function(props, children) {
         <li>Dates: 22nd – 24th September, 2017</li>
         <li>Registration: Until September 17th, 2017 (full refund only when cancelled before)</li>
         <li>Facebook event: <Link href="https://www.facebook.com/events/301778486904583/">https://www.facebook.com/events/301778486904583</Link></li>
-        <li>Accommodation: On-campus housing not available. List of local hotels here [add link to PDF].</li>
+        <li>Accommodation: On-campus housing not available. List of local hotels <a href="/media/what-we-do/homecoming/2017/HC 2017 - Hotels Overview.pdf" target="_blank">here</a>.</li>
         <li>Open lectures schedules: TBD</li>
         <li>Career Symposium: <Link href="https://jacobs-career-symplosium-2017.eventbrite.co.uk/">Separate registration necessary</Link></li>
         <li>General Assembly: TBD</li>
@@ -176,7 +176,7 @@ module.exports = function(props, children) {
         Please note that in order to be able to purchase tickets, you must be a registered member of the Alumni Association (see FAQs for more details).
       </p>
 
-      <h3>Product descriptions:</h3>
+      <h3>Ticket options</h3>
 
       <h4>Basic Ticket – „Just Dance!“</h4>
       <p><strong>15 €</strong></p>
@@ -202,7 +202,7 @@ module.exports = function(props, children) {
       </ul>
 
       <h4>Full Ticket – „Gimme Everything”</h4>
-      <p>75 €</p>
+      <p><strong>75 €</strong></p>
       <p>
         Here’s the full package. Everything. Schedule a few extra sessions at the gym, because you will eat a lot. Treat yourself to the three-course seated Gala Dinner including a very fine selection of red and white wine, enjoy the Homecoming BBQ, and forget the stress of a busy work week over drinks and funky dance moves at TheOtherSide for Saturday night’s Homecoming Party. And if you like, your Sunday morning hangover will be cured by the full-range brunch (optional, not included in the price) at the College III Servery, just like in the good old days.
       </p>
@@ -215,7 +215,7 @@ module.exports = function(props, children) {
       </ul>
 
       <h4>Optional: “Brunch, Baby”</h4>
-      <p>8,50 €</p>
+      <p><strong>8,50 €</strong></p>
       <p>
         You can add this item to all three of the above Options. The Farewell Brunch will take place at the College III servery and round up your Homecoming weekend, just like in the good old days.
       </p>

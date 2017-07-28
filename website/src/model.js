@@ -19,7 +19,7 @@ const campusNews = require('./models/campus-news')
 const Layout = require('./components/layout')
 const ErrorPage = require('./components/errorpage')
 const HomePage = require('./components/homepage')
-const Shop = require('./components/shop/shop')
+// const Shop = require('./components/shop/shop')
 const Blog = require('./components/blog/blog')
 const BlogPost = require('./components/blog/article')
 
@@ -132,7 +132,7 @@ const model = function() {
       '/alumni-office': { children: [<AlumniOfficePage />], currentTitle: 'Alumni Office' },
 
     '/blog': { children: [<Blog articles={ blogPosts } />], currentTitle: 'Alumni Blog' },
-    '/shop': { children: [<Shop />], currentTitle: 'Online Shop' },
+    // '/shop': { children: [<Shop />], currentTitle: 'Online Shop' },
 
     '/join': { children: [<SignupPage />], currentTitle: 'Join the Jacobs Alumni Association' },
     '/join/complete': { children: [<SignupCompletePage />], currentTitle: 'Welcome to the Jacobs Alumni Association' },
@@ -155,7 +155,6 @@ const model = function() {
     var post = campusNews[n]
     this.routes[post.alias] = { children: [<BlogPost article={ post } />], currentTitle: post.title + ' - Campus News' }
   }
-
 
   this.defaultRoute = {
     children: [<ErrorPage errorCode={404} />],
