@@ -192,7 +192,7 @@ module.exports = function(props, children) {
         <strong>What will happen at the Gala Dinner?</strong>
       </p>
       <p>
-        This year’s Gala Dinner will happen in the West WingEast Wing of the Campus Center, which will open its doors at 6pm on Saturday for a champagne reception. At 7:00pm the agenda will begin with a welcome address, after which the grand buffet will be openedwe will enjoy a three-course dinner. Two bottles of wine and water are included for each table of eight. And yes, you can bring your partner along. This year we will also have some musical performances by students! Please note that participation is only included in the full ticket.
+        This year’s Gala Dinner will happen in the East Wing of the Campus Center, which will open its doors at 6pm on Saturday for a champagne reception. At 7:00pm the agenda will begin with a welcome address, after which the grand buffet will be openedwe will enjoy a three-course dinner. Two bottles of wine and water are included for each table of eight. And yes, you can bring your partner along. This year we will also have some musical performances by students! Please note that participation is only included in the full ticket.
       </p>
       <p>
         <strong>Will there be any sports activities?</strong>
