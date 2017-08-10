@@ -22,8 +22,8 @@ export class MongoDbProps implements IMongoDbProps {
     this.host = props.host || process.env.MONGODB_HOST || this.host;
     this.port = props.port || Number(process.env.MONGODB_PORT) || this.port;
     this.database = props.database || process.env.MONGODB_DATABASE || this.database;
-    this.username = props.username || this.username;
-    this.password = props.password || this.password;
+    this.username = props.username || process.env.MONGODB_USERNAME || this.username;
+    this.password = props.password || process.env.MONGODB_PASSWORD || this.password;
     this.options = { ...this.options, ...(props.options || {}) };
   }
 }
