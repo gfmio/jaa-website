@@ -12,6 +12,9 @@ module.exports = {
   content: (
     <div>
       <p>
+        <em>Countries mentioned in the article have strict views on criticism of the country and writer might therefore be expelled etc. The author therefore needs to be protected and stays anonymous.</em>
+      </p>
+      <p>
         She was born in Pakistan. He wailed his first cry in Bangladesh. They both grew up traveling a fair amount. She travelled to Europe and North America on family vacations. He explored Eastern Asia with his parents on his father’s business trips.
       </p>
       <p>
