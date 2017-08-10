@@ -117,7 +117,7 @@ export class JaaApi {
 
     // Regular
 
-    this.mongoDb = new MongoDb(this.props.mongoDb);
+    // this.mongoDb = new MongoDb(this.props.mongoDb);
     // this.mongoDb.connect();
 
     // const Cat = new MongoDbModel<ICatModel>({
@@ -126,8 +126,8 @@ export class JaaApi {
     //   schema: CatSchema,
     // });
 
-    DbResponders.attach(this.app, Cat, true, HttpVerb.get);
-    DbResponders.attach(this.app, Cat, true, HttpVerb.post);
+    // DbResponders.attach(this.app, Cat, true, HttpVerb.get);
+    // DbResponders.attach(this.app, Cat, true, HttpVerb.post);
 
     this.app.post("/buy-hc2017-tickets", (req: any, res: any) => {
       res.header("Access-Control-Allow-Origin", "*");
