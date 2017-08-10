@@ -15,7 +15,7 @@ export class MongoDbProps implements IMongoDbProps {
   public username: string | undefined = undefined;
   public password: string | undefined = undefined;
   public options: any = {
-    useMongoClient: false,
+    useMongoClient: true,
   };
 
   constructor(props: Partial<IMongoDbProps>) {
