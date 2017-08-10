@@ -13,12 +13,12 @@ export class MongoDb {
   }
 
   public connect() {
-    const uri = (((this.props.username !== undefined) && (this.props.password !== undefined)) ?
-      `mongodb://${this.props.username}:${this.props.password}@${this.props.host}:${this.props.port}/${this.props.database}/` :
-      `mongodb://${this.props.host}:${this.props.port}/${this.props.database}/`
-    );
+    // const uri = (((this.props.username !== undefined) && (this.props.password !== undefined)) ?
+    //   `mongodb://${this.props.username}:${this.props.password}@${this.props.host}:${this.props.port}/${this.props.database}/` :
+    //   `mongodb://${this.props.host}:${this.props.port}/${this.props.database}/`
+    // );
 
-    console.log(uri);
+    // console.log(uri);
 
     // const promise = mongoose.createConnection(uri, this.props.options);
     // promise.then((connection: mongoose.Connection) => {
@@ -26,7 +26,17 @@ export class MongoDb {
     // }).catch((err) => {
     //   console.error(err);
     // });
-    this.connection = mongoose.createConnection(uri, this.props.options);
+
+    const opts = { ...this.props.options,  server: { auto_reconnect: false }};
+    if (this.props.username !== undefined) {
+      opts.user = this.props.username;
+    }
+    if (this.props.password !== undefined) {
+      opts.pass = this.props.password;
+    }
+    this.connection = mongoose.createConnection(this.props.host, this.props.database, this.props.port, opts);
+
+    // this.connection = mongoose.createConnection(uri, this.props.options);
     // let promise;
     // promise = mongoose.createConnection(uri, this.props.options);
     // promise.then((connection: mongoose.Connection) => {
