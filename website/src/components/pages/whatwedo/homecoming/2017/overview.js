@@ -220,11 +220,8 @@ module.exports = function(props, children) {
         <strong>What ticket options are there and what are the prices?</strong>
       </p>
       <p>
-        There are three ticket options: The <strong>basic ticket (15€)</strong> that gives you access and drinks for the Friday night Bar Chill-Out and the Saturday night theme party. The <strong>half-ticket (45 €)</strong> which on top of that includes the Saturday Chill&Grill-BBQ (incl. drinks). And the <strong>full-ticket (75€)</strong> which includes the formal Gala Dinner Saturday evening. For transparency purposes, we would like to make sure you understand the <em>composition of costs of the packages</em>. We are grateful to be partially subsidized by the university for the Gala Dinner so we can offer the full-ticket at a reduced prices.
+        There are three ticket options: The <strong>basic ticket (15€)</strong> that gives you access and drinks for the Friday night Bar Chill-Out and the Saturday night theme party. The <strong>half-ticket (45 €)</strong> which on top of that includes the Saturday Chill&Grill-BBQ (incl. drinks). And the <strong>full-ticket (75€)</strong> which includes the formal Gala Dinner Saturday evening. For transparency purposes, we would like to make sure you understand the <a href="/media/what-we-do/homecoming/2017/HC2017_TicketCostBreakdown.png" target="_blank">composition of costs of the packages</a>. We are grateful to be partially subsidized by the university for the Gala Dinner so we can offer the full-ticket at a reduced prices.
       </p>
-      <figure>
-        <img src="/media/what-we-do/homecoming/2017/HC2017_TicketCostBreakdown.png" />
-      </figure>
       <p>
         <strong>How can I make donations?</strong>
       </p>
@@ -306,6 +303,7 @@ module.exports = function(props, children) {
       </p>
       <p>Includes</p>
       <ul>
+        <li>Drinks Friday night at TheOherSide</li>
         <li>Entrance to TheOtherSide on Saturday night</li>
         <li>All-You-Can-Drink at to TheOtherSide on Saturday night</li>
       </ul>
@@ -317,6 +315,7 @@ module.exports = function(props, children) {
       </p>
       <p>Includes</p>
       <ul>
+        <li>Drinks Friday night at TheOherSide</li>
         <li>BBQ (incl. drinks) for lunch on Saturday</li>
         <li>Entrance to TheOtherSide on Saturday night</li>
         <li>All-You-Can-Drink at to TheOtherSide on Saturday night</li>
@@ -329,6 +328,7 @@ module.exports = function(props, children) {
       </p>
       <p>Includes:</p>
       <ul>
+        <li>Drinks Friday night at TheOherSide</li>
         <li>Free drinks and a BBQ at lunch</li>
         <li>Entrance to The Other Side on Saturday night</li>
         <li>All-you-can-drink at to The Other Side on Saturday night</li>
