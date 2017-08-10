@@ -118,13 +118,13 @@ export class JaaApi {
     // Regular
 
     this.mongoDb = new MongoDb(this.props.mongoDb);
-    this.mongoDb.connect();
+    // this.mongoDb.connect();
 
-    const Cat = new MongoDbModel<ICatModel>({
-      id: "Cat",
-      mongoDb: this.mongoDb,
-      schema: CatSchema,
-    });
+    // const Cat = new MongoDbModel<ICatModel>({
+    //   id: "Cat",
+    //   mongoDb: this.mongoDb,
+    //   schema: CatSchema,
+    // });
 
     DbResponders.attach(this.app, Cat, true, HttpVerb.get);
     DbResponders.attach(this.app, Cat, true, HttpVerb.post);
