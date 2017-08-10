@@ -41,7 +41,7 @@ module.exports = function(props, children) {
         }
 
         $("#homecoming-2017-ticket-shop").fadeOut().addClass("uk-hidden");
-        $.post("http://localhost:3001/buy-hc2017-tickets", {
+        $.post("https://api.jacobs-alumni.de/buy-hc2017-tickets", {
           email: token.email,
           stripeToken: token.id,
           tickets: ticketModel
