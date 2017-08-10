@@ -21,6 +21,8 @@ docker run --name redis \
 docker stop jaa-website
 docker rm jaa-website
 docker run --name jaa-website \
+  -e HOST=$WEB_HOST \
+  -e PORT=$WEB_PORT \
   -e STRIPE_PUBLIC_KEY=$STRIPE_PUBLIC_KEY \
   -p 8000:3000 \
   -d \
@@ -33,6 +35,8 @@ docker run --name jaa-api \
   --link mongodb \
   --link redis \
   -p 8001:3001 \
+  -e HTTP_HOST=$API_HOST \
+  -e HTTP_PORT=$API_PORT \
   -e MONGODB_HOST=mongodb \
   -e MONGODB_PORT=27017 \
   -e MONGODB_DATABASE=$MONGODB_DATABASE \
