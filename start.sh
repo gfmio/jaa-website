@@ -7,7 +7,7 @@ docker run --name mongodb \
   -v $MONGODB_DATA_PATH:/data/db \
   -p 27017:27017 \
   -d \
-  mongo:3.3.12
+  mongo:3.3.12 mongod --auth
 
 # Run the Redis container
 docker stop redis
