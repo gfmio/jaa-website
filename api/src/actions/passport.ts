@@ -1,7 +1,7 @@
 
 import passport = require("passport");
 
-import { JsonResponse } from "./json-response";
+// import { JsonResponse } from "./json-response";
 import { IPassportProps, PassportProps } from "../config/passport";
 
 export class Passport {
@@ -26,7 +26,7 @@ export class Passport {
     });
 
     for (const strategyConfig of this.props.strategies) {
-      console.log(strategyConfig);
+      // console.log(strategyConfig);
       passport.use(new strategyConfig.strategy(strategyConfig.config,
         (accessToken: any, refreshToken: any, profile: any, cb: any) => {
           // In this example, the user's Facebook profile is supplied as the user
@@ -34,7 +34,7 @@ export class Passport {
           // be associated with a user record in the application's database, which
           // allows for account linking and authentication with other identity
           // providers.
-          console.log("login success?!", accessToken, refreshToken, profile);
+          // console.log("login success?!", accessToken, refreshToken, profile);
           return cb(null, profile);
         }));
 
@@ -44,7 +44,8 @@ export class Passport {
       app.get(authUrl, passport.authenticate(strategyConfig.name, strategyConfig.authOptions));
       app.get(callbackUrl, passport.authenticate(strategyConfig.name, strategyConfig.callbackOptions),
         (req: any, res: any) => {
-          (new JsonResponse({ statusCode: 200, errors: [], result: {} })).send(res);
+          res.redirect(this.props.loginRedirectUrl);
+          // (new JsonResponse({ statusCode: 200, errors: [], result: {} })).send(res);
         });
     }
   }

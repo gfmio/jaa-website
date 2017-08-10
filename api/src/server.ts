@@ -16,6 +16,8 @@ import { MongoDbModel } from "./actions/mongodb-model";
 
 import { Passport } from "./actions/passport";
 
+import { Google } from "./actions/google";
+
 // const JWTRedisSession = require("jwt-redis-session");
 // import redis = require("redis");
 
@@ -24,6 +26,8 @@ import { performance } from "./helpers/performance";
 import { DbResponders, HttpVerb, Responders } from "./helpers/responders";
 
 import { CatSchema, ICatModel } from "./models/cat";
+
+const stripeLib = require("stripe");
 
 // MISC
 
@@ -37,10 +41,12 @@ export class JaaApi {
   public httpsServer: any | undefined;
   public mongoDb: MongoDb;
   public passport: Passport;
+  public google: Google;
 
   constructor(props: Partial<IJaaApiProps>) {
     this.props = new JaaApiProps(props);
     // console.log(this.props);
+    // console.log(this.props.stripe);
   }
 
   public main() {
@@ -55,6 +61,14 @@ export class JaaApi {
 
     this.passport = new Passport(this.props.passport);
     this.passport.attach(this.app);
+
+    this.google = new Google();
+    // this.google.addUser({
+    //   name: {
+    //     givenName: "Peter",
+    //     familyName: "Pan",
+    //   },
+    // });
 
     // const redisClient = redis.createClient(this.props.redis);
     // const secret = "crypto cat";
@@ -114,6 +128,66 @@ export class JaaApi {
 
     DbResponders.attach(this.app, Cat, true, HttpVerb.get);
     DbResponders.attach(this.app, Cat, true, HttpVerb.post);
+
+    this.app.post("/buy-hc2017-tickets", (req: any, res: any) => {
+      res.header("Access-Control-Allow-Origin", "*");
+      res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+
+      // console.log(req.body);
+
+      const token = req.body.stripeToken || "";
+      const email = req.body.email || "";
+      const tickets = {
+        basicAmount: Number(req.body["tickets[basicAmount]"]) || 0,
+        halfAmount: Number(req.body["tickets[halfAmount]"]) || 0,
+        fullAmount: Number(req.body["tickets[fullAmount]"]) || 0,
+        brunchAmount: Number(req.body["tickets[brunchAmount]"]) || 0,
+      };
+
+      // console.log(token, tickets);
+
+      const calcPrice = (ticketModel: any) => {
+        return ticketModel.basicAmount * 15 +
+               ticketModel.halfAmount * 45 +
+               ticketModel.fullAmount * 75 +
+               ticketModel.brunchAmount * 8.50;
+      };
+
+      const ticketStrings = [];
+      if (tickets.basicAmount > 0) {
+        ticketStrings.push(tickets.basicAmount.toString() + "x Basic");
+      }
+      if (tickets.halfAmount > 0) {
+        ticketStrings.push(tickets.halfAmount.toString() + "x Half");
+      }
+      if (tickets.fullAmount > 0) {
+        ticketStrings.push(tickets.fullAmount.toString() + "x Full");
+      }
+      if (tickets.brunchAmount > 0) {
+        ticketStrings.push(tickets.brunchAmount.toString() + "x Brunch Only");
+      }
+      const chargeDescription = "Homecoming tickets \n(" + ticketStrings.join(", ") + ")";
+
+      const apiKey = this.props.stripe.secretKey;
+      const stripe = stripeLib(apiKey);
+
+      const chargeObj = {
+        amount: calcPrice(tickets) * 100,
+        currency: "eur",
+        description: chargeDescription,
+        receipt_email: email,
+        source: token,
+      };
+
+      stripe.charges.create(chargeObj, (err: any, charge: any) => {
+        if (err) {
+          res.status(400).json(err);
+        } else {
+          res.status(200).json({});
+          // res.status(200).json(charge);
+        }
+      });
+    });
 
     this.addErrorHandler();
     this.run();

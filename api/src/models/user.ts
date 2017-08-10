@@ -1,7 +1,7 @@
 
-const mongoose = require('mongoose')
-require('mongoose-type-url')
-require('mongoose-type-email')
+import mongoose = require("mongoose");
+const Url = require("mongoose-type-url");
+const Email = require("mongoose-type-email");
 
 const Url = mongoose.SchemaTypes.Url
 const Email = mongoose.SchemaTypes.Email
@@ -9,30 +9,30 @@ const Email = mongoose.SchemaTypes.Email
 var User = {
   name: {
     firstName: {
+      required: true,
       type: String,
-      required: true
     },
     lastName: {
+      required: true,
       type: String,
-      required: true
     }
   },
   position: String, // Role in the JAA
   avatar: Url, // Link to the profile picture
   email: {
+    required: true,
     type: Email,
-    required: true
   },
   alumniEmail: {
+    required: true,
     type: Email,
-    required: true
   },
   gender: {
     type: String,
     required: true,
     enum: {
-      values: ['male', 'female', 'other', 'prefer not to say'],
-      message: 'enum validator failed for path `{PATH}` with value `{VALUE}`'
+      values: ["male", "female", "other", "prefer not to say"],
+      message: "enum validator failed for path `{PATH}` with value `{VALUE}`",
     }
   },
   address: {
@@ -47,9 +47,9 @@ var User = {
   college: {
     type: String,
     enum: {
-      values: ['krupp', 'mercator', 'ciii', 'nordmetall'],
-      message: ''
-    }
+      values: ["krupp", "mercator", "ciii", "nordmetall"],
+      message: ""
+    },
   },
   jacobsGraduationYear: Number, // to be changed
   degrees: [{
@@ -76,7 +76,7 @@ var User = {
   membershipPlan: {
     type: String,
     enum: {
-      values: ['free', 'contributor', 'patron']
+      values: ["free", "contributor", "patron"]
     }
   }
 }

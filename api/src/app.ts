@@ -1,12 +1,13 @@
 
 import { JaaApi } from "./server";
-import { PassportGoogleStrategy } from "./config/passport"
+import { PassportGoogleStrategy } from "./config/passport";
 
 (() => (new JaaApi({
   http: {
     enabled: true,
   },
   passport: {
+    loginRedirectUrl: "http://localhost:3000",
     strategies: [
       new PassportGoogleStrategy({
         authOptions: {

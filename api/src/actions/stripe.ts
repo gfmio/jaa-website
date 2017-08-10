@@ -6,11 +6,15 @@ class Stripe {
     this.stripe = stripeLib(apiKey);
   }
 
-  public createCharge(amount, currency, customer, callback) {
-    stripe.charges.create({
+  public createCustomer(email, sourceToken) {
+
+  }
+
+  public createCharge(amount, currency, customerId, callback) {
+    this.stripe.charges.create({
       amount,
       currency,
-      customer: customer.id,
+      customer: customerId,
     }, function(err, charge) {
       if (err) {
         // bad things

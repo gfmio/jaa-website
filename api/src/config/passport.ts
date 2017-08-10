@@ -45,14 +45,17 @@ export class PassportGoogleStrategy implements IPassportGoogleStrategy {
 export interface IPassportProps {
   loginBaseUrl: string;
   strategies: any[];
+  loginRedirectUrl: string;
 }
 
 export class PassportProps implements IPassportProps {
   public loginBaseUrl: string = "/login";
+  public loginRedirectUrl: string = "/";
   public strategies: any[] = [];
 
   constructor(props: Partial<IPassportProps>) {
     this.loginBaseUrl = props.loginBaseUrl || this.loginBaseUrl;
+    this.loginRedirectUrl = props.loginRedirectUrl || this.loginRedirectUrl;
     this.strategies = props.strategies || this.strategies;
   }
 }
