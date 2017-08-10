@@ -11,8 +11,8 @@ import { IJaaApiProps, JaaApiProps } from "./config/jaa";
 import mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
 
-import { MongoDb } from "./actions/mongodb";
-import { MongoDbModel } from "./actions/mongodb-model";
+// import { MongoDb } from "./actions/mongodb";
+// import { MongoDbModel } from "./actions/mongodb-model";
 
 import { Passport } from "./actions/passport";
 
@@ -23,9 +23,10 @@ import { Google } from "./actions/google";
 
 // import { JsonResponse } from "./actions/json-response";
 import { performance } from "./helpers/performance";
-import { DbResponders, HttpVerb, Responders } from "./helpers/responders";
+// import { DbResponders, HttpVerb, Responders } from "./helpers/responders";
+import { Responders } from "./helpers/responders";
 
-import { CatSchema, ICatModel } from "./models/cat";
+// import { CatSchema, ICatModel } from "./models/cat";
 
 const stripeLib = require("stripe");
 
@@ -39,7 +40,7 @@ export class JaaApi {
   public app: any;
   public httpServer: any | undefined;
   public httpsServer: any | undefined;
-  public mongoDb: MongoDb;
+  // public mongoDb: MongoDb;
   public passport: Passport;
   public google: Google;
 
