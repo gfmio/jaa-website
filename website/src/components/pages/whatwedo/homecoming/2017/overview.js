@@ -20,7 +20,7 @@ module.exports = function(props, children) {
 
   const initialisePayButton = function() {
     var handler = window.StripeCheckout.configure({
-      key: 'pk_test_0ljYtCT6Wb27hvSgVxZ0Ztn4',
+      key: "pk_live_gEifQ8L5UkANl9uoLQzygwu2",
       image: '/media/favicon.png',
       locale: 'auto',
       token: function(token) {
@@ -40,10 +40,20 @@ module.exports = function(props, children) {
           ticketStrings.push(ticketModel.brunchAmount.toString() + "x Brunch Only");
         }
 
-        $("#homecoming-2017-purchase-complete-message")[0].innerText = "Your ticket purchase (" + ticketStrings.join(", ") + ") for Homecoming 2017 was successful."
         $("#homecoming-2017-ticket-shop").fadeOut().addClass("uk-hidden");
-        $("#homecoming-2017-purchase-complete-wrapper").hide().removeClass("uk-hidden").fadeIn();
-
+        $.post("http://localhost:3001/buy-hc2017-tickets", {
+          email: token.email,
+          stripeToken: token.id,
+          tickets: ticketModel
+        }, function(result) {
+          // console.log("result", result);
+          $("#homecoming-2017-purchase-complete-message")[0].innerText = "Your ticket purchase (" + ticketStrings.join(", ") + ") for Homecoming 2017 was successful. An receipt of your purchase will be emailed to the email address you provided (" + token.email + ")."
+          $("#homecoming-2017-purchase-complete-wrapper").hide().removeClass("uk-hidden").fadeIn();
+        }, "json").fail(function(err) {
+          $("#homecoming-2017-purchase-complete-message")[0].innerText = "Your ticket purchase (" + ticketStrings.join(", ") + ") for Homecoming 2017 failed. " + err;
+          $("#homecoming-2017-purchase-complete-wrapper").hide().removeClass("uk-hidden").fadeIn();
+          // console.log("err", err);
+        });
         // You can access the token ID with `token.id`.
         // Get the token ID to your server-side code for use.
       }
@@ -70,7 +80,7 @@ module.exports = function(props, children) {
       handler.open({
         name: 'Jacobs Alumni Association',
         description: description,
-        // email: "fred@jacobs-alumni.de",
+        // email: "...@jacobs-alumni.de",
         zipCode: false,
         currency: 'eur',
         amount: calcPrice(ticketModel) * 100
@@ -109,7 +119,7 @@ module.exports = function(props, children) {
     return ticketModel.basicAmount * 15 +
            ticketModel.halfAmount * 45 +
            ticketModel.fullAmount * 75 +
-           ticketModel.brunchAmount * 8.50;
+           ticketModel.brunchAmount * 10;
   }
 
   return (
@@ -242,6 +252,12 @@ module.exports = function(props, children) {
       <p>
         You can of course book accommodation in any hotel there is in Bremen, preferably well advance, as rooms are booked out quickly. We encourage you to also get in touch with your former host family in Bremen. Maybe you can arrange a night or two with them. In addition to this, we have reserved several rooms in Hotels in Bremen. In order to take advantage of this, simply state that you are a participant of “Jacobs University Alumni Homecoming 2017” when making the booking.
       </p>
+      { /* <p>
+        <strong>I am staying not too close to campus. Can I store luggage and change on campus?</strong>
+      </p>
+      <p>
+        Since this year there will not be any on-campus accommodation available due to the large incoming student batch, we are making every effort to mitigate any inconveniences caused especially for those alumni staying further away from campus. In particular, on Saturday there are two dress codes, casual for the day and formal for the evening, and going back to your hotel to change might not be feasible. We put a slot in which you can change, from after the General Assembly at 16:30 to the beginning of the Gala Danner at 19:00. However, if this is too short you can bring the outfit for the evening to campus (or any other belongings) and store it in the Alumni Lounge (see map in agenda), which is open between 10:00 and 20:00. This is a general alumni meeting spot that will be looked after by a student assistant. You can change in the bathrooms there or go over to the Sports & Convention Center and use its changing rooms. Any stuff that you want to leave for the night, you can leave at the Alumni Lounge, which will be closed for the night and re-opened the following morning for you to pick up. You may also bring any belongings to the party, which has a cloakroom set up. Please note that any of those storing services are at your own risk and that neither the University nor the Association can be held liable for any damage or loss that might occur to your belongings.
+      </p> */ }
       <p>
         <strong>Where can I get my Welcome Package and what is in it?</strong>
       </p>
@@ -273,6 +289,9 @@ module.exports = function(props, children) {
       </p>
       <p>
         Please note that in order to be able to purchase tickets, you must be a registered member of the Alumni Association (see FAQs for more details).
+      </p>
+      <p>
+        All tickets are fully refundable before the end of the sales period on September 17. After the salse period ends, only 50% of the ticket price will be refunded upon cancellation. There will be a late registration phase on Thursday, September 21, 12pm CET till Friday, September 22, 3pm. No refunds will be given upon cancellation of late registrations.
       </p>
 
       <h3>Ticket options</h3>
@@ -326,7 +345,7 @@ module.exports = function(props, children) {
       <hr/>
 
       <div id="homecoming-2017-ticket-shop">
-        <h3>Ticket Shop</h3>
+        <h3>Homecoming 2017 Ticket Shop</h3>
 
         <form>
           <InputWrapper name="basic" label="Basic Ticket – „Just Dance!“ 15 €" alerts={[]}>
@@ -338,7 +357,7 @@ module.exports = function(props, children) {
           <InputWrapper name="full" label="Full Ticket – „Gimme Everything” 75 €" alerts={[]}>
             <input class="uk-input" type="number" id="fullAmountInput" name="full" min="0" value="0" on={{ change: updateTicketAmounts, click: updateTicketAmounts }} />
           </InputWrapper>
-          <InputWrapper name="brunch" label="Brunch Only Ticket - “Brunch, Baby” 8,50 €" alerts={[]}>
+          <InputWrapper name="brunch" label="Brunch Only Ticket - “Brunch, Baby” 10 €" alerts={[]}>
             <input class="uk-input" type="number" id="brunchAmountInput" name="brunch" min="0" value="0" on={{ change: updateTicketAmounts, click: updateTicketAmounts }} />
           </InputWrapper>
 
