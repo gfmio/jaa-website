@@ -32,7 +32,7 @@ docker rm jaa-api
 docker run --name jaa-api \
   --link mongodb \
   --link redis \
-  -p 8001:3000 \
+  -p 8001:3001 \
   -e MONGODB_HOST=mongodb \
   -e MONGODB_PORT=27017 \
   -e MONGODB_DATABASE=$MONGODB_DATABASE \
