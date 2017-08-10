@@ -150,9 +150,9 @@ module.exports = function(props, children) {
 
       <h2>Agenda</h2>
 
-      <EmbedIFrame format={ 0.777 } src="/media/what-we-do/homecoming/2017/Agenda_Homecoming2017_v3.pdf" />
+      <EmbedIFrame format={ 0.777 } src="/media/what-we-do/homecoming/2017/Agenda_Homecoming2017_v4.pdf" />
       <p>
-        In case you can’t see the embedded PDF, you can open it by clicking <a href="/media/what-we-do/homecoming/2017/Agenda_Homecoming2017_v3.pdf" target="_blank">this link</a>.
+        In case you can’t see the embedded PDF, you can open it by clicking <a href="/media/what-we-do/homecoming/2017/Agenda_Homecoming2017_v4.pdf" target="_blank">this link</a>.
       </p>
 
       <h3>Friday:</h3>
@@ -222,6 +222,9 @@ module.exports = function(props, children) {
       <p>
         There are three ticket options: The <strong>basic ticket (15€)</strong> that gives you access and drinks for the Friday night Bar Chill-Out and the Saturday night theme party. The <strong>half-ticket (45 €)</strong> which on top of that includes the Saturday Chill&Grill-BBQ (incl. drinks). And the <strong>full-ticket (75€)</strong> which includes the formal Gala Dinner Saturday evening. For transparency purposes, we would like to make sure you understand the <em>composition of costs of the packages</em>. We are grateful to be partially subsidized by the university for the Gala Dinner so we can offer the full-ticket at a reduced prices.
       </p>
+      <figure>
+        <img src="/media/what-we-do/homecoming/2017/HC2017_TicketCostBreakdown.png" />
+      </figure>
       <p>
         <strong>How can I make donations?</strong>
       </p>
@@ -333,7 +336,7 @@ module.exports = function(props, children) {
       </ul>
 
       <h4>Brunch Only Ticket: “Brunch, Baby”</h4>
-      <p><strong>8,50 €</strong></p>
+      <p><strong>10 €</strong></p>
       <p>
         You can add this item to all three of the above Options. The Farewell Brunch will take place at the College III servery and round up your Homecoming weekend, just like in the good old days.
       </p>

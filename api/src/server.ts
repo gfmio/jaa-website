@@ -151,7 +151,7 @@ export class JaaApi {
         return ticketModel.basicAmount * 15 +
                ticketModel.halfAmount * 45 +
                ticketModel.fullAmount * 75 +
-               ticketModel.brunchAmount * 8.50;
+               ticketModel.brunchAmount * 10;
       };
 
       const ticketStrings = [];
