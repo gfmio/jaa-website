@@ -14,9 +14,11 @@ export class MongoDb {
 
   public connect() {
     const uri = (((this.props.username !== undefined) && (this.props.password !== undefined)) ?
-      `mongodb://${this.props.username}:${this.props.password}@${this.props.host}:${this.props.port}/${this.props.database}` :
-      `mongodb://${this.props.host}:${this.props.port}/${this.props.database}`
+      `mongodb://${this.props.username}:${this.props.password}@${this.props.host}:${this.props.port}/${this.props.database}/` :
+      `mongodb://${this.props.host}:${this.props.port}/${this.props.database}/`
     );
+
+    console.log(uri);
 
     // const promise = mongoose.createConnection(uri, this.props.options);
     // promise.then((connection: mongoose.Connection) => {
@@ -25,6 +27,14 @@ export class MongoDb {
     //   console.error(err);
     // });
     this.connection = mongoose.createConnection(uri, this.props.options);
+    // let promise;
+    // promise = mongoose.createConnection(uri, this.props.options);
+    // promise.then((connection: mongoose.Connection) => {
+    //   this.connection = connection;
+    // }).catch((err: any) => {
+    //   console.error(err);
+    // });
+
   }
 }
 
