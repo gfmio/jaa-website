@@ -145,7 +145,7 @@ module.exports = function(props, children) {
 
       <h2>Career Symposium</h2>
       <p>
-        We are also pleased to invite you to the Jacobs Career Symposium 2017, organized by the Career Services Center in close cooperation with the Alumni Association. You can use this opportunity to enlarge your network, meeting Jacobs Alumni as company representatives and other top representatives of amazing corporates. The panel discussion will be followed by a networking event with students, alumni, faculty and company representatives. Snacks and drinks will be provided. A separate registration on <Link href="https://jacobs-career-symplosium-2017.eventbrite.co.uk/">EventBrite</Link> is required for this, as name tags will be prepared for you.
+        We are also pleased to invite you to the Jacobs Career Symposium 2017, organized by the Career Services Center in close cooperation with the Alumni Association. You can use this opportunity to enlarge your network, meeting Jacobs Alumni as company representatives and other top representatives of amazing corporates. The panel discussion will be followed by a networking event with students, alumni, faculty and company representatives. Snacks and drinks will be provided. A separate registration on <Link href="https://www.eventbrite.co.uk/e/jacobs-career-symposium-2017-registration-36051639424">EventBrite</Link> is required for this, as name tags will be prepared for you.
       </p>
 
       <h2>Agenda</h2>
@@ -272,7 +272,7 @@ module.exports = function(props, children) {
         <li>Facebook event: <Link href="https://www.facebook.com/events/301778486904583/">https://www.facebook.com/events/301778486904583</Link></li>
         <li>Accommodation: On-campus housing not available. List of local hotels <a href="/media/what-we-do/homecoming/2017/HC 2017 - Hotels Overview.pdf" target="_blank">here</a>.</li>
         <li>Open lectures schedules: TBD</li>
-        <li>Career Symposium: <Link href="https://jacobs-career-symplosium-2017.eventbrite.co.uk/">Separate registration necessary</Link></li>
+        <li>Career Symposium: <Link href="https://www.eventbrite.co.uk/e/jacobs-career-symposium-2017-registration-36051639424">Separate registration necessary</Link></li>
         <li>General Assembly: TBD</li>
         <li>Jacobs Games schedule: TBD</li>
       </ul>
