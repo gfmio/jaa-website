@@ -19,5 +19,6 @@ module.exports = [
   require('./blog/17-flower-power'),
   require('./blog/18-and-then-there-was-trump'),
   require('./blog/19-running-towards-happiness-how-i-became-a-marathon-runner'),
-  require('./blog/20-a-tale-of-migrant-love')
+  require('./blog/20-a-tale-of-migrant-love'),
+  require('./blog/21-alumni-in-focus-tanja-deisler-serious-business-collection')
 ]
