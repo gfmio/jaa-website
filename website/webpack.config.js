@@ -53,17 +53,17 @@ module.exports = {
         });
       }
     }, {
-      from: '../public/media/**/*',
-      to: './dist/media'
-    }, {
+    //   from: '../public/media/**/*',
+    //   to: './dist/media'
+    // }, {
       from: '../public/scss/uikit/dist/js/uikit.min.js',
       to: './dist/public/js/uikit.min.js'
     }, {
       from: '../public/scss/uikit/dist/js/uikit-icons.min.js',
       to: './dist/public/js/uikit-icons.min.js'
     }, {
-      from: '../public/js/ga.js',
-      to: './dist/public/js/ga.js'
+      from: '../public/js/**/*',
+      to: './dist/public/js'
     }]),
     new webpack.optimize.UglifyJsPlugin({
       minimize: false,
