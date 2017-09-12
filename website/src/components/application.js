@@ -23,7 +23,7 @@ module.exports = function(props, children) {
     </head>
     <body>
       { children }
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="/js/jquery.min.js"></script>
       <script src="/js/uikit.min.js" type="text/javascript"></script>
       <script src="/js/uikit-icons.min.js" type="text/javascript"></script>
       <script src="/js/app.js" type="text/javascript"></script>
