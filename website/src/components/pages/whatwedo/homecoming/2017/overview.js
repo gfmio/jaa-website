@@ -150,14 +150,14 @@ module.exports = function(props, children) {
 
       <h2>Agenda</h2>
 
-      <EmbedIFrame format={ 0.777 } src="/media/what-we-do/homecoming/2017/Agenda_Homecoming2017_v4.pdf" />
+      <EmbedIFrame format={ 0.777 } src="/media/what-we-do/homecoming/2017/Agenda_Homecoming2017_v6.pdf" />
       <p>
-        In case you can’t see the embedded PDF, you can open it by clicking <a href="/media/what-we-do/homecoming/2017/Agenda_Homecoming2017_v4.pdf" target="_blank">this link</a>.
+        In case you can’t see the embedded PDF, you can open it by clicking <a href="/media/what-we-do/homecoming/2017/Agenda_Homecoming2017_v6.pdf" target="_blank">this link</a>.
       </p>
 
       <h3>Friday:</h3>
       <ul>
-        <li>The exact schedule for the <strong>open lectures</strong> is not out yet but will be posted here as soon as it is.</li>
+        <li>In the afternoon, there will be several <strong>open lectures</strong>. For a complete overview of topics, times and locations, please check <a href="/media/what-we-do/homecoming/2017/HC2017_OpenLecturesSchedule.pdf" target="_blank">the schedule</a>.</li>
         <li>Get your <strong>Welcome Package</strong> in Campus Center Foyer and greet incoming fellow alumni there</li>
         <li>At the <strong>Career Symposium</strong>, organized by the Career Service Center of Jacobs, selected alumni speakers and other company representatives present their companies and participate in a panel discussion. Continue the discussions over some <strong>snacks and drinks</strong> right after the Symposium. Make sure to bring your business cards!</li>
         <li>Alumni-only <strong>Bar Chill Out</strong> in TheOtherSide after the Symposium. Drinks are included in the tickets.</li>
@@ -180,18 +180,6 @@ module.exports = function(props, children) {
       </ul>
 
       <h2>FAQs</h2>
-      <p>
-        <strong>Why do I have to register again? I thought I have done that before. And why do I have to pay an extra 39€?</strong>
-      </p>
-      <p>
-        The Jacobs Alumni Association has implemented “membership contributions” after the General Assembly 2014 voted in favor of such fees. As a consequence, in order to officially join the Alumni Association, alumni have to register again and contribute to its activities with a yearly fee. Tickets for Homecoming can only then be purchased. Please note that the payment of the membership fees merely happens to coincide with the Homecoming ticket sales and does not go towards funding the event. For more information on where this money goes, the contributions levels and waivers for students, please follow the <Link href="/join">registration steps</Link> or <Link href="https://docs.google.com/presentation/d/19guVw-fBrtHWBJ9Ejq8n73C7wU7zlCMURn943qwlka4/edit?usp=sharing">click here</Link>.
-      </p>
-      <p>
-        <strong>I’m having trouble to log in. How do I set up a new account or reset my password?</strong>
-      </p>
-      <p>
-        If you are unsure about your log in details, make sure you type in your username as ppan@jacobs-alumni.de (for Peter Pan) as well as trying to log in on mail.jacobs-alumni.de first, before getting in touch with us via support@jacobs-alumni.de. We can then send you your username and new password. If you are still experiencing any trouble, you can make your reservation via e-mail to <a href="mailto:homecoming@jacobs-alumni.de">homecoming@jacobs-alumni.de</a>.
-      </p>
       <p>
         <strong>I am not part of Class of 2007 or 2012. Can I still join the event?</strong>
       </p>
@@ -271,7 +259,7 @@ module.exports = function(props, children) {
         <li>Registration: Until September 17th, 2017 (full refund only when cancelled before)</li>
         <li>Facebook event: <Link href="https://www.facebook.com/events/301778486904583/">https://www.facebook.com/events/301778486904583</Link></li>
         <li>Accommodation: On-campus housing not available. List of local hotels <a href="/media/what-we-do/homecoming/2017/HC 2017 - Hotels Overview.pdf" target="_blank">here</a>.</li>
-        <li>Open lectures schedules: TBD</li>
+        <li>Open lectures schedules: <a href="/media/what-we-do/homecoming/2017/HC2017_OpenLecturesSchedule.pdf" target="_blank">Link</a></li>
         <li>Career Symposium: <Link href="https://www.eventbrite.co.uk/e/jacobs-career-symposium-2017-registration-36051639424">Separate registration necessary</Link></li>
         <li>General Assembly: TBD</li>
         <li>Jacobs Games schedule: TBD</li>
