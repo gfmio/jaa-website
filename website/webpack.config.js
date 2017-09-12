@@ -53,9 +53,9 @@ module.exports = {
         });
       }
     }, {
-    //   from: '../public/media/**/*',
-    //   to: './dist/media'
-    // }, {
+      from: '../public/media/**/*',
+      to: './dist/media'
+    }, {
       from: '../public/scss/uikit/dist/js/uikit.min.js',
       to: './dist/public/js/uikit.min.js'
     }, {
