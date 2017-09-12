@@ -63,7 +63,7 @@ module.exports = {
       to: './dist/public/js/uikit-icons.min.js'
     }, {
       from: '../public/js/**/*',
-      to: './dist/public/js'
+      to: './dist'
     }]),
     new webpack.optimize.UglifyJsPlugin({
       minimize: false,
