@@ -7,7 +7,7 @@ module.exports = {
   date: 'September 12th, 2017',
   author: 'Tanja Deisler',
   alias: '/blog/alumni-in-focus-tanja-deisler-serious-business-collection',
-  titleImage: '/media/blog/21/image1.jpg',
+  titleImage: '/media/blog/21/banner.jpg',
   preview: 'Alumna Tanja Deisler writes about her new Kickstarter campaign "Serious Business Collection".',
   content: (
     <div>
@@ -43,19 +43,22 @@ module.exports = {
       </p>
       <div class="uk-grid uk-child-width-1-2@s" uk-grid>
         <figure>
-          <img src="/media/blog/21/image1.jpg" />
+          <img src="/media/blog/21/Tani-Kickstarter-44.jpg" />
         </figure>
         <figure>
-          <img src="/media/blog/21/image4.jpg" />
+          <img src="/media/blog/21/Tani-Kickstarter-61.jpg" />
         </figure>
         <figure>
-          <img src="/media/blog/21/image2.jpg" />
+          <img src="/media/blog/21/Tani-Kickstarter-70.jpg" />
         </figure>
         <figure>
-          <img src="/media/blog/21/image3.jpg" />
+          <img src="/media/blog/21/Tani-Kickstarter-4.jpg" />
         </figure>
         <figure>
-          <img src="/media/blog/21/image5.gif" />
+          <img src="/media/blog/21/Tani-Kickstarter-35.jpg" />
+        </figure>
+        <figure>
+          <img src="/media/blog/21/TanjaAnnabelleDeisler.jpg" />
         </figure>
       </div>
     </div>
