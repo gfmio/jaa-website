@@ -7,7 +7,7 @@ const defaultInputWrapper = function(props, children) {
       <div class="uk-width-1-5@s">
         <label class="uk-form-label" for={ props.name }>{ props.label }</label>
       </div>
-      <div class="uk-width-1-3@s">
+      <div class="uk-form-controls uk-width-1-3@s">
         { props.inputElement }
       </div>
       <div class="uk-width-1-3@s">
@@ -23,7 +23,7 @@ const radioCheckboxInputWrapper = function(props, children) {
   return (
     <div class="uk-grid uk-grid-small">
       <div class="uk-width-1-4@s">
-        <label class="uk-form-label" for={ props.name }>
+        <label class="uk-form-controls" for={ props.name }>
           { props.inputElement } { props.label }
         </label>
       </div>

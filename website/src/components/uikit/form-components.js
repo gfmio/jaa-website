@@ -3,11 +3,13 @@ const c = require('csam/lib/component');
 
 const InputWrapper = function(props, children) {
   props = props || {};
+  props.id = props.id || "";
   props.alerts = props.alerts || [];
   props.name = props.name || "";
   props.label = props.label || "";
+
   return (
-    <div class="uk-grid uk-grid-small">
+    <div id={ props.id } class="uk-grid uk-grid-small">
       <div class="uk-width-1-5@s">
         <label class="uk-form-label" for={ props.name }>{ props.label }</label>
       </div>
@@ -15,7 +17,7 @@ const InputWrapper = function(props, children) {
         { children }
       </div>
       <div class="uk-width-1-3@s">
-        <ul class="nolisticon uk-padding-remove">
+        <ul class="alerts nolisticon uk-padding-remove">
           { props.alerts.map(function(e){ return <li>{ e }</li>; }) }
         </ul>
       </div>
@@ -24,15 +26,21 @@ const InputWrapper = function(props, children) {
 }
 
 const CheckBoxWrapper = function(props, children) {
+  props = props || {};
+  props.id = props.id || "";
+  props.alerts = props.alerts || [];
+  props.name = props.name || "";
+  props.label = props.label || "";
+
   return (
-    <div class="uk-grid uk-grid-small">
-      <div class="uk-width-1-5@s">
-        <label class="uk-form-label" for={ props.name }>
+    <div id={ props.id } class="uk-grid uk-grid-small">
+      <div class="uk-width-1-5@s uk-form-controls-text">
+        <label class="uk-form-controls uk-form-label" for={ props.name }>
           { children }{" "}{ props.label }
         </label>
       </div>
       <div class="uk-width-4-5@s">
-        <ul class="nolisticon uk-padding-remove">
+        <ul class="alerts nolisticon uk-padding-remove">
           { props.alerts.map(function(e){ return <li>{ e }</li>; }) }
         </ul>
       </div>
@@ -42,18 +50,26 @@ const CheckBoxWrapper = function(props, children) {
 
 const Input = function(props, children) {
   props = props || {};
+  props.id = props.id || "";
   props.type = props.type || "text";
   props.on = props.on || {};
   props.alerts = props.alerts || [];
   props.placeholder = props.placeholder || "";
   props.value = props.value || "";
   props.required = props.required || true;
-  props.state = props.state;
+  props.state = props.state || "empty";
+
+  var className = "uk-input";
+  if (props.state == "valid") {
+    className = className + " uk-form-success"
+  } else if (props.state == "invalid") {
+    className = className + " uk-form-danger"
+  }
 
   return (
-    <InputWrapper name={ props.name } label={ props.label } alerts={ props.alerts }>
+    <InputWrapper id={ props.id } name={ props.name } label={ props.label } alerts={ props.alerts }>
       <input
-        class="uk-input"
+        class={ className }
         type={ props.type }
         name={ props.name }
         on={ props.on }
@@ -66,6 +82,7 @@ const Input = function(props, children) {
 
 const Textarea = function(props, children) {
   props = props || {};
+  props.id = props.id || "";
   props.on = props.on || {};
   props.alerts = props.alerts || [];
   props.placeholder = props.placeholder || "";
@@ -73,7 +90,7 @@ const Textarea = function(props, children) {
   props.required = props.required || true;
 
   return (
-    <InputWrapper name={ props.name } label={ props.label } alerts={ props.alerts }>
+    <InputWrapper id={ props.id } name={ props.name } label={ props.label } alerts={ props.alerts }>
       <textarea
         class="uk-input"
         name={ props.name }
@@ -88,6 +105,7 @@ const Textarea = function(props, children) {
 
 const RadioGroup = function(props, children) {
   props = props || {};
+  props.id = props.id || "";
   props.on = props.on || {};
   props.alerts = props.alerts || [];
   props.required = props.required || true;
@@ -108,7 +126,7 @@ const RadioGroup = function(props, children) {
   }
 
   return (
-    <InputWrapper name={ props.name } label={ props.label } alerts={ props.alerts }>
+    <InputWrapper id={ props.id } name={ props.name } label={ props.label } alerts={ props.alerts }>
       { children }
     </InputWrapper>
   );
@@ -116,12 +134,13 @@ const RadioGroup = function(props, children) {
 
 const Select = function(props, children) {
   props = props || {};
+  props.id = props.id || "";
   props.on = props.on || {};
   props.alerts = props.alerts || [];
   props.required = props.required || true;
   props.options = props.options || [];
 
-  children = [];
+  var children = []
 
   for (var key in props.options) {
     children.push(
@@ -130,7 +149,7 @@ const Select = function(props, children) {
   }
 
   return (
-    <InputWrapper name={ props.name } label={ props.label } alerts={ props.alerts }>
+    <InputWrapper id={ props.id } name={ props.name } label={ props.label } alerts={ props.alerts }>
       <select class="uk-select" name={ props.name } multiple={ props.multiple } required={ props.required } on={ props.on }>
         { children }
       </select>

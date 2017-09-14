@@ -67,10 +67,8 @@ const GetInvolvedPage = require('./components/pages/get-involved')
   const DonatePage = require('./components/pages/get-involved/donate')
   const AlumniOfficePage = require('./components/pages/get-involved/alumni-office')
 
+const SignupPlaceholderPage = require('./components/pages/signup-placeholder')
 const SignupPage = require('./components/pages/signup')
-const SignupCompletePage = require('./components/pages/signup-complete')
-
-const Form = require('./components/form')
 
 const PrivacyPage = require('./components/pages/privacy')
 const ImprintPage = require('./components/pages/imprint')
@@ -87,7 +85,6 @@ const model = function() {
 
   this.routes = {
     '/': { children: [<HomePage />], currentTitle: 'Home' },
-    '/sample': { children: [<Form />], currentTitle: 'Sample Form' },
 
     '/who-we-are': { children: [<WhoWeArePage />], currentTitle: 'Who we are' },
       '/alumni-association': { children: [<AlumniAssocationPage />], currentTitle: 'Alumni association' },
@@ -134,8 +131,8 @@ const model = function() {
     '/blog': { children: [<Blog articles={ blogPosts } />], currentTitle: 'Alumni Blog' },
     // '/shop': { children: [<Shop />], currentTitle: 'Online Shop' },
 
-    '/join': { children: [<SignupPage />], currentTitle: 'Join the Jacobs Alumni Association' },
-    '/join/complete': { children: [<SignupCompletePage />], currentTitle: 'Welcome to the Jacobs Alumni Association' },
+    '/join': { children: [<SignupPlaceholderPage />], currentTitle: 'Join the Jacobs Alumni Association' },
+    '/join-new': { children: [<SignupPage />], currentTitle: 'Join the Jacobs Alumni Association' },
 
     '/privacy': { children: [<PrivacyPage />], currentTitle: 'Privacy Policy' },
     '/imprint': { children: [<ImprintPage />], currentTitle: 'Imprint / Impressum' },
