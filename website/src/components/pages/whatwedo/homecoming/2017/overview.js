@@ -140,7 +140,7 @@ module.exports = function(props, children) {
       <h2>Ticket sales</h2>
 
       <p>
-        The ticket sales will be opened from August 11th onwards. There are three ticket options – from the full package to the basic ticket for just a few Euros. Unfortunately, there will be no rooms to stay on campus this year because of a very big incoming Class of 2020. <strong>To facilitate your stay in Bremen, we have blocked a number of rooms at local hotels in Bremen Nord or downtown.</strong> You can find all information <a target="_blank" href="/media/what-we-do/homecoming/2017/HC 2017 - Hotels Overview.pdf">here</a>. To purchase tickets, make sure you have access to your Jacobs-Alumni account! If you run into any trouble, contact our IT-volunteers via <a href="mailto:support@jacobs-alumni.de">support@jacobs-alumni.de</a> – or ask a registered friend to buy tickets for you.
+        The ticket sales will be opened from August 11th onwards. There are three ticket options – from the full package to the basic ticket for just a few Euros. Unfortunately, there will be no rooms to stay on campus this year because of a very big incoming Class of 2020. <strong>To facilitate your stay in Bremen, we have blocked a number of rooms at local hotels in Bremen Nord or downtown.</strong> You can find all information <a target="_blank" href="/media/what-we-do/homecoming/2017/HC 2017 - Hotels Overview.pdf">here</a>.
       </p>
 
       <h2>Career Symposium</h2>
@@ -274,9 +274,6 @@ module.exports = function(props, children) {
       </p>
       <p>
         Aside from those program items, we are offering different packages with a few perks, that are supposed to make the weekend even more fun. Below you can find the different packages – choose the one that suits you best. Upon arrival you will receive a wristband with which you will be able to enjoy the extras of your package.
-      </p>
-      <p>
-        Please note that in order to be able to purchase tickets, you must be a registered member of the Alumni Association (see FAQs for more details).
       </p>
       <p>
         All tickets are fully refundable before the end of the sales period on September 17. After the salse period ends, only 50% of the ticket price will be refunded upon cancellation. There will be a late registration phase on Thursday, September 21, 12pm CET till Friday, September 22, 3pm. No refunds will be given upon cancellation of late registrations.
