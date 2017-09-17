@@ -332,7 +332,9 @@ module.exports = function(props, children) {
 
       <hr/>
 
-      <div id="homecoming-2017-ticket-shop">
+      <h3>The ticket sales for Homecoming 2017 are now closed.</h3>
+
+      { /*<div id="homecoming-2017-ticket-shop">
         <h3>Homecoming 2017 Ticket Shop</h3>
 
         <form>
@@ -364,7 +366,7 @@ module.exports = function(props, children) {
         <p class="uk-text-lead">We're looking forward to having you join us!</p>
         <p class="uk-text-lead">See you in September!</p>
       </div>
-      <script src="https://checkout.stripe.com/checkout.js"></script>
+      <script src="https://checkout.stripe.com/checkout.js"></script> */ }
     </article>
   )
 }
