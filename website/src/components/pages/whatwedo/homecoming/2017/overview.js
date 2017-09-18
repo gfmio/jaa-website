@@ -261,7 +261,7 @@ module.exports = function(props, children) {
         <li>Accommodation: On-campus housing not available. List of local hotels <a href="/media/what-we-do/homecoming/2017/HC 2017 - Hotels Overview.pdf" target="_blank">here</a>.</li>
         <li>Open lectures schedules: <a href="/media/what-we-do/homecoming/2017/HC2017_OpenLecturesSchedule.pdf" target="_blank">Link</a></li>
         <li>Career Symposium: <Link href="https://www.eventbrite.co.uk/e/jacobs-career-symposium-2017-registration-36051639424">Separate registration necessary</Link></li>
-        <li>General Assembly: TBD</li>
+        <li>General Assembly: See separate invitation via email</li>
         <li>Jacobs Games schedule: TBD</li>
       </ul>
 
@@ -332,7 +332,8 @@ module.exports = function(props, children) {
 
       <hr/>
 
-      <h3>The ticket sales for Homecoming 2017 are now closed.</h3>
+      <h3>The ticket sale for Homecoming 2017 is now closed.</h3>
+      <p>Late-registration will be open from Thu, Sep 21, 12pm till Fri, Sep 22, 3pm (CET).</p>
 
       { /*<div id="homecoming-2017-ticket-shop">
         <h3>Homecoming 2017 Ticket Shop</h3>

@@ -21,7 +21,6 @@
   "homepage": "https://github.com/gfmio/jaa-website#readme",
   "dependencies": {
     "csam": "^0.1.4",
-    "csam-router": "^0.1.0",
     "object-assign": "^4.1.1",
     "validator": "^8.2.0"
   },
