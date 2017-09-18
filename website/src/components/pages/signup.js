@@ -464,7 +464,7 @@ module.exports = function(props, children) {
     return true;
   }
   const validatePage5 = function() {
-    return true;
+    return model.agreeTermsConditions == "valid"
   }
 
   const updateNextButtons = function() {
