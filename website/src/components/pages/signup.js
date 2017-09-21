@@ -205,7 +205,12 @@ const SignupModel = function() {
     label: "Last name",
     placeholder: "Your last name"
   });
-
+  this.email = new Field(and(required, emailValidator), {
+    type: "email",
+    name: "email",
+    label: "E-mail address",
+    placeholder: "Your private e-mail address"
+  });
   const sexOptions = {
     male: "Male",
     female: "Female",
@@ -223,18 +228,6 @@ const SignupModel = function() {
     name: "birthday",
     label: "Birthday",
     placeholder: "Your birthday"
-  });
-  this.email = new Field(and(required, emailValidator), {
-    type: "email",
-    name: "email",
-    label: "E-mail address",
-    placeholder: "Your private e-mail address"
-  });
-  this.address = new Field(required, {
-    tag: "Textarea",
-    name: "address",
-    label: "Address",
-    placeholder: "Your home address"
   });
   this.nationalities = new Field(and(required, multipleSelectValidator(Object.keys(countries))), {
     tag: "Select",
@@ -256,6 +249,38 @@ const SignupModel = function() {
     name: "category",
     label: "Category",
     options: categoryOptions
+  });
+
+  this.addressLine1 = new Field(required, {
+    name: "addressLine1",
+    label: "Address line 1",
+    placeholder: "E.g. Campus Ring 1"
+  });
+  this.addressLine2 = new Field(optional, {
+    name: "addressLine2",
+    label: "Address line 2",
+    placeholder: "e.g. Apt 007 (optional)"
+  });
+  this.addressCity = new Field(required, {
+    name: "addressCity",
+    label: "City",
+    placeholder: "e.g. Bremen"
+  });
+  this.addressZipCode = new Field(required, {
+    name: "addressZipCode",
+    label: "Zip code",
+    placeholder: "e.g. 28759"
+  });
+  this.addressState = new Field(optional, {
+    name: "addressState",
+    label: "State",
+    placeholder: "e.g. Bremen (optional)"
+  });
+  this.addressCountry = new Field(required, {
+    tag: "Select",
+    name: "addressCountry",
+    label: "Country",
+    options: countries
   });
 
   this.facebook = new Field(and(optional, urlValidator), {
@@ -412,7 +437,13 @@ const SignupModel = function() {
         </p>
         <ul>
           <li>to ensure that you can be found through the website’s search function by other registered users (only alumni graduates, not associate members), using your work and home location (geolocation) if necessary,</li>
-          <li>and to enable other registered users to contact you for networking purposes.</li></ul><p>You further give your consent for both JUBAA and Jacobs University Bremen to save and use this data</p><ul><li>to contact you themselves for networking purposes</li>
+          <li>and to enable other registered users to contact you for networking purposes.</li>
+        </ul>
+        <p>
+          You further give your consent for both JUBAA and Jacobs University Bremen to save and use this data
+        </p>
+        <ul>
+          <li>to contact you themselves for networking purposes</li>
           <li>and to inform you by e-mail or post about events, surveys, fundraising campaigns and other subjects relating to Jacobs University Bremen.</li>
         </ul>
         <p>
@@ -759,12 +790,20 @@ module.exports = function(props, children) {
 
               <FieldInput data={ model.firstName } />
               <FieldInput data={ model.lastName } />
+              <FieldInput data={ model.email } />
               <FieldInput data={ model.sex } />
               <FieldInput data={ model.birthday } />
-              <FieldInput data={ model.email } />
-              <FieldInput data={ model.address } />
               <FieldInput data={ model.nationalities } />
               <FieldInput data={ model.category } />
+
+              <h3>Residential Address</h3>
+              <FieldInput data={ model.addressLine1 } />
+              <FieldInput data={ model.addressLine2 } />
+              <FieldInput data={ model.addressCity } />
+              <FieldInput data={ model.addressZipCode } />
+              <FieldInput data={ model.addressState } />
+              <FieldInput data={ model.addressCountry } />
+
               <h3>Social media</h3>
               <FieldInput data={ model.facebook } />
               <FieldInput data={ model.twitter } />
@@ -989,6 +1028,7 @@ module.exports = function(props, children) {
               <FieldInput data={ model.agreeTermsConditions } />
 
               <div id="submissionAlert" class="uk-alert" uk-alert></div>
+              <div id="submissionErrorAlert" class="uk-alert uk-alert-danger uk-hidden" uk-alert></div>
 
               <div class="uk-margin uk-grid uk-child-width-expand" uk-grid>
                 <div>
