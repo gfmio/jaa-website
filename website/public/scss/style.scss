@@ -82,6 +82,17 @@ body {
   }
 }
 
+input, textarea, .uk-input, .uk-select:not([multiple]):not([size]) {
+  line-height: 1.618;
+  font-size: 1.0rem;
+  height: auto;
+  padding: 0.4045rem;
+}
+
+textarea {
+  min-height: 2.552rem;
+}
+
 .main-container {
   width: 100%;
   max-width: 71rem;

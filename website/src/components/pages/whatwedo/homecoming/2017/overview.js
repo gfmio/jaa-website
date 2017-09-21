@@ -24,8 +24,6 @@ module.exports = function(props, children) {
       image: '/media/favicon.png',
       locale: 'auto',
       token: function(token) {
-        console.log(token);
-
         const ticketStrings = []
         if (ticketModel.basicAmount > 0) {
           ticketStrings.push(ticketModel.basicAmount.toString() + "x Basic");
@@ -150,9 +148,9 @@ module.exports = function(props, children) {
 
       <h2>Agenda</h2>
 
-      <EmbedIFrame format={ 0.777 } src="/media/what-we-do/homecoming/2017/Agenda_Homecoming2017_v6.pdf" />
+      <EmbedIFrame format={ 0.777 } src="/media/what-we-do/homecoming/2017/Agenda_Homecoming2017_vF.pdf" />
       <p>
-        In case you can’t see the embedded PDF, you can open it by clicking <a href="/media/what-we-do/homecoming/2017/Agenda_Homecoming2017_v6.pdf" target="_blank">this link</a>.
+        In case you can’t see the embedded PDF, you can open it by clicking <a href="/media/what-we-do/homecoming/2017/Agenda_Homecoming2017_vF.pdf" target="_blank">this link</a>.
       </p>
 
       <h3>Friday:</h3>
