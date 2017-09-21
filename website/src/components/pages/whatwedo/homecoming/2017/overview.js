@@ -330,11 +330,14 @@ module.exports = function(props, children) {
 
       <hr/>
 
-      <h3>The ticket sale for Homecoming 2017 is now closed.</h3>
-      <p>Late-registration will be open from Thu, Sep 21, 12pm till Fri, Sep 22, 3pm (CET).</p>
+      { /* <h3>The ticket sale for Homecoming 2017 is now closed.</h3>
+      <p>Late-registration will be open from Thu, Sep 21, 12pm till Fri, Sep 22, 3pm (CET).</p> */ }
 
-      { /*<div id="homecoming-2017-ticket-shop">
-        <h3>Homecoming 2017 Ticket Shop</h3>
+      <div id="homecoming-2017-ticket-shop">
+        <h3>Homecoming 2017 Ticket Shop - Grab your last tickets now!</h3>
+        <p>
+          Late-registration is open from Thu, Sep 21, 12pm till Fri, Sep 22, 3pm (CET).
+        </p>
 
         <form>
           <InputWrapper name="basic" label="Basic Ticket – „Just Dance!“ 15 €" alerts={[]}>
@@ -363,9 +366,9 @@ module.exports = function(props, children) {
         <p class="uk-text-lead" id="homecoming-2017-purchase-complete-message">
         </p>
         <p class="uk-text-lead">We're looking forward to having you join us!</p>
-        <p class="uk-text-lead">See you in September!</p>
+        <p class="uk-text-lead">See you at Homecoming!</p>
       </div>
-      <script src="https://checkout.stripe.com/checkout.js"></script> */ }
+      <script src="https://checkout.stripe.com/checkout.js"></script>
     </article>
   )
 }

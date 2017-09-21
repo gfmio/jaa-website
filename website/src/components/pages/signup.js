@@ -394,6 +394,13 @@ const SignupModel = function() {
   this.subscriptionPlan = new Field(required, {
   });
 
+  this.starterPlanReason = new Field(optional, {
+    tag: "Textarea",
+    name: "starterPlanReason",
+    label: "Reason for applying for the starter plan",
+    placeholder: "Please provide a reason for applying for the starter plan.",
+  });
+
   this.agreeTermsConditions = new Field(required, {
     tag: "CheckBox",
     name: "agreeTermsConditions",
@@ -489,20 +496,45 @@ module.exports = function(props, children) {
   const updateForm = function() {
     // If not an alumnus, disable starter option, appropriate hint
     var isAlumnus = (model.category.value === "alumni");
-    var is2YearsSinceGraduation = ("2015" == model.graduationClass.value);
     var isLessThan2YearsSinceGraduation = (["2016", "2017"].indexOf(model.graduationClass.value !== -1));
-    var starterPlanEligible = (isAlumnus && isLessThan2YearsSinceGraduation)
+    // var starterPlanEligible = (isAlumnus && isLessThan2YearsSinceGraduation)
 
-    if (!starterPlanEligible) {
-      $("#starterPlanButton").prop("disabled", true);
-      $("#starterPlanComment").show()
+    if (!isAlumnus) {
+      $("#starterPlanButton")
+        .prop("disabled", true)
+        .hide();
+      $("#starterPlanReasonFieldWrapper").hide();
+      $("#starterPlanComment")
+        .show()
+        .text("Unfortunately, you are not eligable for this plan.");
+
+      $("#contributorPlanComment, #patronPlanComment")
+        .hide()
+        .text("");
     } else {
-      $("#starterPlanButton").prop("disabled", false);
-      $("#starterPlanComment").hide()
+      $("#starterPlanButton")
+        .prop("disabled", model.starterPlanReason.state !== "valid")
+        .show();
+      $("#starterPlanReasonFieldWrapper").show();
+      $("#starterPlanComment")
+        .hide()
+        .text("");
+
+      if (isLessThan2YearsSinceGraduation) {
+        $("#contributorPlanComment, #patronPlanComment")
+          .show()
+          .text("As your graduation is less than 2 years ago, your free starter period of up to 2 years will automatically be applied. Billing of your membership fees will start when your starter period expires.");
+      } else {
+        $("#contributorPlanComment, #patronPlanComment")
+          .hide()
+          .text("");
+      }
     }
 
-    if (model.subscriptionPlan.value == "starter") {
-      $("#submissionAlert").text("As you are eligible for and have selected the starter plan, you can submit your application without payment. When your starter period comes to an end, we will remind you to choose a new membership plan.");
+    var text = '';
+
+    if (model.subscriptionPlan.value == 'starter') {
+      text = "You have selected the starter plan. You will not pay any membership fees today, but we will review your application and contact you, if there are any issues. Your starter plan status will be valid for one year, after which we will ask you to upgrade your membership plan or you can submit another request for free membership.";
     } else {
       var plan = '';
       var amount = '';
@@ -513,37 +545,24 @@ module.exports = function(props, children) {
         plan = "Patron"
         amount = "249,00 EUR"
       }
-      var text = "You have selected the " + plan + " plan.";
+      text = "You have selected the " + plan + " plan.";
 
-      if (isAlumnus) {
-        var type = "alumni"
-        if (model.sex.value == "female") {
-          type = "alumna"
-        } else if (model.sex.value == "male") {
-          type = "alumnus";
+      if (isAlumnus && isLessThan2YearsSinceGraduation) {
+        if (model.graduationClass.value == "2017") {
+          freeMembershipDuration = "2 years";
+        } else if (model.graduationClass.value == "2016") {
+          freeMembershipDuration = "1 year";
+        } else {
+          freeMembershipDuration = "6 months";
         }
 
-        freeMembershipDuration = "6 months"
-
-        if (is2YearsSinceGraduation) {
-          freeMembershipDuration = "1 year"
-        } else if (isLessThan2YearsSinceGraduation) {
-          freeMembershipDuration = "2 years"
-        }
-
-        text = text + "Since you are an " + type + ", you get " + freeMembershipDuration + " free membership, after which the membership fee is billed yearly."
+        text = text + " Since you graduated from Jacobs University Bremen in " + model.graduationClass.value + ", you get " + freeMembershipDuration + " free membership, after which your membership fee of " + amount + " is billed yearly."
       } else {
         text = text + " Your membership fee of " + amount + " is due immediately and will be billed yearly."
       }
-
-
-      // console.log(model.subscriptionPlan, text, $("#submissionAlert"))
-      // $("#submissionAlert").text("As you are eligible for and have selected the starter plan, you can submit your application without payment. When your starter period comes to an end, we will remind you to choose a new membership plan.");
-      $("#submissionAlert").text(text);
     }
 
-    // If starter option show submit button, else pay button
-    // Hint: We will charge you immediately / starting on day X
+    $("#submissionAlert").text(text);
   }
 
   const showForm = stepHandler(1);
@@ -821,44 +840,14 @@ module.exports = function(props, children) {
                 It works because of your support!
               </p>
 
-              <div class="uk-grid uk-grid-small uk-grid-match uk-child-width-1-3@l" uk-grid>
+              <div class="uk-grid uk-grid-small uk-grid-match uk-child-width-1-2@s" uk-grid>
                 <div>
                   <div class="uk-card uk-card-default uk-card-small uk-card-body" style={{ display: 'flex', flexDirection: 'column' }}>
+                    <div class="uk-card-badge uk-label">39,00 € / year</div>
                     <div class="fill">
                       <div class="uk-card-header">
                         <h3 class="uk-card-title">
-                          Starter <span class="uk-text-muted uk-text-small">(free)</span>
-                        </h3>
-                      </div>
-                      <p>
-                        If you are a graduate and can not afford our membership contributions but would still like to be a member
-                      </p>
-                      <ul>
-                        <li>
-                          You get this powerful membership for free for a year.
-                        </li>
-                        <li>
-                          All the perks of the contributor membership are included in this special offer for you too!
-                        </li>
-                        <li>
-                          Get connected with our senior alumni, be it virtually or in a city near you.
-                        </li>
-                      </ul>
-                    </div>
-                    <div class="uk-card-footer uk-padding-remove-left uk-padding-remove-right">
-                      <div id="starterPlanComment" class="uk-alert" uk-alert>Unfortunately, you are not eligable for this plan.</div>
-                      <button id="starterPlanButton" class="uk-button uk-button-primary uk-width-1-1" on={{ click: selectPlanHandler("starter") }}>
-                        Select Starter Plan
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                <div>
-                  <div class="uk-card uk-card-default uk-card-small uk-card-body" style={{ display: 'flex', flexDirection: 'column' }}>
-                    <div class="fill">
-                      <div class="uk-card-header">
-                        <h3 class="uk-card-title">
-                          Contributor <span class="uk-text-muted uk-text-small">(39,00 € / year)</span>
+                          Contributor
                         </h3>
                       </div>
                       <p>
@@ -892,6 +881,7 @@ module.exports = function(props, children) {
                       </ul>
                     </div>
                     <div class="uk-card-footer uk-padding-remove-left uk-padding-remove-right">
+                      <div id="contributorPlanComment" class="uk-alert" uk-alert></div>
                       <button id="contributorPlanButton" class="uk-button uk-button-primary uk-width-1-1" on={{ click: selectPlanHandler("contributor") }}>
                         Select Contributor Plan
                       </button>
@@ -900,10 +890,11 @@ module.exports = function(props, children) {
                 </div>
                 <div>
                   <div class="uk-card uk-card-default uk-card-small uk-card-body" style={{ display: 'flex', flexDirection: 'column' }}>
+                    <div class="uk-card-badge uk-label uk-secondary">249,00 € / year</div>
                     <div class="fill">
                       <div class="uk-card-header">
                         <h3 class="uk-card-title">
-                          Patron <span class="uk-text-muted uk-text-small">(249,00 € / year)</span>
+                          Patron
                         </h3>
                       </div>
                       <p>
@@ -925,13 +916,64 @@ module.exports = function(props, children) {
                       </ul>
                     </div>
                     <div class="uk-card-footer uk-padding-remove-left uk-padding-remove-right">
+                      <div id="patronPlanComment" class="uk-alert" uk-alert></div>
                       <button id="patronPlanButton" class="uk-button uk-button-primary uk-width-1-1" on={{ click: selectPlanHandler("patron") }}>
                         Select Patron Plan
                       </button>
                     </div>
                   </div>
                 </div>
+
+                <div class="uk-width-1-1">
+                  <div class="uk-card uk-card-small uk-card-body" style={{ display: 'flex', flexDirection: 'column' }}>
+                    <div class="uk-card-badge uk-label uk-background-muted uk-text-muted">free</div>
+                    <div class="fill">
+                      <div class="uk-card-header">
+                        <h3 class="uk-card-title">
+                          Starter
+                        </h3>
+                      </div>
+                      <p>
+                        If you are a graduate and can not afford our membership contributions but would still like to be a member
+                      </p>
+                      <ul>
+                        <li>
+                          You get this powerful membership for free for a year.
+                        </li>
+                        <li>
+                          All the perks of the contributor membership are included in this special offer for you too!
+                        </li>
+                        <li>
+                          Get connected with our senior alumni, be it virtually or in a city near you.
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div id="starterPlanReasonFieldWrapper" class="uk-form-controls">
+                      <label class="">{ model.starterPlanReason.formMetadata.placeholder }</label>
+                      <textarea
+                        id="starterPlanReasonField"
+                        class="uk-input"
+                        placeholder={model.starterPlanReason.formMetadata.placeholder}
+                        on={{
+                          keyup: simpleChangeHandler(model.starterPlanReason, "starterPlanReasonField"),
+                          change: simpleChangeHandler(model.starterPlanReason, "starterPlanReasonField"),
+                          blur: simpleChangeHandler(model.starterPlanReason, "starterPlanReasonField") }}>
+                      </textarea>
+                    </div>
+
+                    { /* <FieldInput data={ model.starterPlanReason } /> */ }
+
+                    <div class="uk-card-footer uk-padding-remove-left uk-padding-remove-right">
+                      <div id="starterPlanComment" class="uk-alert" uk-alert>Unfortunately, you are not eligable for this plan.</div>
+                      <button id="starterPlanButton" class="uk-button uk-button-default" on={{ click: selectPlanHandler("starter") }}>
+                        Select Starter Plan
+                      </button>
+                    </div>
+                  </div>
+                </div>
               </div>
+
               <div class="uk-margin uk-grid uk-child-width-expand" uk-grid>
                 <div>
                   <button class="uk-button uk-button-default" on={{ click: prevStep4 }}>Previous</button>
