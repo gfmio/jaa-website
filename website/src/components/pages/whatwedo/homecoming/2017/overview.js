@@ -334,8 +334,8 @@ module.exports = function(props, children) {
 
       <hr/>
 
-      { /* <h3>The ticket sale for Homecoming 2017 is now closed.</h3>
-      <p>Late-registration will be open from Thu, Sep 21, 12pm till Fri, Sep 22, 3pm (CET).</p> */ }
+      <h3>The ticket sale for Homecoming 2017 is now closed.</h3>
+      { /* <p>Late-registration will be open from Thu, Sep 21, 12pm till Fri, Sep 22, 3pm (CET).</p> */ }{ /*
 
       <div id="homecoming-2017-ticket-shop">
         <h3>Homecoming 2017 Ticket Shop - Grab your last tickets now!</h3>
@@ -353,7 +353,7 @@ module.exports = function(props, children) {
           </InputWrapper>
           <InputWrapper name="full" label="Full Ticket – „Gimme Everything” 75 €" alerts={[]}>
             <input class="uk-input" type="number" id="fullAmountInput" name="full" min="0" value="0" on={{ change: updateTicketAmounts, click: updateTicketAmounts }} />
-          </InputWrapper> */ }
+          </InputWrapper> */ }{ /*
           <InputWrapper name="brunch" label="Brunch Only Ticket - “Brunch, Baby” 10 €" alerts={[]}>
             <input class="uk-input" type="number" id="brunchAmountInput" name="brunch" min="0" value="0" on={{ change: updateTicketAmounts, click: updateTicketAmounts }} />
           </InputWrapper>
@@ -373,7 +373,7 @@ module.exports = function(props, children) {
         <p class="uk-text-lead">We're looking forward to having you join us!</p>
         <p class="uk-text-lead">See you at Homecoming!</p>
       </div>
-      <script src="https://checkout.stripe.com/checkout.js"></script>
+      <script src="https://checkout.stripe.com/checkout.js"></script>*/ }
     </article>
   )
 }

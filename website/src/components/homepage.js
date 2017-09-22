@@ -10,9 +10,9 @@ module.exports = function(props, children) {
       <div class="homecoming-2017">
         <Link href="/homecoming/2017" style={{ textDecoration: "none" }}>
           <h1 class="article-title text-center">
-            Join us at Homecoming 2017 (22 – 24 Sep 2017)!
+            See you at Homecoming 2017 (22 – 24 Sep 2017)!
           </h1>
-          <h2>Late registration is open until Friday, Sep 22, 3pm (CET)<br/><strong>Grab your last tickets now!</strong></h2>
+          <h2>The ticket sale is now closed.</h2>
           <figure>
             <img src="/media/what-we-do/homecoming/2017/banner.jpg" alt="Homecoming 2017 banner" />
           </figure>
