@@ -96,9 +96,13 @@ module.exports = function(props, children) {
 
   const updateTicketAmounts = function(e) {
     ticketModel.basicAmount = document.getElementById("basicAmountInput").valueAsNumber || 0;
-    ticketModel.halfAmount = document.getElementById("halfAmountInput").valueAsNumber || 0;
-    ticketModel.fullAmount = document.getElementById("fullAmountInput").valueAsNumber || 0;
+    // ticketModel.halfAmount = document.getElementById("halfAmountInput").valueAsNumber || 0;
+    // ticketModel.fullAmount = document.getElementById("fullAmountInput").valueAsNumber || 0;
     ticketModel.brunchAmount = document.getElementById("brunchAmountInput").valueAsNumber || 0;
+
+    ticketModel.halfAmount = 0;
+    ticketModel.fullAmount = 0;
+
     const totalAmount = calcPrice(ticketModel);
     document.getElementById("totalAmount").innerText = totalAmount.toFixed(2);
 
@@ -338,17 +342,18 @@ module.exports = function(props, children) {
         <p>
           Late-registration is open from Thu, Sep 21, 12pm till Fri, Sep 22, 3pm (CET).
         </p>
+        <p><strong>Half and full tickets are now sold out!</strong></p>
 
         <form>
           <InputWrapper name="basic" label="Basic Ticket – „Just Dance!“ 15 €" alerts={[]}>
             <input class="uk-input" type="number" id="basicAmountInput" name="basic" min="0" value="0" on={{ change: updateTicketAmounts, click: updateTicketAmounts }} />
           </InputWrapper>
-          <InputWrapper name="half" label="Half Ticket – „Sweet Saturday“ 45 €" alerts={[]}>
+          { /* <InputWrapper name="half" label="Half Ticket – „Sweet Saturday“ 45 €" alerts={[]}>
             <input class="uk-input" type="number" id="halfAmountInput" name="half" min="0" value="0" on={{ change: updateTicketAmounts, click: updateTicketAmounts }} />
           </InputWrapper>
           <InputWrapper name="full" label="Full Ticket – „Gimme Everything” 75 €" alerts={[]}>
             <input class="uk-input" type="number" id="fullAmountInput" name="full" min="0" value="0" on={{ change: updateTicketAmounts, click: updateTicketAmounts }} />
-          </InputWrapper>
+          </InputWrapper> */ }
           <InputWrapper name="brunch" label="Brunch Only Ticket - “Brunch, Baby” 10 €" alerts={[]}>
             <input class="uk-input" type="number" id="brunchAmountInput" name="brunch" min="0" value="0" on={{ change: updateTicketAmounts, click: updateTicketAmounts }} />
           </InputWrapper>
