@@ -295,7 +295,7 @@ class Member implements IMember {
 
 export function registerUserSignupEndpoint(api: JaaApi) {
   const memberSchema = new Schema({}, { strict: false });
-  const Member = api.dbConnection.model('Member', memberSchema)
+  const MemberModel = api.dbConnection.model('Member', memberSchema)
 
   api.app.post("/signup", (req: any, res: any) => {
     // console.log(req.body);
@@ -479,7 +479,7 @@ export function registerUserSignupEndpoint(api: JaaApi) {
     const step4 = () => {
       console.log("step4");
       // Write to MongoDB
-      const newMember = new Member(member);
+      const newMember = new MemberModel(member);
       newMember.save();
 
       step5();
