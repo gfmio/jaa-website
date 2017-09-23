@@ -118,6 +118,8 @@ export class JaaApi {
       auth: oauth2Client
     });
 
+    console.log(this.props.mongoDb);
+
     this.connectMongoDb();
     this.mailer = new Mailer(this.props.mailer);
   }
