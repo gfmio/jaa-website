@@ -7,7 +7,7 @@ docker run --name mongodb \
   -v $MONGODB_DATA_PATH:/data/db \
   -p 27017:27017 \
   -d \
-  mongo:3.3.12 mongod --auth
+  mongo:3.3.12 mongod # --auth
 
 # Run the Redis container
 docker stop redis
@@ -40,8 +40,8 @@ docker run --name jaa-api \
   -e MONGODB_HOST=mongodb \
   -e MONGODB_PORT=27017 \
   -e MONGODB_DATABASE=$MONGODB_DATABASE \
-  -e MONGODB_USERNAME=$MONGODB_USERNAME \
-  -e MONGODB_PASSWORD=$MONGODB_PASSWORD \
+  # -e MONGODB_USERNAME=$MONGODB_USERNAME \
+  # -e MONGODB_PASSWORD=$MONGODB_PASSWORD \
   -e PASSPORT_LOGIN_REDIRECT_URL=$PASSPORT_LOGIN_REDIRECT_URL \
   -e PASSPORT_GOOGLE_CALLBACK_URL=$PASSPORT_GOOGLE_CALLBACK_URL \
   -e PASSPORT_GOOGLE_CLIENT_ID=$PASSPORT_GOOGLE_CLIENT_ID \
