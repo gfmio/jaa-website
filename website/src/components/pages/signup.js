@@ -688,13 +688,13 @@ module.exports = function(props, children) {
       }
     };
 
-    console.log(token);
+    // console.log(token);
 
     if (token !== undefined) {
       opts.data.paymentToken = token.id;
     }
 
-    console.log(opts);
+    // console.log(opts);
 
     opts.data = JSON.stringify(opts.data);
 
@@ -715,7 +715,7 @@ module.exports = function(props, children) {
         .hide()
         .removeClass("uk-hidden")
         .fadeIn();
-      console.log("err", err);
+      // console.log("err", err);
     });
   }
 
@@ -723,7 +723,8 @@ module.exports = function(props, children) {
 
   const initialiseFormSubmission = function() {
     stripeHandler = window.StripeCheckout.configure({
-      key: "pk_test_0ljYtCT6Wb27hvSgVxZ0Ztn4", // pk_live_gEifQ8L5UkANl9uoLQzygwu2
+      // key: "pk_test_0ljYtCT6Wb27hvSgVxZ0Ztn4",
+      key: "pk_live_gEifQ8L5UkANl9uoLQzygwu2",
       image: '/media/favicon.png',
       locale: 'auto',
       token: function(token) {
@@ -771,7 +772,7 @@ module.exports = function(props, children) {
   const simpleChangeHandler = function(formElement, id) {
     return changeHandler(formElement, id, function(field, target) {
       field.update(target.value)
-      console.log(field);
+      // console.log(field);
     })
   }
 
@@ -798,7 +799,7 @@ module.exports = function(props, children) {
     return function(e) {
       e.preventDefault();
       if (["starter", "contributor", "patron"].indexOf(plan) === -1) {
-        console.log("unexpected plan");
+        // console.log("unexpected plan");
         return
       }
 
