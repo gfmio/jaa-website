@@ -154,9 +154,9 @@ export class JaaApi {
 
     // Enable pre-flight request checks
     this.app.options('*', (req: any, res: any) => {
-      // res.header("Access-Control-Allow-Origin", "*");
-      // res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-      res.send();
+      res.header("Access-Control-Allow-Origin", "*");
+      res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+      res.status(200).send("success");
     });
   }
 
