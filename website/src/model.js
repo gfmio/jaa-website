@@ -70,6 +70,8 @@ const GetInvolvedPage = require('./components/pages/get-involved')
 const SignupPlaceholderPage = require('./components/pages/signup-placeholder')
 const SignupPage = require('./components/pages/signup')
 
+const LivestreamPage = require('./components/pages/whatwedo/homecoming/2017/livestream')
+
 const PrivacyPage = require('./components/pages/privacy')
 const ImprintPage = require('./components/pages/imprint')
 
@@ -85,6 +87,7 @@ const model = function() {
 
   this.routes = {
     '/': { children: [<HomePage />], currentTitle: 'Home' },
+    '/livestream': { children: [<LivestreamPage />], currentTitle: 'Homecoming 2017 General Assembly Livestream' },
 
     '/who-we-are': { children: [<WhoWeArePage />], currentTitle: 'Who we are' },
       '/alumni-association': { children: [<AlumniAssocationPage />], currentTitle: 'Alumni association' },

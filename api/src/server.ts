@@ -1,194 +1,138 @@
-import fs = require("fs");
-import http = require("http");
-import https = require("https");
 
+import http = require("http");
 import express = require("express");
 import compression = require("compression");
 import bodyParser = require("body-parser");
 
-import { IJaaApiProps, JaaApiProps } from "./config/jaa";
+const stripeLib = require("stripe");
+const google = require("googleapis");
 
 import mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
 
-// import { MongoDb } from "./actions/mongodb";
-// import { MongoDbModel } from "./actions/mongodb-model";
+import { Mailer } from "./helpers/mailer";
 
-import { Passport } from "./actions/passport";
+import { registerEndpoints } from "./endpoints";
 
-import { Google } from "./actions/google";
-
-// const JWTRedisSession = require("jwt-redis-session");
-// import redis = require("redis");
-
-// import { JsonResponse } from "./actions/json-response";
 import { performance } from "./helpers/performance";
-// import { DbResponders, HttpVerb, Responders } from "./helpers/responders";
 import { Responders } from "./helpers/responders";
 
-// import { CatSchema, ICatModel } from "./models/cat";
+class JaaApiProps {
+  public http: {
+    host: string;
+    port: number
+  } = {
+    host: process.env.HTTP_HOST || "0.0.0.0",
+    port: Number(process.env.HTTP_PORT) || 3001,
+  };
 
-const stripeLib = require("stripe");
+  public stripe: {
+    secretKey: string;
+  } = {
+    secretKey: process.env.STRIPE_SECRET_KEY || "sk_test_6G2RAl6CEHIdjOrLc5ulOB8J",
+  };
 
-// MISC
+  public mongoDb: {
+    host: string,
+    port: number,
+    database: string,
+    username: string | undefined,
+    password: string | undefined,
+    options: {
+      useMongoClient: boolean,
+    },
+  } = {
+    host: process.env.MONGODB_HOST || "localhost",
+    port: Number(process.env.MONGODB_PORT) || 27017,
+    database: process.env.MONGODB_DATABASE || "test",
+    username: process.env.MONGODB_USERNAME || undefined,
+    password: process.env.MONGODB_PASSWORD || undefined,
+    options: {
+      useMongoClient: true,
+    },
+  };
 
-// MAIN
+  public google: {
+    clientId: string,
+    clientSecret: string,
+    redirectUrl: string,
+    accessToken: string,
+    tokenType: string,
+    expiryDate: number
+  } = {
+    clientId: process.env.GOOGLE_API_CLIENT_ID || "1002114963762-2hpna88s87t7qntgg3sq34rm4f1luoa0.apps.googleusercontent.com",
+    clientSecret: process.env.GOOGLE_API_CLIENT_SECRET || "YwAjtTXFPJdgRSc11bT8l4wR",
+    redirectUrl: process.env.GOOGLE_API_REDIRECT_URL || "http://localhost:3001/login/google/return",
+    accessToken: process.env.GOOGLE_API_ACCESS_TOKEN || 'ya29.GlvPBPPZm1GnPzYVWYjzaNSlyP0I-9ZZCuJwu_j1f4qJetlh0hmdi3anOeCRtxOGXnjXr2m5GKLUZ-2IEhSAz_ACtX5l9SEK9drSKUh0PI3AU4v2F-isSneS2HgL',
+    tokenType: process.env.GOOGLE_API_TOKEN_TYPE || 'Bearer',
+    expiryDate: Number(process.env.GOOGLE_API_EXPIRY_DATE) || 1506163637666,
+  };
+
+  public mailer: {
+    host: string,
+    port: number,
+    secure: boolean,
+    username: string,
+    password: string
+  } = {
+    host: process.env.MAIL_HOST || "",
+    port: Number(process.env.MAIL_PORT) || 0,
+    secure: Boolean(process.env.MAIL_SECURE) || true,
+    username: process.env.MAIL_USERNAME || "",
+    password: process.env.MAIL_PASSWORD || ""
+  };
+
+  public printLog: boolean = Boolean(process.env.PRINT_LOG) || true;
+}
 
 export class JaaApi {
-  public props: JaaApiProps;
-
   public app: any;
-  public httpServer: any | undefined;
-  public httpsServer: any | undefined;
-  // public mongoDb: MongoDb;
-  public passport: Passport;
-  public google: Google;
+  public httpServer: any;
 
-  constructor(props: Partial<IJaaApiProps>) {
-    this.props = new JaaApiProps(props);
-    // console.log(this.props);
-    // console.log(this.props.stripe);
+  public stripe: any;
+  public dbConnection: any;
+  public google: any;
+  public mailer: Mailer;
+
+  private props: JaaApiProps;
+
+  constructor() {
+    this.props = new JaaApiProps();
+    this.stripe = stripeLib(this.props.stripe.secretKey);
+    this.google = google.admin("directory_v1");
+
+    const OAuth2 = google.auth.OAuth2;
+    const oauth2Client = new OAuth2(
+      this.props.google.clientId,
+      this.props.google.clientSecret,
+      this.props.google.redirectUrl
+    );
+
+    oauth2Client.setCredentials({
+      access_token: this.props.google.accessToken,
+      token_type: this.props.google.tokenType,
+      expiry_date: this.props.google.expiryDate
+    });
+
+    google.options({
+      auth: oauth2Client
+    });
+
+    this.connectMongoDb();
+    this.mailer = new Mailer(this.props.mailer);
   }
 
   public main() {
     this.app = express();
-    this.app.use(performance);
+    this.app.use(performance(this));
     this.app.use(bodyParser.urlencoded({ extended: false }));
     this.app.use(bodyParser.json());
     this.app.use(compression());
     this.app.set("x-powered-by", false);
 
-    // MISC 2
+    this.enableCors();
 
-    this.passport = new Passport(this.props.passport);
-    this.passport.attach(this.app);
-
-    this.google = new Google();
-    // this.google.addUser({
-    //   name: {
-    //     givenName: "Peter",
-    //     familyName: "Pan",
-    //   },
-    // });
-
-    // const redisClient = redis.createClient(this.props.redis);
-    // const secret = "crypto cat";
-
-    // this.app.use(JWTRedisSession({
-    //   client: redisClient,
-    //   secret: secret,
-    //   keyspace: "sess:",
-    //   maxAge: 86400,
-    //   algorithm: "HS256",
-    //   requestKey: "jwtSession",
-    //   requestArg: "jwtToken",
-    // }));
-
-    // this.app.post("/session", (req: any, res: any) => {
-    //   req.jwtSession.user = undefined;
-    //   req.jwtSession.key = "value";
-
-    //   const claims = {
-    //     aud: "jacobs-alumni.de",
-    //     iss: "jacobs alumni",
-    //   };
-    //   req.jwtSession.create(claims, (error: any, token: any) => {
-    //     if (error) {
-    //       (new JsonResponse({ statusCode: 400, errors: [ error ], result: { token } })).send(res);
-    //     } else {
-    //       (new JsonResponse({ statusCode: 200, errors: [], result: { token } })).send(res);
-    //     }
-    //   });
-    // });
-
-    // this.app.get("/session", (req: any, res: any) => {
-    //   // console.log(req.jwtSession.id, req.jwtSession.toJSON());
-    //   res.status(200).json(req.jwtSession.toJSON());
-    // });
-
-    // this.app.delete("/session", (req: any, res: any) => {
-    //   req.jwtSession.destroy((error: any) => {
-    //     if (error) {
-    //       (new JsonResponse({ statusCode: 401, errors: [ error ], result: {} })).send(res);
-    //     } else {
-    //       (new JsonResponse({ statusCode: 200, errors: [ ], result: {} })).send(res);
-    //     }
-    //   });
-    // });
-
-    // Regular
-
-    // this.mongoDb = new MongoDb(this.props.mongoDb);
-    // this.mongoDb.connect();
-
-    // const Cat = new MongoDbModel<ICatModel>({
-    //   id: "Cat",
-    //   mongoDb: this.mongoDb,
-    //   schema: CatSchema,
-    // });
-
-    // DbResponders.attach(this.app, Cat, true, HttpVerb.get);
-    // DbResponders.attach(this.app, Cat, true, HttpVerb.post);
-
-    this.app.post("/buy-hc2017-tickets", (req: any, res: any) => {
-      res.header("Access-Control-Allow-Origin", "*");
-      res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-
-      // console.log(req.body);
-
-      const token = req.body.stripeToken || "";
-      const email = req.body.email || "";
-      const tickets = {
-        basicAmount: Number(req.body["tickets[basicAmount]"]) || 0,
-        halfAmount: Number(req.body["tickets[halfAmount]"]) || 0,
-        fullAmount: Number(req.body["tickets[fullAmount]"]) || 0,
-        brunchAmount: Number(req.body["tickets[brunchAmount]"]) || 0,
-      };
-
-      // console.log(token, tickets);
-
-      const calcPrice = (ticketModel: any) => {
-        return ticketModel.basicAmount * 15 +
-               ticketModel.halfAmount * 45 +
-               ticketModel.fullAmount * 75 +
-               ticketModel.brunchAmount * 10;
-      };
-
-      const ticketStrings = [];
-      if (tickets.basicAmount > 0) {
-        ticketStrings.push(tickets.basicAmount.toString() + "x Basic");
-      }
-      if (tickets.halfAmount > 0) {
-        ticketStrings.push(tickets.halfAmount.toString() + "x Half");
-      }
-      if (tickets.fullAmount > 0) {
-        ticketStrings.push(tickets.fullAmount.toString() + "x Full");
-      }
-      if (tickets.brunchAmount > 0) {
-        ticketStrings.push(tickets.brunchAmount.toString() + "x Brunch Only");
-      }
-      const chargeDescription = "Homecoming tickets \n(" + ticketStrings.join(", ") + ")";
-
-      const apiKey = this.props.stripe.secretKey;
-      const stripe = stripeLib(apiKey);
-
-      const chargeObj = {
-        amount: calcPrice(tickets) * 100,
-        currency: "eur",
-        description: chargeDescription,
-        receipt_email: email,
-        source: token,
-      };
-
-      stripe.charges.create(chargeObj, (err: any, charge: any) => {
-        if (err) {
-          res.status(400).json(err);
-        } else {
-          res.status(200).json({});
-          // res.status(200).json(charge);
-        }
-      });
-    });
+    registerEndpoints(this);
 
     this.addErrorHandler();
     this.run();
@@ -198,35 +142,47 @@ export class JaaApi {
     this.app.all("*", Responders.notFound());
   }
 
+  public enableCors() {
+    // Enable CORS
+    this.app.use((req: any, res: any, next: any) => {
+      res.header("Access-Control-Allow-Origin", "*");
+      res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+      next();
+    })
+
+    // Enable pre-flight request checks
+    this.app.options('*', (req: any, res: any) => {
+      // res.header("Access-Control-Allow-Origin", "*");
+      // res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+      res.send();
+    });
+  }
+
+  public log(s: any) {
+    if (this.props.printLog) {
+      console.log(s);
+    }
+  }
+
+  public connectMongoDb() {
+    const opts: any = { ...this.props.mongoDb.options, server: { auto_reconnect: false }};
+    if (this.props.mongoDb.username !== undefined) {
+      opts.user = this.props.mongoDb.username;
+    }
+    if (this.props.mongoDb.password !== undefined) {
+      opts.pass = this.props.mongoDb.password;
+    }
+    this.dbConnection = mongoose.createConnection(
+      this.props.mongoDb.host,
+      this.props.mongoDb.database,
+      this.props.mongoDb.port,
+      opts);
+  }
+
   public run() {
-    this.runHttpServer();
-    this.runHttpsServer();
-  }
-
-  public runHttpServer() {
-    if (this.props.http.enabled) {
-      this.httpServer = http.createServer(this.app);
-      this.httpServer.listen(this.props.http.port, this.props.http.host, () => {
-        if (this.props.printLog) {
-          console.log(`App is listening to http://${this.props.http.host}:${this.props.http.port}`);
-        }
-      });
-    }
-  }
-
-  public runHttpsServer() {
-    if (this.props.https.enabled) {
-      const options = {
-        cert: String(fs.readFileSync(this.props.https.certificateFile)),
-        key: String(fs.readFileSync(this.props.https.privateKeyFile)),
-      };
-
-      this.httpsServer = https.createServer(options, this.app);
-      this.httpsServer.listen(this.props.https.port, this.props.https.host, () => {
-        if (this.props.printLog) {
-          console.log(`App is listening to https://${this.props.https.host}:${this.props.https.port}`);
-        }
-      });
-    }
+    this.httpServer = http.createServer(this.app);
+    this.httpServer.listen(this.props.http.port, this.props.http.host, () => {
+      this.log(`App is listening to http://${this.props.http.host}:${this.props.http.port}`);
+    });
   }
 }

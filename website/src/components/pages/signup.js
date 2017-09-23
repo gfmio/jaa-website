@@ -44,7 +44,9 @@ const stepHandler = function(n, condition) {
     return true;
   }
   return function(e) {
-    e.preventDefault();
+    if (e !== undefined) {
+      e.preventDefault();
+    }
     if (condition()) {
       showSection(n);
     }
@@ -416,7 +418,12 @@ const SignupModel = function() {
     notes: ["I want to be listed as a contact for students who want to join my field."]
   });
 
-  this.subscriptionPlan = new Field(required, {
+  const subscriptionPlans = {
+    starter: "Starter",
+    contributor: "Contributor",
+    patron: "Patron"
+  };
+  this.subscriptionPlan = new Field(and(required, enumValidator(Object.keys(subscriptionPlans))), {
   });
 
   this.starterPlanReason = new Field(optional, {
@@ -504,31 +511,48 @@ module.exports = function(props, children) {
   const validatePage5 = function() {
     return model.agreeTermsConditions == "valid"
   }
+  const validateModel = function() {
+    return validatePage1() &&
+      validatePage2() &&
+      validatePage3() &&
+      validatePage4() &&
+      validatePage5();
+  }
 
   const updateNextButtons = function() {
     $("#nextStep1Button").prop("disabled", !validatePage1());
     $("#nextStep2Button").prop("disabled", !validatePage2());
     $("#nextStep3Button").prop("disabled", !validatePage3());
     $("#nextStep4Button").prop("disabled", !validatePage4());
-    $("#submitButton").prop("disabled", !(
-      validatePage1() &&
-      validatePage2() &&
-      validatePage3() &&
-      validatePage4() &&
-      validatePage5()));
-    $("#submitPayButton").prop("disabled", !(
-      validatePage1() &&
-      validatePage2() &&
-      validatePage3() &&
-      validatePage4() &&
-      validatePage5()));
+    $("#submitButton").prop("disabled", !validateModel());
+    $("#submitPayButton").prop("disabled", !validateModel());
+  }
+
+  const planInfo = function(name) {
+    if (name == 'starter') {
+      return {
+        name: "Starter",
+        fee: 0
+      }
+    } else if (name == 'contributor') {
+      return {
+        name: "Contributor",
+        fee: 39
+      }
+    } else if (name == 'patron') {
+      return {
+        name: "Patron",
+        fee: 249
+      }
+    } else {
+      return undefined;
+    }
   }
 
   const updateForm = function() {
     // If not an alumnus, disable starter option, appropriate hint
     var isAlumnus = (model.category.value === "alumni");
     var isLessThan2YearsSinceGraduation = (["2016", "2017"].indexOf(model.graduationClass.value !== -1));
-    // var starterPlanEligible = (isAlumnus && isLessThan2YearsSinceGraduation)
 
     if (!isAlumnus) {
       $("#starterPlanButton")
@@ -567,16 +591,9 @@ module.exports = function(props, children) {
     if (model.subscriptionPlan.value == 'starter') {
       text = "You have selected the starter plan. You will not pay any membership fees today, but we will review your application and contact you, if there are any issues. Your starter plan status will be valid for one year, after which we will ask you to upgrade your membership plan or you can submit another request for free membership.";
     } else {
-      var plan = '';
-      var amount = '';
-      if (model.subscriptionPlan.value == "contributor") {
-        plan = "Contributor"
-        amount = "39,00 EUR"
-      } else if (model.subscriptionPlan.value == "patron") {
-        plan = "Patron"
-        amount = "249,00 EUR"
-      }
-      text = "You have selected the " + plan + " plan.";
+      var plan = planInfo(model.subscriptionPlan.value) || { name: '', fee: -1 };
+
+      text = "You have selected the " + plan.name + " plan.";
 
       if (isAlumnus && isLessThan2YearsSinceGraduation) {
         if (model.graduationClass.value == "2017") {
@@ -587,13 +604,27 @@ module.exports = function(props, children) {
           freeMembershipDuration = "6 months";
         }
 
-        text = text + " Since you graduated from Jacobs University Bremen in " + model.graduationClass.value + ", you get " + freeMembershipDuration + " free membership, after which your membership fee of " + amount + " is billed yearly."
+        text = text + " Since you graduated from Jacobs University Bremen in " + model.graduationClass.value + ", you get " + freeMembershipDuration + " free membership, after which your membership fee of " + plan.fee.toFixed(2) + " EUR is billed yearly."
       } else {
-        text = text + " Your membership fee of " + amount + " is due immediately and will be billed yearly."
+        text = text + " Your membership fee of " + plan.fee.toFixed(2) + " EUR is due immediately and will be billed yearly."
       }
     }
 
     $("#submissionAlert").text(text);
+
+    if (!validateModel()) {
+      $("#submissionErrorAlert")
+        .html("<p>Your application contains errors. Please correct them before submission!</p>")
+        .hide()
+        .removeClass("uk-hidden")
+        .fadeIn();
+    } else {
+      $("#submissionErrorAlert")
+        .html("")
+        .fadeOut()
+        .addClass("uk-hidden");
+    }
+
   }
 
   const showForm = stepHandler(1);
@@ -607,11 +638,100 @@ module.exports = function(props, children) {
   const nextStep4 = stepHandler(5, validatePage4);
   const prevStep5 = stepHandler(4);
 
+  var stripeHandler = undefined;
+
   const submitApplication = function(e) {
     e.preventDefault();
-    console.log(model);
-    stepHandler(6)(e);
-    return false;
+
+    if (!validateModel()) {
+      $("#submissionErrorAlert")
+        .html("<p>Your application contains errors. Please correct them before submission!</p>")
+        .hide()
+        .removeClass("uk-hidden")
+        .fadeIn();
+
+      return false;
+    }
+
+    var plan = planInfo(model.subscriptionPlan.value);
+
+    if (model.subscriptionPlan.value == "starter") {
+      sendSubmission();
+    } else {
+      stripeHandler.open({
+        name: 'Jacobs Alumni Association',
+        description: plan.name + ' Plan',
+        email: model.email.value,
+        zipCode: false,
+        currency: 'eur',
+        amount: plan.fee * 100
+      });
+    }
+  }
+
+  const sendSubmission = function(token) {
+    var memberObj = {};
+    for (var key in model) {
+      if (model[key].state != "empty") {
+        memberObj[key] = model[key].value;
+      }
+    }
+
+    var opts = {
+      method: 'POST',
+      url: "http://localhost:3001/signup",
+      contentType : 'application/json',
+      dataType: 'json',
+      jsonp: false,
+      data : {
+        member: memberObj
+      }
+    };
+
+    console.log(token);
+
+    if (token !== undefined) {
+      opts.data.paymentToken = token.id;
+    }
+
+    console.log(opts);
+
+    opts.data = JSON.stringify(opts.data);
+
+    $.ajax(opts).done(function(result) {
+      stepHandler(6)(undefined);
+    }).fail(function(err) {
+      var errMsg = '';
+      if (err.status === 0) {
+        errMsg = '<p>The submission request could not be completed. Please check your internet connection and try again. If the error persists, please contact support@jacobs-alumni.de.</p>';
+      } else {
+        errMsg = '<p>One or several errors occurred during the submission of your application:</p><ul>' +
+          (err.responseJSON.errors || []).map(function(e) { return '<li>' + e + '</li>'; }).join('') +
+          '</ul>'
+      }
+
+      $("#submissionErrorAlert")
+        .html(errMsg)
+        .hide()
+        .removeClass("uk-hidden")
+        .fadeIn();
+      console.log("err", err);
+    });
+  }
+
+  var formSubmissionInitialised = false;
+
+  const initialiseFormSubmission = function() {
+    stripeHandler = window.StripeCheckout.configure({
+      key: "pk_test_0ljYtCT6Wb27hvSgVxZ0Ztn4", // pk_live_gEifQ8L5UkANl9uoLQzygwu2
+      image: '/media/favicon.png',
+      locale: 'auto',
+      token: function(token) {
+        sendSubmission(token);
+      }
+    });
+
+    formSubmissionInitialised = true;
   }
 
   const changeHandler = function(formElement, id, updateFn) {
@@ -641,12 +761,17 @@ module.exports = function(props, children) {
 
       updateNextButtons();
       updateForm();
+
+      if (!formSubmissionInitialised) {
+        initialiseFormSubmission();
+      }
     }
   }
 
   const simpleChangeHandler = function(formElement, id) {
     return changeHandler(formElement, id, function(field, target) {
       field.update(target.value)
+      console.log(field);
     })
   }
 
@@ -1086,6 +1211,7 @@ module.exports = function(props, children) {
           <strong>Finally, thanks again for joining us and welcome to the Jacobs Alumni Association!</strong>
         </p>
       </div>
+      <script src="https://checkout.stripe.com/checkout.js"></script>
     </article>
   )
 }
