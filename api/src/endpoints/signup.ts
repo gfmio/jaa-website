@@ -6,39 +6,71 @@ import { JaaApi } from "../server";
 import { Mail } from "../helpers/mailer";
 
 export enum Sex {
-  male = "male",
-  female = "female",
-  other = "other",
-  preferNotToSay = "preferNotToSay",
+  male,
+  female,
+  other,
+  preferNotToSay,
 }
+
+// const sexValues: string[] = [
+//   "male",
+//   "female",
+//   "other",
+//   "preferNotToSay"
+// ];
 
 export enum Country {
 }
 
 export enum MemberCategory {
-  alumni = "alumni",
-  faculty = "faculty",
-  staff = "staff",
-  hostFamily = "hostFamily",
-  other = "other",
+  alumni,
+  faculty,
+  staff,
+  hostFamily,
+  other,
 }
+
+const memberCategoryValues: string[] = [
+  "alumni",
+  "faculty",
+  "staff",
+  "hostFamily",
+  "other",
+];
 
 export enum College {
-  krupp = "krupp",
-  mercator = "mercator",
-  ciii = "ciii",
-  nordmetall = "nordmetall",
-  notApplicable = "notApplicable",
+  krupp,
+  mercator,
+  ciii,
+  nordmetall,
+  notApplicable,
 }
 
+// const collegeValues: string[] = [
+//   "krupp",
+//   "mercator",
+//   "ciii",
+//   "nordmetall",
+//   "notApplicable",
+// ];
+
 export enum Degree {
-  ba = "ba",
-  bsc = "bsc",
-  ma = "ma",
-  msc = "msc",
-  phd = "phd",
-  mba = "mba",
+  ba,
+  bsc,
+  ma,
+  msc,
+  phd,
+  mba,
 }
+
+// const degreeValues: string[] = [
+//   "ba",
+//   "bsc",
+//   "ma",
+//   "msc",
+//   "phd",
+//   "mba",
+// ];
 
 export enum Major {
 
@@ -53,10 +85,16 @@ export enum JobField {
 }
 
 export enum SubscriptionPlan {
-  starter = "starter",
-  contributor = "contributor",
-  patron = "patron",
+  starter,
+  contributor,
+  patron,
 }
+
+const subscriptionPlanValues: string[] = [
+  "starter",
+  "contributor",
+  "patron"
+];
 
 export interface IGoogleUserProps {
   givenName: string;
@@ -152,7 +190,7 @@ export interface IMember {
   personal: {
     firstName: string,
     lastName: string,
-    sex: Sex,
+    sex: string,
     email: string,
     address: {
       line1: string,
@@ -160,10 +198,10 @@ export interface IMember {
       city: string,
       zipCode: string,
       state: string,
-      country: Country
+      country: string
     },
-    nationalities: Country[],
-    category: MemberCategory,
+    nationalities: string[],
+    category: string,
     social: {
       facebook: string,
       twitter: string,
@@ -173,27 +211,27 @@ export interface IMember {
     },
   };
   study: {
-    college: College,
+    college: string,
     class: string,
-    degree: Degree,
-    majors: Major[],
+    degree: string,
+    majors: string[],
     includeOnAlumniMap: boolean,
   };
   employer: {
     employer: string,
     position: string,
-    industry: Industry,
-    jobField: JobField,
+    industry: string,
+    jobField: string,
     studentContact: boolean,
   };
-  subscriptionPlan: SubscriptionPlan;
+  subscriptionPlan: string;
 }
 
 class Member implements IMember {
   public personal: {
     firstName: string,
     lastName: string,
-    sex: Sex,
+    sex: string,
     email: string,
     address: {
       line1: string,
@@ -201,10 +239,10 @@ class Member implements IMember {
       city: string,
       zipCode: string,
       state: string,
-      country: Country
+      country: string
     },
-    nationalities: Country[],
-    category: MemberCategory,
+    nationalities: string[],
+    category: string,
     social: {
       facebook: string,
       twitter: string,
@@ -214,20 +252,20 @@ class Member implements IMember {
     },
   };
   public study: {
-    college: College,
+    college: string,
     class: string,
-    degree: Degree,
-    majors: Major[],
+    degree: string,
+    majors: string[],
     includeOnAlumniMap: boolean,
   };
   public employer: {
     employer: string,
     position: string,
-    industry: Industry,
-    jobField: JobField,
+    industry: string,
+    jobField: string,
     studentContact: boolean,
   };
-  public subscriptionPlan: SubscriptionPlan;
+  public subscriptionPlan: string;
   public stripe: {
     customerId: string;
     subscriptionId: string;
@@ -366,7 +404,7 @@ export function registerUserSignupEndpoint(api: JaaApi) {
     const step2 = () => {
       console.log("step2");
 
-      if (member.subscriptionPlan === SubscriptionPlan.starter) {
+      if (member.subscriptionPlan === subscriptionPlanValues[SubscriptionPlan.starter]) {
         return step3();
       }
 
@@ -375,15 +413,15 @@ export function registerUserSignupEndpoint(api: JaaApi) {
         items: [],
       };
 
-      if (member.subscriptionPlan === SubscriptionPlan.contributor) {
+      if (member.subscriptionPlan === subscriptionPlanValues[SubscriptionPlan.contributor]) {
         subscriptionProps.items.push({ plan: "contributor-membership" });
-      } else if (member.subscriptionPlan === SubscriptionPlan.patron) {
+      } else if (member.subscriptionPlan === subscriptionPlanValues[SubscriptionPlan.patron]) {
         subscriptionProps.items.push({ plan: "patron-membership" });
       }
 
-      // console.log(member.personal.category, MemberCategory.alumni, member.study.class)
+      // console.log(member.personal.category, memberCategoryValues[MemberCategory.alumni], member.study.class)
 
-      if (member.personal.category === MemberCategory.alumni) {
+      if (member.personal.category === memberCategoryValues[MemberCategory.alumni]) {
         if (member.study.class == "2017") {
           subscriptionProps.trial_end = stripeCustomer.created + 2 * 365 * 24 * 60 * 60
         } else if (member.study.class == "2016") {
