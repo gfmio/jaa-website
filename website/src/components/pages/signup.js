@@ -685,7 +685,8 @@ module.exports = function(props, children) {
 
     var opts = {
       method: 'POST',
-      url: "http://localhost:3001/signup",
+      // url: "http://localhost:3001/signup",
+      url: "https://api.jacobs-alumni.de/signup",
       contentType : 'application/json',
       dataType: 'json',
       jsonp: false,
