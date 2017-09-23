@@ -471,7 +471,7 @@ module.exports = function(props, children) {
   const model = new SignupModel();
 
   const validatePage1 = function() {
-    return true;
+    // return true;
     return (
       (model.firstName.state == "valid") &&
       (model.lastName.state == "valid") &&
