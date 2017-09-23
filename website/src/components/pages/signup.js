@@ -471,13 +471,19 @@ module.exports = function(props, children) {
   const model = new SignupModel();
 
   const validatePage1 = function() {
+    return true;
     return (
       (model.firstName.state == "valid") &&
       (model.lastName.state == "valid") &&
       (model.sex.state == "valid") &&
       (model.birthday.state == "valid") &&
       (model.email.state == "valid") &&
-      (model.address.state == "valid") &&
+      (model.addressLine1.state == "valid") &&
+      (model.addressLine2.state != "invalid") &&
+      (model.addressCity.state == "valid") &&
+      (model.addressZipCode.state == "valid") &&
+      (model.addressState.state != "invalid") &&
+      (model.addressCountry.state == "valid") &&
       (model.nationalities.state == "valid") &&
       (model.category.state == "valid") &&
       (model.facebook.state != "invalid") &&
