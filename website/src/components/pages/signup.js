@@ -515,7 +515,7 @@ module.exports = function(props, children) {
     return true;
   }
   const validatePage5 = function() {
-    return model.agreeTermsConditions == "valid"
+    return model.agreeTermsConditions.state == "valid"
   }
   const validateModel = function() {
     return validatePage1() &&
